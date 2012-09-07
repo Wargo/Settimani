@@ -6,13 +6,12 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005022 seconds on emulator to get ready
+[DEBUG] waited 0.004723 seconds on emulator to get ready
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
 [TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/styles.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/styles.js
-[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/mainWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/mainWindow.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-port-ldpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-long-port-ldpi/default.png
