@@ -4,7 +4,7 @@ module.exports = {
 	header: {
 		backgroundImage:'/ui/images/bg_header.png',
 		backgroundRepeat:true,
-		height:40,
+		height:44,
 		top:0
 	},
 	
@@ -14,7 +14,7 @@ module.exports = {
 	},
 	
 	imageHome: {
-		width:'100%'
+		width:334, // TODO depende del tamaño de la imagen
 	},
 	
 	insertDate: {
