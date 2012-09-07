@@ -21,7 +21,7 @@ module.exports = function() {
 	header.add(title);
 	
 	var image = Ti.UI.createImageView({
-		image:'images/home.png',
+		image:'/ui/images/home.png',
 		top:'40 dp',
 		width:'100%'
 	});

@@ -2,7 +2,7 @@
 module.exports = {
 	
 	header: {
-		backgroundImage:'images/bg_header.png',
+		backgroundImage:'/ui/images/bg_header.png',
 		height:'40 dp',
 		top:0
 	},
@@ -10,6 +10,11 @@ module.exports = {
 	headerTitle: {
 		color:'#FFF',
 		font:{fontSize:'18 dp', fontWeight:'bold'}
+	},
+	
+	imageHome: {
+		top:'40 dp',
+		width:'100%'
 	}
 	
 }
