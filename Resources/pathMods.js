@@ -2,6 +2,7 @@
 module.exports = {
 	
 	mainWindow: 'ui/mainWindow',
-	styles: 'ui/styles'
+	styles_android: 'ui/styles/android',
+	styles_ios: 'ui/styles/ios'
 	
 }

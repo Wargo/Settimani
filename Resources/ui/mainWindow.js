@@ -1,7 +1,11 @@
 
 var Mods = require('/pathMods');
 
-var $$ = require(Mods.styles);
+if (Ti.Platform.osname === 'android') {
+	var $$ = require(Mods.styles_android);
+} else {
+	var $$ = require(Mods.styles_ios);
+}
 
 module.exports = function() {
 	
@@ -11,14 +15,18 @@ module.exports = function() {
 	});
 	
 	var header = Ti.UI.createView($$.header);
-	
 	var title = Ti.UI.createLabel($$.headerTitle);
-	
-	//title.text = L('main_title', 'no translation avaliable');
-	title.text = Ti.Locale.getString('main_title', 'no translation avaliable');
+	title.text = L('main_title', 'Lagravidanza.net');
 	
 	header.add(title);
 	
+	var image = Ti.UI.createImageView({
+		image:'images/home.png',
+		top:'40 dp',
+		width:'100%'
+	});
+	
+	win.add(image);
 	win.add(header);
 	
 	return win;
