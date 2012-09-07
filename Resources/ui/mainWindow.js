@@ -11,7 +11,8 @@ module.exports = function() {
 	
 	var win = Ti.UI.createWindow({
 		exitOnClose:true,
-		backgroundColor:'#F2F2F2'
+		backgroundColor:'#F2F2F2',
+		layout:'vertical'
 	});
 	
 	var header = Ti.UI.createView($$.header);
@@ -20,14 +21,22 @@ module.exports = function() {
 	
 	header.add(title);
 	
-	var image = Ti.UI.createImageView({
-		image:'/ui/images/home.png',
-		top:'40 dp',
-		width:'100%'
-	});
+	var image = Ti.UI.createImageView($$.imageHome);
+	image.image = '/ui/images/home.png';
 	
-	win.add(image);
+	var insertDate = Ti.UI.createView($$.insertDate);
+	
+	var intro = Ti.UI.createLabel({
+		text:L('fill_preg_date', 'Introduce tu fecha de parto'),
+		font:{fontWeight:'bold', fontSize:'16 dp'},
+		color:'#2094c0',
+		top:'10 dp'
+	})
+	insertDate.add(intro);
+	
 	win.add(header);
+	win.add(image);
+	win.add(insertDate);
 	
 	return win;
 	

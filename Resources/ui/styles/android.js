@@ -2,7 +2,7 @@
 module.exports = {
 	
 	header: {
-		backgroundImage:'/ui/images/bg_header.png',
+		backgroundImage:'/ui/images/bg_header.png', // TODO no se repite
 		height:'40 dp',
 		top:0
 	},
@@ -13,8 +13,16 @@ module.exports = {
 	},
 	
 	imageHome: {
-		top:'40 dp',
 		width:'100%'
+	},
+	
+	insertDate: {
+		backgroundColor:'#FFF',
+		borderRadius:5,
+		right:10,left:10,top:10,
+		height:'150 dp',
+		borderColor:'#333',
+		borderWidth:1
 	}
 	
 }
