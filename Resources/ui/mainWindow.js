@@ -1,5 +1,6 @@
 
 var Mods = require('/pathMods');
+
 var $$ = require(Mods.styles);
 
 module.exports = function() {
@@ -10,8 +11,11 @@ module.exports = function() {
 	});
 	
 	var header = Ti.UI.createView($$.header);
+	
 	var title = Ti.UI.createLabel($$.headerTitle);
-	title.text = L('main_title', 'no translation avaliable');
+	
+	//title.text = L('main_title', 'no translation avaliable');
+	title.text = Ti.Locale.getString('main_title', 'no translation avaliable');
 	
 	header.add(title);
 	
