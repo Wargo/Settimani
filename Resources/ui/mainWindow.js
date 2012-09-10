@@ -77,7 +77,7 @@ module.exports = function() {
 	 */
 	
 	var go = Ti.UI.createButton($$.button);
-	go.top = '15 dp';
+	go.top = '20 dp';
 	go.title = L('go', 'Ir');
 	go.enabled = false;
 	
@@ -86,7 +86,7 @@ module.exports = function() {
 	}
 	
 	var calcText = Ti.UI.createLabel({
-		top:'10 dp',
+		top:'20 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:'16 dp'},
 		color:'#333',
@@ -96,7 +96,7 @@ module.exports = function() {
 	});
 	
 	var calcButton = Ti.UI.createView({
-		top:'10 dp',
+		top:'20 dp',
 		width:'100 dp',
 		height:'40 dp',
 		borderRadius:15,
@@ -110,8 +110,17 @@ module.exports = function() {
 	win.add(image);
 	win.add(insertDate);
 	win.add(go);
-	win.add(calcText);
-	win.add(calcButton);
+	if (Ti.Platform.osname === 'android') {
+		win.add(calcText);
+		win.add(calcButton);
+	} else {
+		var aux = Ti.UI.createView({
+			top:10
+		});
+		aux.add(calcText);
+		aux.add(calcButton);
+		win.add(aux);
+	}
 	
 	return win;
 	
