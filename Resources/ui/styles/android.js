@@ -19,8 +19,24 @@ module.exports = {
 	insertDate: {
 		backgroundColor:'#FFF',
 		borderRadius:5,
-		right:10,left:10,top:10,
-		height:'150 dp'
+		right:'10 dp',left:'10 dp',top:'10 dp',
+		height:'130 dp'
+	}, 
+	
+	dateItem: {
+		bottom:'30 dp',
+		width:'60 dp',
+		height:'30 dp',
+		borderRadius:5,
+		borderColor:'#CCC',
+		borderWidth:1,
+		backgroundColor:'#FFF'
+	},
+	
+	dateItemText: {
+		color:'#666',
+		fontWeight:'bold',
+		font:{fontSize:'18 dp'}
 	}
 	
 }

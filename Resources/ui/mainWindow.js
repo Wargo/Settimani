@@ -27,12 +27,12 @@ module.exports = function() {
 	var insertDate = Ti.UI.createView($$.insertDate);
 	
 	if (Ti.Platform.osname === 'android') {
-		insertDate.borderColor = '#333';
-		insertdate.borderWidth = 1;
+		insertDate.borderColor = '#999';
+		insertDate.borderWidth = 1;
 	} else {
 		setTimeout(function() {
 			insertDate.setShadow({
-				shadowOffset:{x:0,y:5},
+				shadowOffset:{x:0,y:3},
 				shadowOpacity:0.5,
 				shadowRadius:3
 			});
@@ -46,6 +46,29 @@ module.exports = function() {
 		top:'10 dp'
 	})
 	insertDate.add(intro);
+	
+	var day = Ti.UI.createView($$.dateItem);
+	var month = Ti.UI.createView($$.dateItem);
+	var year = Ti.UI.createView($$.dateItem);
+	
+	day.left = 50;
+	year.right = 50;
+	
+	insertDate.add(day);
+	insertDate.add(month);
+	insertDate.add(year);
+	
+	var dayText = Ti.UI.createLabel($$.dateItemText);
+	var monthText = Ti.UI.createLabel($$.dateItemText);
+	var yearText = Ti.UI.createLabel($$.dateItemText);
+	
+	dayText.text = L('day', 'Día');
+	monthText.text = L('month', 'Mes');
+	yearText.text = L('year', 'Año');
+	
+	day.add(dayText);
+	month.add(monthText);
+	year.add(yearText);
 	
 	win.add(header);
 	win.add(image);
