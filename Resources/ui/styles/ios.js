@@ -14,7 +14,6 @@ module.exports = {
 	},
 	
 	imageHome: {
-		width:334, // TODO depende del tamaño de la imagen
 	},
 	
 	insertDate: {

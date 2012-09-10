@@ -97,7 +97,7 @@ module.exports = function() {
 	
 	var calcButton = Ti.UI.createView({
 		top:'10 dp',
-		width:'100 dp',
+		width:'80 dp',
 		height:'40 dp',
 		borderRadius:15,
 		borderWidth:1,
@@ -115,9 +115,11 @@ module.exports = function() {
 		win.add(calcButton);
 	} else {
 		calcText.top = 0;
+		calcText.width = 200;
+		calcText.left = 10;
 		calcButton.top = 0;
 		var aux = Ti.UI.createView({
-			top:20,
+			top:30,
 			layout:'horizontal'
 		});
 		aux.add(calcText);
