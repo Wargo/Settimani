@@ -13,7 +13,7 @@ module.exports = {
 	},
 	
 	imageHome: {
-		width:'100%'
+		width:'320 dp'
 	},
 	
 	insertDate: {

@@ -47,7 +47,7 @@ module.exports = function() {
 		font:{fontWeight:'bold', fontSize:'16 dp'},
 		color:'#2094c0',
 		top:'10 dp'
-	})
+	});
 	insertDate.add(intro);
 	
 	var day = Ti.UI.createView($$.dateItem);
@@ -81,10 +81,34 @@ module.exports = function() {
 	go.title = L('go', 'Ir');
 	go.enabled = false;
 	
+	if (Ti.Platform.osname != 'android') {
+		go.backgroundColor = '#DDD';
+	}
+	
+	var calcText = Ti.UI.createLabel({
+		top:'20 dp',
+		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
+		font:{fontWeigh:'bold'},
+		color:'#333'
+	});
+	
+	var calcButton = Ti.UI.createView({
+		top:'20 dp',
+		width:'100 dp',
+		height:'40 dp',
+		borderRadius:15,
+		borderWidth:1,
+		borderColor:'#999',
+		backgroundColor:'#FFF'
+	});
+	calcButton.add(Ti.UI.createImageView({image:'/ui/images/calc.png'}));
+	
 	win.add(header);
 	win.add(image);
 	win.add(insertDate);
 	win.add(go);
+	win.add(calcText);
+	win.add(calcButton);
 	
 	return win;
 	
