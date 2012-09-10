@@ -1,7 +1,5 @@
 
-module.exports = function(from, to, f_callback, f_cancel) {
-	
-	var currentValue;
+module.exports = function(current, from, to, f_callback, f_cancel) {
 	
 	var view = Ti.UI.createView({
 		bottom:-300,
@@ -12,7 +10,8 @@ module.exports = function(from, to, f_callback, f_cancel) {
 	var picker = Ti.UI.createPicker({
 		type:Ti.UI.PICKER_TYPE_DATE,
 		minDate:from,
-		maxDate:to
+		maxDate:to,
+		value:new Date(current)
 	});
 	
 	var cancel = Ti.UI.createButton({
@@ -36,6 +35,10 @@ module.exports = function(from, to, f_callback, f_cancel) {
 	view.add(toolbar);
 	view.add(picker);
 	
+	picker.addEventListener('load', function(e) {
+		currentValue = e.value;
+	})
+	
 	picker.addEventListener('change', function(e) {
 		currentValue = e.value;
 	});
@@ -45,7 +48,7 @@ module.exports = function(from, to, f_callback, f_cancel) {
 	});
 	
 	done.addEventListener('click', function() {
-		f_callback(currentValue);
+		f_callback(currentValue, view);
 	});
 	
 	return view;

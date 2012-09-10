@@ -69,17 +69,6 @@ module.exports = function() {
 	var monthText = Ti.UI.createLabel($$.dateItemText);
 	var yearText = Ti.UI.createLabel($$.dateItemText);
 	
-	dayText.text = L('day', 'Día');
-	monthText.text = L('month', 'Mes');
-	yearText.text = L('year', 'Año');
-	
-	day.add(dayText);
-	month.add(monthText);
-	year.add(yearText);
-	/*
-	 * Fin bloque recogida fecha
-	 */
-	
 	var go = Ti.UI.createButton($$.button);
 	go.top = '20 dp';
 	go.title = L('go', 'Ir');
@@ -88,6 +77,26 @@ module.exports = function() {
 	if (Ti.Platform.osname != 'android') {
 		go.backgroundColor = '#DDD';
 	}
+	
+	if (Ti.App.Properties.getDouble('date', null)) {
+		var auxDate = new Date(Ti.App.Properties.getDouble('date'));
+		dayText.text = auxDate.getDate();
+		monthText.text = auxDate.getMonth() + 1;
+		yearText.text = auxDate.getFullYear();
+		go.enabled = true;
+		go.backgroundColor = '#33aa46';
+	} else {
+		dayText.text = L('day', 'Día');
+		monthText.text = L('month', 'Mes');
+		yearText.text = L('year', 'Año');
+	}
+	
+	day.add(dayText);
+	month.add(monthText);
+	year.add(yearText);
+	/*
+	 * Fin bloque recogida fecha
+	 */
 	
 	/*
 	 * Calcular fecha
@@ -155,7 +164,7 @@ module.exports = function() {
 	myDate.setDate(myDate.getDate() + 300);
 
 	function showPicker() {
-
+		
 		if (Ti.Platform.osname === 'android') {
 			var picker = Ti.UI.createPicker({
 				type:Ti.UI.PICKER_TYPE_DATE,
@@ -174,7 +183,7 @@ module.exports = function() {
 			});
 		} else {
 			var picker = require('/ui/picker');
-			var pickerView = picker(new Date(), myDate, pickerDone, pickerCancel);
+			var pickerView = picker(Ti.App.Properties.getDouble('date', new Date().getTime()), new Date(), myDate, pickerDone, pickerCancel);
 			win.add(pickerView);
 			
 			pickerView.animate({bottom:0});
@@ -182,10 +191,12 @@ module.exports = function() {
 		
 	}
 	
-	function pickerDone(value) {
+	function pickerDone(value, pickerView) {
 		dayText.text = value.getDate();
 		monthText.text = value.getMonth() + 1;
 		yearText.text = value.getFullYear();
+		
+		Ti.App.Properties.setDouble('date', value.getTime());
 		
 		go.enabled = true;
 		
