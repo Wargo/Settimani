@@ -164,7 +164,7 @@ module.exports = function() {
 			
 			if (Ti.Platform.osname != 'android') {
 				win.add(calcPickerView);
-				pickerView.animate({bottom:0});
+				calcPickerView.animate({bottom:0});
 			}
 		});
 		
