@@ -11,9 +11,7 @@ module.exports = function() {
 	
 	var win = Ti.UI.createWindow({
 		exitOnClose:true,
-		backgroundColor:'#F2F2F2',
-		zIndex:10
-		//layout:'vertical'
+		backgroundColor:'#F2F2F2'
 	});
 	
 	var mainView = Ti.UI.createView({
@@ -215,10 +213,6 @@ module.exports = function() {
 	}
 	
 	go.addEventListener('click', function() {
-		
-		var list = require('/ui/list');
-		
-		new list().open();
 		
 		win.close({top:'500 dp'});
 		
