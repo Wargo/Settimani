@@ -12,6 +12,10 @@ module.exports = function() {
 	var win = Ti.UI.createWindow({
 		exitOnClose:true,
 		backgroundColor:'#F2F2F2',
+		//layout:'vertical'
+	});
+	
+	var mainView = Ti.UI.createView({
 		layout:'vertical'
 	});
 	
@@ -85,8 +89,11 @@ module.exports = function() {
 		go.backgroundColor = '#DDD';
 	}
 	
+	/*
+	 * Calcular fecha
+	 */
 	var calcText = Ti.UI.createLabel({
-		top:'40 dp',
+		top:'30 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:'16 dp'},
 		color:'#333',
@@ -105,27 +112,80 @@ module.exports = function() {
 		backgroundColor:'#FFF'
 	});
 	calcButton.add(Ti.UI.createImageView({image:'/ui/images/calc.png'}));
+	/*
+	 * fin calcular
+	 */
 	
-	win.add(header);
-	win.add(image);
-	win.add(insertDate);
-	win.add(go);
+	mainView.add(header);
+	mainView.add(image);
+	mainView.add(insertDate);
+	mainView.add(go);
+	
 	if (Ti.Platform.osname === 'android') {
-		win.add(calcText);
-		win.add(calcButton);
+		mainView.add(calcText);
+		mainView.add(calcButton);
 	} else {
 		calcText.top = 0;
 		calcText.width = 200;
 		calcText.left = 10;
 		calcButton.top = 0;
 		var aux = Ti.UI.createView({
-			top:30,
+			top:20,
 			layout:'horizontal'
 		});
 		aux.add(calcText);
 		aux.add(calcButton);
-		win.add(aux);
+		mainView.add(aux);
 	}
+	
+	/*
+	 * funcionalidades
+	 */
+	day.addEventListener('click', function() {
+		showPicker();
+	});
+	month.addEventListener('click', function() {
+		showPicker();
+	});
+	year.addEventListener('click', function() {
+		showPicker();
+	});
+	
+	var myDate = new Date();
+	myDate.setDate(myDate.getDate()+300);
+
+	var picker = Ti.UI.createPicker({
+		type:Ti.UI.PICKER_TYPE_DATE,
+		minDate:new Date(),
+		maxDate:myDate,
+		bottom:0
+	});
+	
+	function showPicker() {
+
+		if (Ti.Platform.osname === 'android') {
+			picker.showDatePickerDialog({
+				callback: function(e) {
+					if (e.cancel) {
+						Ti.API.info('User canceled dialog');
+					} else {
+						alert(e.value);
+					}
+				}
+			});
+		} else {
+			var okBar = Ti.UI.createButtonBar({
+				bottom:250,
+				style:Ti.UI.iPhone.SystemButtonStyle.BAR,
+				labels:['ok']
+			});
+			win.add(okBar);
+			win.add(picker);
+		}
+		
+	}
+	
+	win.add(mainView);
 	
 	return win;
 	
