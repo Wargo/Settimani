@@ -168,6 +168,27 @@ module.exports = function() {
 			}
 		});
 		
+		function calcDone(value, calcPickerView) {
+			var newDate = new Date(value.getTime());
+			newDate.setDate(newDate.getDate() + 7 * 42);
+			
+			win.remove(popup);
+			win.remove(popupButton);
+			win.remove(popupText);
+			win.remove(popupWhite);
+			pickerDone(newDate, calcPickerView);
+		}
+		
+		function calcCancel(calcPickerView) {
+			win.remove(popup);
+			win.remove(popupButton);
+			win.remove(popupText);
+			win.remove(popupWhite);
+			if (calcPickerView) {
+				pickerCancel(calcPickerView);
+			}
+		}
+		
 	});
 	/*
 	 * fin calcular
@@ -239,7 +260,9 @@ module.exports = function() {
 	}
 	
 	function pickerCancel(pickerView) {
-		pickerView.animate({bottom:-300});
+		if (pickerView) {
+			pickerView.animate({bottom:-300});
+		}
 	}
 	
 	go.addEventListener('click', function() {

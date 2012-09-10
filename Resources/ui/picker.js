@@ -6,15 +6,14 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 		var picker = Ti.UI.createPicker({
 			type:Ti.UI.PICKER_TYPE_DATE,
 			minDate:from,
-			maxDate:to,
-			bottom:0
+			maxDate:to
 		});
-
+		
 		picker.showDatePickerDialog({
 			value:new Date(current),
 			callback: function(e) {
 				if (e.cancel) {
-					//f_cancel();
+					f_cancel();
 				} else {
 					f_callback(e.value);
 				}
