@@ -22,6 +22,21 @@ module.exports = {
 		borderRadius:5,
 		right:10,left:10,top:10,
 		height:150
+	}, 
+	
+	dateItem: {
+		bottom:30,
+		width:60,
+		height:30,
+		borderRadius:5,
+		borderColor:'#CCC',
+		borderWidth:1
+	},
+	
+	dateItemText: {
+		color:'#666',
+		fontWeight:'bold',
+		font:{fontSize:18}
 	}
 	
 }
