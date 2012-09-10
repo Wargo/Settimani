@@ -6,14 +6,15 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005111 seconds on emulator to get ready
+[DEBUG] waited 0.048973 seconds on emulator to get ready
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
+[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/picker.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/picker.js
 [TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/styles/ios.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/styles/ios.js
-[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/styles/android.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/styles/android.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/images/calc.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/calc.png
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/images/bg_header.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/bg_header.png
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/images/home.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/home.png
 [TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/mainWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/mainWindow.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
@@ -32,3 +33,4 @@ Logfile initialized
 [INFO] Launching application ... Settimani
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.artvisual.settimani/.SettimaniActivity }
 
+[INFO] Relaunched Settimani ... Application should be running.

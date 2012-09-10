@@ -183,8 +183,16 @@ module.exports = function() {
 	}
 	
 	function pickerDone(value) {
-		alert(value);
-		pickerView.animate({bottom:-300});
+		dayText.text = value.getDate();
+		monthText.text = value.getMonth() + 1;
+		yearText.text = value.getFullYear();
+		
+		go.enabled = true;
+		
+		if (Ti.Platform.osname != 'android') {
+			go.backgroundColor = '#33aa46';
+			pickerView.animate({bottom:-300});
+		}
 	}
 	function pickerCancel(pickerView) {
 		pickerView.animate({bottom:-300});
