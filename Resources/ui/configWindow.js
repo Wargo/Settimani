@@ -133,10 +133,10 @@ module.exports = function() {
 			left:'20 dp',
 			right:'20 dp',
 			top:'20 dp',
-			bottom:'350 dp',
+			bottom:Ti.Platform.osname === 'android' ? '350 dp' : '270 dp',
 			borderRadius:10,
 			backgroundColor:'#000',
-			opacity:0.5
+			opacity:0.6
 		});
 		win.add(popup);
 		
