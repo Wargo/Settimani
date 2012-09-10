@@ -25,7 +25,7 @@ module.exports = {
 	}, 
 	
 	dateItem: {
-		bottom:30,
+		bottom:20,
 		width:60,
 		height:30,
 		borderRadius:5,
