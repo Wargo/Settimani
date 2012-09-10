@@ -174,12 +174,30 @@ module.exports = function() {
 				}
 			});
 		} else {
+			var cancel = Ti.UI.createButton({
+				title:L('cancel', 'Cancelar'),
+				style:Ti.UI.iPhone.SystemButtonStyle.BORDERED
+			});
+			var spacer = Ti.UI.createButton({
+				systemButton:Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+			});
+			var done = Ti.UI.createButton({
+				title:L('accept', 'Aceptar'),
+				style:Ti.UI.iPhone.SystemButtonStyle.DONE
+			});
+			var toolbar = Ti.UI.createToolbar({
+				bottom:216,
+				items:[cancel, spacer, done]
+			});
 			var okBar = Ti.UI.createButtonBar({
 				bottom:250,
 				style:Ti.UI.iPhone.SystemButtonStyle.BAR,
-				labels:['ok']
+				labels:['ok'],
+				backgroundColor:'#336699',
+				height:40,
+				width:320
 			});
-			win.add(okBar);
+			win.add(toolbar);
 			win.add(picker);
 		}
 		
