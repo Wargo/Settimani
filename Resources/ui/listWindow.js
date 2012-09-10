@@ -11,16 +11,18 @@ module.exports = function() {
 	
 	var MyWindow = require(Mods.configWindow);
 	
-	if (!Ti.App.Properties.getDouble('date', null)) {
-		setTimeout(function() {
-			MyWindow().open();
-		}, 10);
-	}
-	
 	var win = Ti.UI.createWindow({
 		backgroundColor:'#F2F2F2',
-		exitOnClose:true
+		exitOnClose:true,
+		opacity:0
 	});
+	
+	if (true || !Ti.App.Properties.getDouble('date', null)) {
+		setTimeout(function() {
+			MyWindow().open();
+			win.opacity = 1;
+		}, 100);
+	}
 	
 	if (Ti.Platform.osname === 'android') {
 		var header = Ti.UI.createView($$.header);
@@ -29,34 +31,64 @@ module.exports = function() {
 		
 		header.add(title);
 		win.add(header);
-	} else {
-		win.title = L('main_title', 'Lagravidanza.net');
-		var nav = Ti.UI.iPhone.createNavigationGroup({
-			
+		
+		var todayButton = Ti.UI.createButton({
+			title:L('today', 'Hoy'),
+			right:'10 dp',
+			height:'20 dp',
+			width:'40 dp',
+			borderRadius:5,
+			borderColor:'#1A6A8A',
+			borderWidth:1,
+			color:'#FFF',
+			font:{fontWeigh:'bold'},
+			backgroundColor:'#1280AB'
 		});
-		win.add(nav);
+		
+		header.add(todayButton);
+	} else {
+		var auxWin = Ti.UI.createWindow();
+		win.title = L('main_title', 'Lagravidanza.net');
+		win.barImage = '/ui/images/bg_header.png';
+		var nav = Ti.UI.iPhone.createNavigationGroup({window:win});
+		auxWin.add(nav);
+		auxWin.open();
+		
+		var todayButton = Ti.UI.createButtonBar({
+			labels:[L('today', 'Hoy')],
+			backgroundColor:'#198BB6',
+			color:'#FFF',
+			width:50
+		});
+		
+		auxWin.rightNavButton = todayButton;
 	}
 	
-	var todayButton = Ti.UI.createButton({
-		title:L('today', 'Hoy'),
-		right:'10 dp',
-		height:'20 dp',
-		width:'40 dp',
-		borderRadius:5,
-		borderColor:'#1A6A8A',
-		borderWidth:1,
-		color:'#FFF',
-		font:{fontWeigh:'bold'},
-		backgroundColor:'#1280AB'
-	});
+	var data = [
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 3'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+	]
 	
-	header.add(todayButton);
+	var tableView = Ti.UI.createTableView();
 	
-	var tableView = Ti.UI.createTableView({
+	for (i in data) {
 		
+		var row = Ti.UI.createTableViewRow({
+			title:data[i].title
+		});
 		
+		tableView.appendRow(row);
 		
-	});
+	}
+	
+	win.add(tableView);
 	
 	return win;
 	
