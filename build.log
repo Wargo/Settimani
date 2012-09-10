@@ -6,15 +6,12 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.048973 seconds on emulator to get ready
+[DEBUG] waited 0.036970 seconds on emulator to get ready
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/picker.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/picker.js
-[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/styles/ios.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/styles/ios.js
-[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/images/bg_header.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/bg_header.png
-[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/images/home.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/home.png
+[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/list.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/list.js
 [TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/mainWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/mainWindow.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables

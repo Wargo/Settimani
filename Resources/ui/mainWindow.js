@@ -12,6 +12,7 @@ module.exports = function() {
 	var win = Ti.UI.createWindow({
 		exitOnClose:true,
 		backgroundColor:'#F2F2F2',
+		zIndex:10
 		//layout:'vertical'
 	});
 	
@@ -172,7 +173,9 @@ module.exports = function() {
 				maxDate:myDate,
 				bottom:0
 			});
+
 			picker.showDatePickerDialog({
+				value:new Date(Ti.App.Properties.getDouble('date', new Date().getTime())),
 				callback: function(e) {
 					if (e.cancel) {
 						Ti.API.info('User canceled dialog');
@@ -181,6 +184,7 @@ module.exports = function() {
 					}
 				}
 			});
+			
 		} else {
 			var picker = require('/ui/picker');
 			var pickerView = picker(Ti.App.Properties.getDouble('date', new Date().getTime()), new Date(), myDate, pickerDone, pickerCancel);
@@ -205,9 +209,20 @@ module.exports = function() {
 			pickerView.animate({bottom:-300});
 		}
 	}
+	
 	function pickerCancel(pickerView) {
 		pickerView.animate({bottom:-300});
 	}
+	
+	go.addEventListener('click', function() {
+		
+		var list = require('/ui/list');
+		
+		new list().open();
+		
+		win.close({top:'500 dp'});
+		
+	});
 	
 	win.add(mainView);
 	
