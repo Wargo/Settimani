@@ -37,6 +37,17 @@ module.exports = {
 		color:'#666',
 		fontWeight:'bold',
 		font:{fontSize:'18 dp'}
+	},
+	
+	button: {
+		width:'100 dp',
+		height:'40 dp',
+		borderRadius:5,
+		borderColor:'#CCC',
+		borderWidth:1,
+		backgroundColor:'#33aa46',
+		color:'#FFF',
+		font:{fontSize:'20 dp', fontWeight:'bold'}
 	}
 	
 }

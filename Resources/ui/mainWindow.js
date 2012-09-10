@@ -24,6 +24,9 @@ module.exports = function() {
 	var image = Ti.UI.createImageView($$.imageHome);
 	image.image = '/ui/images/home.png';
 	
+	/*
+	 * Bloque recogida de fecha
+	 */
 	var insertDate = Ti.UI.createView($$.insertDate);
 	
 	if (Ti.Platform.osname === 'android') {
@@ -69,10 +72,19 @@ module.exports = function() {
 	day.add(dayText);
 	month.add(monthText);
 	year.add(yearText);
+	/*
+	 * Fin bloque recogida fecha
+	 */
+	
+	var go = Ti.UI.createButton($$.button);
+	go.top = '10 dp';
+	go.title = L('go', 'Ir');
+	go.enabled = false;
 	
 	win.add(header);
 	win.add(image);
 	win.add(insertDate);
+	win.add(go);
 	
 	return win;
 	
