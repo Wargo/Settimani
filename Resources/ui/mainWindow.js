@@ -26,15 +26,18 @@ module.exports = function() {
 	
 	var insertDate = Ti.UI.createView($$.insertDate);
 	
-	setTimeout(function() {
-		
-		insertDate.setShadow({
-			shadowOffset:{x:5,y:5},
-			shadowOpacity:0.5,
-			shadowRadius:5
-		});
-		
-	}, 100);
+	if (Ti.Platform.osname === 'android') {
+		insertDate.borderColor = '#333';
+		insertdate.borderWidth = 1;
+	} else {
+		setTimeout(function() {
+			insertDate.setShadow({
+				shadowOffset:{x:0,y:5},
+				shadowOpacity:0.5,
+				shadowRadius:3
+			});
+		}, 100);
+	}
 	
 	var intro = Ti.UI.createLabel({
 		text:L('fill_preg_date', 'Introduce tu fecha de parto'),

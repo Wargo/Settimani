@@ -20,9 +20,7 @@ module.exports = {
 		backgroundColor:'#FFF',
 		borderRadius:5,
 		right:10,left:10,top:10,
-		height:'150 dp',
-		borderColor:'#333',
-		borderWidth:1
+		height:'150 dp'
 	}
 	
 }

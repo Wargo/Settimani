@@ -1,7 +1,9 @@
 
 var Mods = require('/pathMods');
 
-require('ti.viewshadow');
+if (Ti.Platform.osname != 'android') {
+	require('ti.viewshadow');
+}
 
 (function() {
 	

@@ -5,8 +5,17 @@ Logfile initialized
 [INFO] Titanium SDK version: 2.0.1 (04/12/12 16:33 999c68a)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.004911 seconds on emulator to get ready
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 40 seconds)
+[DEBUG] waited 40.293757 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
@@ -23,6 +32,16 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/mainWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/mainWindow.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-port-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-port-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-land-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-land-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-mdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-mdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-mdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-mdpi/default_d44e27d97b.png
 [DEBUG] app stylesheet => /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/ApplicationStylesheet.java
 [DEBUG] copying app icon: /home/guille/titanium/Settimani/build/android/bin/assets/Resources/appicon.png
 [DEBUG] generating theme.xml
@@ -86,15 +105,25 @@ Logfile initialized
 [DEBUG] from resource zip => res/drawable-hdpi/close.png
 [DEBUG] from resource zip => res/drawable-ldpi/close.png
 [DEBUG] from resource zip => res/drawable-long-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-long-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-long-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-long-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-land-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/default_d44e27d97b.png
 [DEBUG] from resource zip => res/drawable-notlong-port-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/default_d44e27d97b.png
 [DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
 [DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
 [DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
@@ -119,9 +148,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.006614 seconds on emulator to get ready
+[DEBUG] waited 0.011279 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Launching application ... Settimani
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.artvisual.settimani/.SettimaniActivity }
 
 [INFO] Deployed Settimani ... Application should be running.
+[DEBUG] signal caught: 15
