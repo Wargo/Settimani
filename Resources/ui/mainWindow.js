@@ -77,7 +77,7 @@ module.exports = function() {
 	 */
 	
 	var go = Ti.UI.createButton($$.button);
-	go.top = '10 dp';
+	go.top = '20 dp';
 	go.title = L('go', 'Ir');
 	go.enabled = false;
 	

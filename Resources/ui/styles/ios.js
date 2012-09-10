@@ -40,12 +40,13 @@ module.exports = {
 	},
 	
 	button: {
-		width:100,
+		width:120,
 		height:40,
 		borderRadius:5,
 		borderColor:'#CCC',
 		borderWidth:1,
 		backgroundColor:'#33aa46',
+		backgroundImage:'none',
 		color:'#FFF',
 		font:{fontSize:20, fontWeight:'bold'}
 	}
