@@ -152,7 +152,7 @@ module.exports = function() {
 	});
 	
 	var myDate = new Date();
-	myDate.setDate(myDate.getDate()+300);
+	myDate.setDate(myDate.getDate() + 300);
 
 	function showPicker() {
 
@@ -175,6 +175,7 @@ module.exports = function() {
 		} else {
 			var picker = require('/ui/picker');
 			var pickerView = picker(new Date(), myDate, pickerDone, pickerCancel);
+			win.add(pickerView);
 			
 			pickerView.animate({bottom:0});
 		}
@@ -182,9 +183,10 @@ module.exports = function() {
 	}
 	
 	function pickerDone(value) {
-		alert(value)
+		alert(value);
+		pickerView.animate({bottom:-300});
 	}
-	function pickerCancel() {
+	function pickerCancel(pickerView) {
 		pickerView.animate({bottom:-300});
 	}
 	
