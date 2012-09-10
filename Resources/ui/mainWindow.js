@@ -77,7 +77,7 @@ module.exports = function() {
 	 */
 	
 	var go = Ti.UI.createButton($$.button);
-	go.top = '20 dp';
+	go.top = '15 dp';
 	go.title = L('go', 'Ir');
 	go.enabled = false;
 	
@@ -86,14 +86,17 @@ module.exports = function() {
 	}
 	
 	var calcText = Ti.UI.createLabel({
-		top:'20 dp',
+		top:'10 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
-		font:{fontWeigh:'bold'},
-		color:'#333'
+		font:{fontWeigh:'bold', fontSize:'16 dp'},
+		color:'#333',
+		left:'20 dp',
+		right:'20 dp',
+		textAlign:'center'
 	});
 	
 	var calcButton = Ti.UI.createView({
-		top:'20 dp',
+		top:'10 dp',
 		width:'100 dp',
 		height:'40 dp',
 		borderRadius:15,
