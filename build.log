@@ -6,13 +6,14 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.036970 seconds on emulator to get ready
+[DEBUG] waited 0.005536 seconds on emulator to get ready
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/list.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/list.js
-[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/mainWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/mainWindow.js
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/app.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/configWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/configWindow.js
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/listWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/listWindow.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-port-ldpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-long-port-ldpi/default.png
@@ -30,4 +31,3 @@ Logfile initialized
 [INFO] Launching application ... Settimani
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.artvisual.settimani/.SettimaniActivity }
 
-[INFO] Relaunched Settimani ... Application should be running.

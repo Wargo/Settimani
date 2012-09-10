@@ -3,11 +3,11 @@ var Mods = require('/pathMods');
 
 module.exports = function() {
 	
-	var MyWindow = require(Mods.mainWindow);
+	var MyWindow = require(Mods.configWindow);
 	
 	setTimeout(function() {
 		MyWindow().open();
-	}, 1000);
+	}, 10);
 	
 	var win = Ti.UI.createWindow({
 		backgroundColor:'#F2F2F2',

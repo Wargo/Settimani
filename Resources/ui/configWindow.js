@@ -120,6 +120,55 @@ module.exports = function() {
 		backgroundColor:'#FFF'
 	});
 	calcButton.add(Ti.UI.createImageView({image:'/ui/images/calc.png'}));
+	
+	calcButton.addEventListener('click', function() {
+		
+		var popupWhite = Ti.UI.createView({
+			backgroundColor:'#FFF',
+			opacity:0.3
+		});
+		win.add(popupWhite);
+		
+		var popup = Ti.UI.createView({
+			left:'20 dp',
+			right:'20 dp',
+			top:'20 dp',
+			bottom:'350 dp',
+			borderRadius:10,
+			backgroundColor:'#000',
+			opacity:0.5
+		});
+		win.add(popup);
+		
+		var popupText = Ti.UI.createLabel({
+			text:L('calculate_explain', 'Calcula la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.'),
+			color:'#FFF',
+			left:'40 dp',
+			right:'40 dp',
+			top:'40 dp'
+		});
+		win.add(popupText);
+		
+		var popupButton = Ti.UI.createButton($$.button);
+		popupButton.title = L('calculate', 'Calcular');
+		popupButton.top = '150 dp';
+		win.add(popupButton);
+		
+		popupButton.addEventListener('click', function() {
+			var pastDate = new Date();
+			pastDate.setDate(myDate.getDate() - 300);
+			
+			var picker = require(Mods.picker);
+			
+			var calcPickerView = picker(new Date().getTime(), pastDate, new Date(), calcDone, calcCancel);
+			
+			if (Ti.Platform.osname != 'android') {
+				win.add(calcPickerView);
+				pickerView.animate({bottom:0});
+			}
+		});
+		
+	});
 	/*
 	 * fin calcular
 	 */
@@ -164,30 +213,11 @@ module.exports = function() {
 
 	function showPicker() {
 		
-		if (Ti.Platform.osname === 'android') {
-			var picker = Ti.UI.createPicker({
-				type:Ti.UI.PICKER_TYPE_DATE,
-				minDate:new Date(),
-				maxDate:myDate,
-				bottom:0
-			});
-
-			picker.showDatePickerDialog({
-				value:new Date(Ti.App.Properties.getDouble('date', new Date().getTime())),
-				callback: function(e) {
-					if (e.cancel) {
-						Ti.API.info('User canceled dialog');
-					} else {
-						pickerDone(e.value);
-					}
-				}
-			});
-			
-		} else {
-			var picker = require('/ui/picker');
-			var pickerView = picker(Ti.App.Properties.getDouble('date', new Date().getTime()), new Date(), myDate, pickerDone, pickerCancel);
+		var picker = require(Mods.picker);
+		var pickerView = picker(Ti.App.Properties.getDouble('date', new Date().getTime()), new Date(), myDate, pickerDone, pickerCancel);
+		
+		if (Ti.Platform.osname != 'android') {
 			win.add(pickerView);
-			
 			pickerView.animate({bottom:0});
 		}
 		
