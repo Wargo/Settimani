@@ -6,7 +6,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.004667 seconds on emulator to get ready
+[DEBUG] waited 0.005821 seconds on emulator to get ready
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
@@ -145,7 +145,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005397 seconds on emulator to get ready
+[DEBUG] waited 0.005402 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Launching application ... Settimani
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.artvisual.settimani/.SettimaniActivity }
