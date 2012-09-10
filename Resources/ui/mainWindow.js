@@ -154,53 +154,38 @@ module.exports = function() {
 	var myDate = new Date();
 	myDate.setDate(myDate.getDate()+300);
 
-	var picker = Ti.UI.createPicker({
-		type:Ti.UI.PICKER_TYPE_DATE,
-		minDate:new Date(),
-		maxDate:myDate,
-		bottom:0
-	});
-	
 	function showPicker() {
 
 		if (Ti.Platform.osname === 'android') {
+			var picker = Ti.UI.createPicker({
+				type:Ti.UI.PICKER_TYPE_DATE,
+				minDate:new Date(),
+				maxDate:myDate,
+				bottom:0
+			});
 			picker.showDatePickerDialog({
 				callback: function(e) {
 					if (e.cancel) {
 						Ti.API.info('User canceled dialog');
 					} else {
-						alert(e.value);
+						pickerDone(e.value);
 					}
 				}
 			});
 		} else {
-			var cancel = Ti.UI.createButton({
-				title:L('cancel', 'Cancelar'),
-				style:Ti.UI.iPhone.SystemButtonStyle.BORDERED
-			});
-			var spacer = Ti.UI.createButton({
-				systemButton:Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-			});
-			var done = Ti.UI.createButton({
-				title:L('accept', 'Aceptar'),
-				style:Ti.UI.iPhone.SystemButtonStyle.DONE
-			});
-			var toolbar = Ti.UI.createToolbar({
-				bottom:216,
-				items:[cancel, spacer, done]
-			});
-			var okBar = Ti.UI.createButtonBar({
-				bottom:250,
-				style:Ti.UI.iPhone.SystemButtonStyle.BAR,
-				labels:['ok'],
-				backgroundColor:'#336699',
-				height:40,
-				width:320
-			});
-			win.add(toolbar);
-			win.add(picker);
+			var picker = require('/ui/picker');
+			var pickerView = picker(new Date(), myDate, pickerDone, pickerCancel);
+			
+			pickerView.animate({bottom:0});
 		}
 		
+	}
+	
+	function pickerDone(value) {
+		alert(value)
+	}
+	function pickerCancel() {
+		pickerView.animate({bottom:-300});
 	}
 	
 	win.add(mainView);
