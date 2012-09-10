@@ -86,7 +86,7 @@ module.exports = function() {
 	}
 	
 	var calcText = Ti.UI.createLabel({
-		top:'20 dp',
+		top:'40 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:'16 dp'},
 		color:'#333',
@@ -96,7 +96,7 @@ module.exports = function() {
 	});
 	
 	var calcButton = Ti.UI.createView({
-		top:'20 dp',
+		top:'10 dp',
 		width:'100 dp',
 		height:'40 dp',
 		borderRadius:15,
@@ -114,8 +114,11 @@ module.exports = function() {
 		win.add(calcText);
 		win.add(calcButton);
 	} else {
+		calcText.top = 0;
+		calcButton.top = 0;
 		var aux = Ti.UI.createView({
-			top:10
+			top:20,
+			layout:'horizontal'
 		});
 		aux.add(calcText);
 		aux.add(calcButton);
