@@ -98,6 +98,12 @@ module.exports = {
 		top:25
 	},
 	
+	nextImage: {
+		width:25,
+		right:-13,
+		top:25
+	},
+	
 	headerTableViewSection: {
 		height:30,
 		opacity:0.9,

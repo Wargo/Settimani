@@ -139,6 +139,13 @@ module.exports = {
 		top:'25 dp'
 	},
 	
+	nextImage: {
+		width:'25 dp',
+		right:'8 dp',
+		top:'25 dp',
+		zIndex:100
+	},
+	
 	headerTableViewSection: {
 		height:'30 dp',
 		opacity:0.9,

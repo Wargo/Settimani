@@ -104,6 +104,9 @@ module.exports = function() {
 		var image = Ti.UI.createImageView($$.rowImage);
 		image.image = '/ui/images/' + data[i].category + '.gif';
 		
+		var nextImage = Ti.UI.createImageView($$.nextImage);
+		nextImage.image = '/ui/images/next.png';
+		
 		if (Ti.Platform.osname === 'android') {
 			
 			row.addEventListener('click', function(e) {
@@ -114,6 +117,8 @@ module.exports = function() {
 				
 				var content = Ti.UI.createView($$.firstRow);
 				row.header = data[i].header;
+				
+				nextImage.top = '45 dp';
 				
 			} else if (data[i].last) {
 				
@@ -141,6 +146,7 @@ module.exports = function() {
 			content.add(intro);
 			content.add(image);
 			
+			row.add(nextImage);
 			row.add(content);
 			
 			tableView.appendRow(row);
@@ -155,6 +161,7 @@ module.exports = function() {
 			miniRow.add(title);
 			miniRow.add(intro);
 			miniRow.add(image);
+			miniRow.add(nextImage);
 			
 			if (data[i].header) {
 				
