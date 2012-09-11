@@ -74,43 +74,6 @@ module.exports = {
 		bottom:20
 	},
 	
-	firstRow: {
-		backgroundColor:'#FFF',
-		right:'20 dp',
-		left:'20 dp',
-		top:'20 dp',
-		bottom:'-5 dp',
-		height:'85 dp',
-		borderRadius:5,
-		borderWidth:1,
-		borderColor:'#999',
-		zIndex:50
-	},
-	
-	middleRow: {
-		backgroundColor:'#FFF',
-		right:'20 dp',
-		left:'20 dp',
-		top:'-1 dp',
-		height:'80 dp',
-		borderWidth:1,
-		borderColor:'#999',
-		zIndex:100
-	},
-	
-	lastRow: {
-		backgroundColor:'#FFF',
-		right:'20 dp',
-		left:'20 dp',
-		bottom:'20 dp',
-		top:'-5 dp',
-		height:'85 dp',
-		borderRadius:5,
-		borderWidth:1,
-		borderColor:'#999',
-		zIndex:50
-	},
-	
 	rowTitle: {
 		color:'#FF6600',
 		font:{fontWeight:'bold', fontSize:'18 dp'},

@@ -81,6 +81,10 @@ module.exports = function() {
 		
 		var row = Ti.UI.createTableViewRow($$.row);
 		
+		row.addEventListener('click', function() {
+			return;
+		});
+		
 		/*
 		if (Ti.Platform.osname != 'android') {
 			
@@ -112,12 +116,28 @@ module.exports = function() {
 		} else {
 		*/
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
-			miniRowtitle = data[i].title;
+			miniRow.title = data[i].title;
+			
+			miniRow.addEventListener('click', function() {
+				return;
+			});
+			
+			var title = Ti.UI.createLabel($$.rowTitle);
+			title.text = data[i].title;
+			
+			var intro = Ti.UI.createLabel($$.rowIntro);
+			intro.text = data[i].intro;
+			
+			miniRow.add(title);
+			miniRow.add(intro);
+			
+			var miniRowHeight = miniRow.height.replace(' dp', '');
+			miniRowHeight = parseInt(miniRowHeight);
 			
 			if (data[i].header) {
 				
 				if (typeof numRows != 'undefined') {
-					miniTableView.height = miniRow.height * numRows - 1;
+					adjust_height(numRows);
 				}
 				
 				var numRows = 0;
@@ -125,7 +145,7 @@ module.exports = function() {
 				row.header = data[i].header;
 				
 				var miniTableView = Ti.UI.createTableView($$.miniTableView);
-				
+
 				row.add(miniTableView);
 				
 				tableView.appendRow(row);
@@ -140,9 +160,17 @@ module.exports = function() {
 		//}
 		
 		if (typeof numRows != 'undefined') {
-			miniTableView.height = miniRow.height * numRows - 1;
+			adjust_height(numRows);
 		}
 		
+	}
+	
+	function adjust_height(numRows) {
+		if (Ti.Platform.osname === 'android') {
+			miniTableView.height = (miniRowHeight * numRows - 1) + ' dp';
+		} else {
+			miniTableView.height = miniRow.height * numRows - 1;
+		}
 	}
 	
 	win.add(tableView);

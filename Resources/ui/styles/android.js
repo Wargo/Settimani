@@ -66,16 +66,19 @@ module.exports = {
 	},
 	
 	miniTableView: {
-		scrollable:false,
+		//scrollable:false,
 		backgroundColor:'#FFF',
+		separatorColor:'#CCC',
 		borderColor:'#CCC',
 		borderRadius:5,
+		borderWidth:1,
 		top:'20 dp',
 		left:'20 dp',
 		right:'20 dp',
 		bottom:'20 dp'
 	},
 	
+	/*
 	firstRow: {
 		backgroundColor:'#FFF',
 		right:'20 dp',
@@ -109,13 +112,14 @@ module.exports = {
 		borderWidth:1,
 		borderColor:'#999'
 	},
+	*/
 	
 	rowTitle: {
 		color:'#FF6600',
 		font:{fontWeight:'bold', fontSize:'18 dp'},
 		left:'50 dp',
 		right:'20 dp',
-		top:'5 dp',
+		top:'0 dp',
 		height:'20 dp'
 	},
 	
@@ -124,7 +128,7 @@ module.exports = {
 		font:{fontSize:'12 dp'},
 		left:'50 dp',
 		right:'20 dp',
-		top:'30 dp',
+		top:'25 dp',
 		height:'45 dp'
 	}
 	
