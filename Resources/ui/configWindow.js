@@ -199,23 +199,18 @@ module.exports = function() {
 	mainView.add(insertDate);
 	mainView.add(go);
 	
-	if (Ti.Platform.osname === 'android') {
-		mainView.add(calcText);
-		mainView.add(calcButton);
-	} else {
-		calcText.top = 0;
-		calcText.width = 200;
-		calcText.left = 10;
-		calcButton.top = 0;
-		var aux = Ti.UI.createView({
-			top:20,
-			layout:'horizontal'
-		});
-		aux.add(calcText);
-		aux.add(calcButton);
-		mainView.add(aux);
-	}
-	
+	calcText.top = 0;
+	calcText.width = '200 dp';
+	calcText.left = '10 dp';
+	calcButton.top = 0;
+	var aux = Ti.UI.createView({
+		top:'20 dp',
+		layout:'horizontal'
+	});
+	aux.add(calcText);
+	aux.add(calcButton);
+	mainView.add(aux);
+
 	/*
 	 * funcionalidades
 	 */
