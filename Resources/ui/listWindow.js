@@ -30,18 +30,8 @@ module.exports = function() {
 		header.add(title);
 		win.add(header);
 		
-		var todayButton = Ti.UI.createButton({
-			title:L('today', 'Hoy'),
-			right:'10 dp',
-			height:'20 dp',
-			width:'40 dp',
-			borderRadius:5,
-			borderColor:'#1A6A8A',
-			borderWidth:1,
-			color:'#FFF',
-			font:{fontWeigh:'bold'},
-			backgroundColor:'#1280AB'
-		});
+		var todayButton = Ti.UI.createButton($$.headerButton);
+		todayButton.title = L('today', 'Hoy');
 		
 		header.add(todayButton);
 	} else {
@@ -66,7 +56,7 @@ module.exports = function() {
 		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
 		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
 		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
+		{title:'Lorem Ipsum larga largo largo largo largo largo', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
 		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
 		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
 		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
@@ -93,6 +83,7 @@ module.exports = function() {
 		data[i].intro = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim, sapien non fringilla aliquam, mi lacus tincidunt enim, quis fermentum diam tellus in tortor. Praesent aliquam tristique eros nec adipiscing. Phasellus erat neque, cursus ac blandit ac, tempor eu libero. Sed egestas volutpat nulla sed hendrerit. Quisque fringilla feugiat ipsum. Fusce velit orci, ullamcorper in adipiscing ut, pharetra id sapien. Quisque volutpat fringilla diam, sed accumsan mi facilisis elementum. Proin eu bibendum purus. Ut luctus sagittis dignissim. Curabitur gravida, quam nec vulputate facilisis, sem mi feugiat neque, non dapibus erat purus nec eros. Suspendisse potenti.';
 		
 		var row = Ti.UI.createTableViewRow($$.row);
+		row.data = data[i];
 		
 		var title = Ti.UI.createLabel($$.rowTitle);
 		title.text = data[i].title;
@@ -153,6 +144,8 @@ module.exports = function() {
 		} else {
 		
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
+			miniRow.data = data[i];
+			
 			miniRow.addEventListener('click', function(e) {
 				loadArticle(e.row);
 			});
@@ -228,7 +221,9 @@ module.exports = function() {
 	
 	function loadArticle(row) {
 		
-		MyWindow().open();
+		var article = require(Mods.articleWindow);
+		
+		article(row.data).open();
 		
 	}
 	
