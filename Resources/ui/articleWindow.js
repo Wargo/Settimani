@@ -10,12 +10,7 @@ if (Ti.Platform.osname === 'android') {
 module.exports = function(data) {
 	
 	var win = Ti.UI.createWindow({
-		backgroundColor:'#FFF',
-		modal:true,
-		statusBarHidden:true,
-	    tabBarHidden:true,
-	    navBarHidden:true,
-		exitOnClose:false
+		backgroundColor:'#FFF'
 	});
 	
 	if (Ti.Platform.osname === 'android') {
@@ -36,19 +31,17 @@ module.exports = function(data) {
 		header.add(prev);
 		header.add(next);
 	} else {
-		var auxWin = Ti.UI.createWindow();
-		win.title = L('main_title', 'Lagravidanza.net');
 		win.barImage = '/ui/images/bg_header.png';
-		var nav = Ti.UI.iPhone.createNavigationGroup({window:win});
-		auxWin.add(nav);
-		auxWin.open();
+		win.barColor = '#198BB6';
 		
 		var todayButton = Ti.UI.createButtonBar({
 			labels:['<', '>'],
 			backgroundColor:'#198BB6',
 			color:'#FFF',
-			width:100
+			width:50
 		});
+		
+		win.title = data.title;
 		
 		win.rightNavButton = todayButton;
 	}
