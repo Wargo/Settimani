@@ -184,11 +184,7 @@ module.exports = function() {
 				
 				var numRows = 0;
 				
-				//row.header = data[i].header;
-				
 				var auxSection = Ti.UI.createTableViewSection();
-				
-				tableViewData.push(auxSection);
 				
 				var headerText = Ti.UI.createLabel({
 					color:'#FFF',
@@ -208,7 +204,11 @@ module.exports = function() {
 				
 				row.add(miniTableView);
 				
-				//tableView.appendRow(row);
+				auxSection._header = header;
+				auxSection._miniTableView = miniTableView;
+				
+				tableViewData.push(auxSection);
+				
 				auxSection.add(row);
 				
 			}
@@ -225,8 +225,26 @@ module.exports = function() {
 		
 	}
 	
-	if (tableViewData.length > 0) {
+	if (tableViewData.length > 0) { // Sólo en iOS
+		
 		tableView.data = tableViewData;
+		
+		for (i in tableViewData) {
+			
+			tableViewData[i]._miniTableView.setShadow({
+				shadowOffset:{x:0,y:3},
+				shadowOpacity:0.6,
+				shadowRadius:3
+			});
+			
+			tableViewData[i]._header.setShadow({
+				shadowOffset:{x:0,y:3},
+				shadowOpacity:0.6,
+				shadowRadius:3
+			});
+			
+		}
+			
 	}
 	
 	function adjustHeight(numRows) {
