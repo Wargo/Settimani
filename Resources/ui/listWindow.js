@@ -64,25 +64,25 @@ module.exports = function() {
 	}
 	
 	var data = [
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 3'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 4'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 5'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 6'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
+		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
+		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 3'},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 4'},
+		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 5'},
+		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 6'},
+		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
 	]
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
@@ -95,22 +95,28 @@ module.exports = function() {
 		
 		var row = Ti.UI.createTableViewRow($$.row);
 		
+		var title = Ti.UI.createLabel($$.rowTitle);
+		title.text = data[i].title;
+		
+		var intro = Ti.UI.createLabel($$.rowIntro);
+		intro.text = data[i].intro;
+		
+		var image = Ti.UI.createImageView($$.rowImage);
+		image.image = '/ui/images/' + data[i].category + '.gif';
+		
 		if (Ti.Platform.osname === 'android') {
 			
 			row.addEventListener('click', function(e) {
 				loadArticle(e.row);
 			});
 			
-			var title = Ti.UI.createLabel($$.rowTitle);
-			title.text = data[i].title;
-			
-			var intro = Ti.UI.createLabel($$.rowIntro);
-			intro.text = data[i].intro;
-			
 			if (data[i].header) {
+				
 				var content = Ti.UI.createView($$.firstRow);
 				row.header = data[i].header;
+				
 			} else if (data[i].last) {
+				
 				var content = Ti.UI.createView($$.lastRow);
 				title.top = '5 dp';
 				intro.top = '30 dp';
@@ -121,71 +127,55 @@ module.exports = function() {
 						top:'5 dp'
 					}));
 				}
+				
 			} else {
+				
 				var content = Ti.UI.createView($$.middleRow);
 				if (!data[i - 1].header) {
 					content.top = '-1 dp';
 				}
+				
 			}
 			
 			content.add(title);
 			content.add(intro);
+			content.add(image);
 			
 			row.add(content);
 			
 			tableView.appendRow(row);
-			//auxSection.add(row);
 			
 		} else {
 		
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
-			
 			miniRow.addEventListener('click', function(e) {
 				loadArticle(e.row);
 			});
 			
-			var title = Ti.UI.createLabel($$.rowTitle);
-			title.text = data[i].title;
-			
-			var intro = Ti.UI.createLabel($$.rowIntro);
-			intro.text = data[i].intro;
-			
 			miniRow.add(title);
 			miniRow.add(intro);
+			miniRow.add(image);
 			
 			if (data[i].header) {
 				
 				if (typeof numRows != 'undefined') {
 					adjustHeight(numRows);
 				}
-				
 				var numRows = 0;
 				
 				var auxSection = Ti.UI.createTableViewSection();
-				
-				var headerText = Ti.UI.createLabel({
-					color:'#FFF',
-					left:10,
-					text:data[i].header,
-					font:{fontWeight:'bold'},
-					shadowColor:'#999',
-					shadowOffset:{x:1,y:1}
-				});
-				
+				var headerText = Ti.UI.createLabel($$.headerTableViewText);
 				var header = Ti.UI.createView($$.headerTableViewSection);
 				header.add(headerText);
-				
 				auxSection.headerView = header;
 				
 				var miniTableView = Ti.UI.createTableView($$.miniTableView);
-				
 				row.add(miniTableView);
 				
 				auxSection._header = header;
 				auxSection._miniTableView = miniTableView;
 				
 				tableViewData.push(auxSection);
-				
 				auxSection.add(row);
 				
 			}

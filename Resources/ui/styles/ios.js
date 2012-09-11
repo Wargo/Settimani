@@ -92,10 +92,24 @@ module.exports = {
 		height:50
 	},
 	
+	rowImage: {
+		left:5,
+		top:25
+	},
+	
 	headerTableViewSection: {
 		height:30,
 		opacity:0.9,
 		backgroundColor:'#8EC7E8'
+	},
+	
+	headerTableViewText: {
+		color:'#FFF',
+		left:10,
+		text:data[i].header,
+		font:{fontWeight:'bold'},
+		shadowColor:'#999',
+		shadowOffset:{x:1,y:1}
 	}
 	
 }
