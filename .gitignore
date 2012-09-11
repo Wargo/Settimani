@@ -4,5 +4,5 @@ tmp
 *.pyo
 *.log
 *.swp
-build/*
-.settings/*
+build
+.settings
