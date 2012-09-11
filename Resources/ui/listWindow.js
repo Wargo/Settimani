@@ -12,12 +12,12 @@ module.exports = function() {
 	var MyWindow = require(Mods.configWindow);
 	
 	var win = Ti.UI.createWindow({
-		backgroundColor:'#F2F2F2',
-		exitOnClose:true,
-		opacity:0
+		//backgroundColor:'#F2EDEA',
+		backgroundImage:'ui/images/bg_list.png',
+		exitOnClose:true
 	});
 	
-	if (true || !Ti.App.Properties.getDouble('date', null)) {
+	if (!Ti.App.Properties.getDouble('date', null)) {
 		setTimeout(function() {
 			MyWindow().open();
 			win.opacity = 1;
@@ -65,24 +65,45 @@ module.exports = function() {
 	}
 	
 	var data = [
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 3'},
-		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
 	]
 	
-	var tableView = Ti.UI.createTableView();
+	var tableView = Ti.UI.createTableView($$.tableView);
 	
 	for (i in data) {
 		
-		var row = Ti.UI.createTableViewRow({
-			title:data[i].title
-		});
+		var row = Ti.UI.createTableViewRow($$.row);
+		
+		if (data[i].header) {
+			var content = Ti.UI.createView($$.firstRow);
+			row.header = data[i].header;
+		} else if (data[i].last) {
+			var content = Ti.UI.createView($$.lastRow);
+		} else {
+			var content = Ti.UI.createView($$.middleRow);
+			if (data[i - 1].header) {
+				content.top = 0;
+			}
+		}
+		
+		var title = Ti.UI.createLabel($$.rowTitle);
+		title.text = data[i].title;
+		
+		var intro = Ti.UI.createLabel($$.rowIntro);
+		intro.text = data[i].intro;
+		
+		content.add(title);
+		content.add(intro);
+		
+		row.add(content);
 		
 		tableView.appendRow(row);
 		

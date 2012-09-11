@@ -48,6 +48,10 @@ module.exports = {
 		backgroundImage:'none',
 		color:'#FFF',
 		font:{fontSize:20, fontWeight:'bold'}
+	},
+	
+	tableView: {
+		
 	}
 	
 }
