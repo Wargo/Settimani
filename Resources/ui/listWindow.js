@@ -82,9 +82,6 @@ module.exports = function() {
 		
 		data[i].intro = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim, sapien non fringilla aliquam, mi lacus tincidunt enim, quis fermentum diam tellus in tortor. Praesent aliquam tristique eros nec adipiscing. Phasellus erat neque, cursus ac blandit ac, tempor eu libero. Sed egestas volutpat nulla sed hendrerit. Quisque fringilla feugiat ipsum. Fusce velit orci, ullamcorper in adipiscing ut, pharetra id sapien. Quisque volutpat fringilla diam, sed accumsan mi facilisis elementum. Proin eu bibendum purus. Ut luctus sagittis dignissim. Curabitur gravida, quam nec vulputate facilisis, sem mi feugiat neque, non dapibus erat purus nec eros. Suspendisse potenti.';
 		
-		//var row = Ti.UI.createTableViewRow($$.row);
-		//row.data = data[i];
-		
 		var title = Ti.UI.createLabel($$.rowTitle);
 		title.text = data[i].title;
 		
@@ -98,14 +95,14 @@ module.exports = function() {
 		
 		if (Ti.Platform.osname === 'android') {
 			
+			var row = Ti.UI.createTableViewRow($$.row);
+			row.data = data[i];
+			
 			row.addEventListener('click', function(e) {
 				loadArticle(e.row);
 			});
 			
 			if (data[i].header) {
-				
-				var row = Ti.UI.createTableViewRow($$.row);
-				row.data = data[i];
 				
 				var content = Ti.UI.createView($$.firstRow);
 				row.header = data[i].header;
