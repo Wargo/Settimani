@@ -87,6 +87,8 @@ module.exports = function() {
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
+	var tableViewData = [];
+	
 	for (i in data) {
 		
 		data[i].intro = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim, sapien non fringilla aliquam, mi lacus tincidunt enim, quis fermentum diam tellus in tortor. Praesent aliquam tristique eros nec adipiscing. Phasellus erat neque, cursus ac blandit ac, tempor eu libero. Sed egestas volutpat nulla sed hendrerit. Quisque fringilla feugiat ipsum. Fusce velit orci, ullamcorper in adipiscing ut, pharetra id sapien. Quisque volutpat fringilla diam, sed accumsan mi facilisis elementum. Proin eu bibendum purus. Ut luctus sagittis dignissim. Curabitur gravida, quam nec vulputate facilisis, sem mi feugiat neque, non dapibus erat purus nec eros. Suspendisse potenti.';
@@ -107,7 +109,15 @@ module.exports = function() {
 			
 			if (data[i].header) {
 				var content = Ti.UI.createView($$.firstRow);
-				row.header = data[i].header;
+				//row.header = data[i].header;
+				var auxSection = Ti.UI.createTableViewSection();
+				
+				tableViewData.push(auxSection);
+				
+				var header = Ti.UI.createView($$.headerTableViewSection);
+				header.add(Ti.UI.createLabel({text:data[i].header}))
+				
+				auxSection.headerView = header;
 			} else if (data[i].last) {
 				var content = Ti.UI.createView($$.lastRow);
 				title.top = '5 dp';
@@ -131,7 +141,8 @@ module.exports = function() {
 			
 			row.add(content);
 			
-			tableView.appendRow(row);
+			//tableView.appendRow(row);
+			auxSection.add(row);
 			
 		} else {
 		
@@ -163,7 +174,16 @@ module.exports = function() {
 				
 				var numRows = 0;
 				
-				row.header = data[i].header;
+				//row.header = data[i].header;
+				
+				var auxSection = Ti.UI.createTableViewSection();
+				
+				tableViewData.push(auxSection);
+				
+				var header = Ti.UI.createView($$.headerTableViewSection);
+				header.add(Ti.UI.createLabel({text:data[i].header}))
+				
+				auxSection.headerView = header;
 				
 				var miniTableView = Ti.UI.createTableView($$.miniTableView);
 				
@@ -175,7 +195,8 @@ module.exports = function() {
 
 				row.add(miniTableView);
 				
-				tableView.appendRow(row);
+				//tableView.appendRow(row);
+				auxSection.add(row);
 				
 			}
 			
@@ -190,6 +211,8 @@ module.exports = function() {
 		}
 		
 	}
+	
+	tableView.data = tableViewData;
 	
 	function adjustHeight(numRows) {
 		if (Ti.Platform.osname === 'android') {

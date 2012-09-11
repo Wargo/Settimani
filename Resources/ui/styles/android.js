@@ -130,7 +130,13 @@ module.exports = {
 		left:'50 dp',
 		right:'10 dp',
 		top:'25 dp',
-		height:'45 dp'
+		height:'50 dp'
+	},
+	
+	headerTableViewSection: {
+		height:'20 dp',
+		opacity:0.7,
+		backgroundColor:'#8EC7E8'
 	}
 	
 }
