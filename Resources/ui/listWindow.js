@@ -93,7 +93,7 @@ module.exports = function() {
 		
 		data[i].intro = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim, sapien non fringilla aliquam, mi lacus tincidunt enim, quis fermentum diam tellus in tortor. Praesent aliquam tristique eros nec adipiscing. Phasellus erat neque, cursus ac blandit ac, tempor eu libero. Sed egestas volutpat nulla sed hendrerit. Quisque fringilla feugiat ipsum. Fusce velit orci, ullamcorper in adipiscing ut, pharetra id sapien. Quisque volutpat fringilla diam, sed accumsan mi facilisis elementum. Proin eu bibendum purus. Ut luctus sagittis dignissim. Curabitur gravida, quam nec vulputate facilisis, sem mi feugiat neque, non dapibus erat purus nec eros. Suspendisse potenti.';
 		
-		var row = Ti.UI.createTableViewRow($$.row);
+		//var row = Ti.UI.createTableViewRow($$.row);
 		
 		var title = Ti.UI.createLabel($$.rowTitle);
 		title.text = data[i].title;
@@ -105,7 +105,6 @@ module.exports = function() {
 		image.image = '/ui/images/' + data[i].category + '.gif';
 		
 		var nextImage = Ti.UI.createImageView($$.nextImage);
-		nextImage.image = '/ui/images/next.png';
 		
 		if (Ti.Platform.osname === 'android') {
 			
@@ -114,6 +113,8 @@ module.exports = function() {
 			});
 			
 			if (data[i].header) {
+				
+				var row = Ti.UI.createTableViewRow($$.row);
 				
 				var content = Ti.UI.createView($$.firstRow);
 				row.header = data[i].header;
@@ -161,9 +162,10 @@ module.exports = function() {
 			miniRow.add(title);
 			miniRow.add(intro);
 			miniRow.add(image);
-			miniRow.add(nextImage);
 			
 			if (data[i].header) {
+				
+				var row = Ti.UI.createTableViewRow($$.row);
 				
 				if (typeof numRows != 'undefined') {
 					adjustHeight(numRows);
@@ -188,6 +190,9 @@ module.exports = function() {
 				auxSection.add(row);
 				
 			}
+			
+			nextImage.top = nextImage.top + miniRow.height * numRows;
+			row.add(nextImage);
 			
 			numRows ++;
 			

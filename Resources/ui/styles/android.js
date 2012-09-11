@@ -143,7 +143,8 @@ module.exports = {
 		width:'25 dp',
 		right:'8 dp',
 		top:'25 dp',
-		zIndex:100
+		zIndex:100,
+		image:'/ui/images/next_android.png'
 	},
 	
 	headerTableViewSection: {

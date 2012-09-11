@@ -100,8 +100,10 @@ module.exports = {
 	
 	nextImage: {
 		width:25,
-		right:-13,
-		top:25
+		right:7,
+		top:45,
+		zIndex:100,
+		image:'/ui/images/next.png'
 	},
 	
 	headerTableViewSection: {
