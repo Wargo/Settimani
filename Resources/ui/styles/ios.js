@@ -51,7 +51,68 @@ module.exports = {
 	},
 	
 	tableView: {
-		
+		separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+		backgroundColor:'transparent'
+	},
+	
+	row: {
+		backgroundColor:'transparent',
+		selectionStyle:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+	},
+	
+	firstRow: {
+		backgroundColor:'#FFF',
+		right:'20 dp',
+		left:'20 dp',
+		top:'20 dp',
+		bottom:'-5 dp',
+		height:'85 dp',
+		borderRadius:5,
+		borderWidth:1,
+		borderColor:'#999',
+		zIndex:50
+	},
+	
+	middleRow: {
+		backgroundColor:'#FFF',
+		right:'20 dp',
+		left:'20 dp',
+		top:'-1 dp',
+		height:'80 dp',
+		borderWidth:1,
+		borderColor:'#999',
+		zIndex:100
+	},
+	
+	lastRow: {
+		backgroundColor:'#FFF',
+		right:'20 dp',
+		left:'20 dp',
+		bottom:'20 dp',
+		top:'-5 dp',
+		height:'85 dp',
+		borderRadius:5,
+		borderWidth:1,
+		borderColor:'#999',
+		zIndex:50
+	},
+	
+	rowTitle: {
+		color:'#FF6600',
+		font:{fontWeight:'bold', fontSize:'18 dp'},
+		left:'50 dp',
+		right:'20 dp',
+		top:'5 dp',
+		height:'20 dp'
+	},
+	
+	rowIntro: {
+		color:'#333',
+		font:{fontSize:'12 dp'},
+		left:'50 dp',
+		right:'20 dp',
+		top:'30 dp',
+		height:'45 dp'
 	}
 	
 }
