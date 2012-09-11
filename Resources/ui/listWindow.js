@@ -12,7 +12,6 @@ module.exports = function() {
 	var MyWindow = require(Mods.configWindow);
 	
 	var win = Ti.UI.createWindow({
-		//backgroundColor:'#F2EDEA',
 		backgroundImage:'ui/images/bg_list.png',
 		exitOnClose:true
 	});
@@ -82,30 +81,76 @@ module.exports = function() {
 		
 		var row = Ti.UI.createTableViewRow($$.row);
 		
-		if (data[i].header) {
-			var content = Ti.UI.createView($$.firstRow);
-			row.header = data[i].header;
-		} else if (data[i].last) {
-			var content = Ti.UI.createView($$.lastRow);
-		} else {
-			var content = Ti.UI.createView($$.middleRow);
-			if (data[i - 1].header) {
-				content.top = 0;
+		if (Ti.Platform.osname === 'android') {
+			
+			if (data[i].header) {
+				var content = Ti.UI.createView($$.firstRow);
+				row.header = data[i].header;
+			} else if (data[i].last) {
+				var content = Ti.UI.createView($$.lastRow);
+			} else {
+				var content = Ti.UI.createView($$.middleRow);
+				if (data[i - 1].header) {
+					content.top = 0;
+				}
 			}
+			
+			var title = Ti.UI.createLabel($$.rowTitle);
+			title.text = data[i].title;
+			
+			var intro = Ti.UI.createLabel($$.rowIntro);
+			intro.text = data[i].intro;
+			
+			content.add(title);
+			content.add(intro);
+			
+			row.add(content);
+			
+			tableView.appendRow(row);
+			
+		} else {
+			
+			var miniRow = Ti.UI.createTableViewRow({
+				height:80,
+				title:data[i].title
+			});
+			
+			if (data[i].header) {
+				
+				if (typeof numRows != 'undefined') {
+					miniTableView.height = miniRow.height * numRows - 1;
+				}
+				
+				var numRows = 0;
+				
+				row.header = data[i].header;
+				
+				var miniTableView = Ti.UI.createTableView({
+					scrollable:false,
+					backgroundColor:'#FFF',
+					borderRadius:5,
+					top:20,
+					left:20,
+					right:20,
+					bottom:20,
+				});
+				
+				row.add(miniTableView);
+				
+				tableView.appendRow(row);
+				
+			}
+			
+			numRows ++;
+			
+			miniTableView.appendRow(miniRow);
+			//section.add(miniRow);
+			
 		}
 		
-		var title = Ti.UI.createLabel($$.rowTitle);
-		title.text = data[i].title;
-		
-		var intro = Ti.UI.createLabel($$.rowIntro);
-		intro.text = data[i].intro;
-		
-		content.add(title);
-		content.add(intro);
-		
-		row.add(content);
-		
-		tableView.appendRow(row);
+		if (typeof numRows != 'undefined') {
+			miniTableView.height = miniRow.height * numRows - 1;
+		}
 		
 	}
 	
