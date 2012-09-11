@@ -61,7 +61,7 @@ module.exports = {
 	},
 	
 	miniRow: {
-			height:80
+		height:80
 	},
 	
 	miniTableView: {

@@ -116,7 +116,6 @@ module.exports = function() {
 		} else {
 		*/
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
-			miniRow.title = data[i].title;
 			
 			miniRow.addEventListener('click', function() {
 				return;
@@ -131,8 +130,10 @@ module.exports = function() {
 			miniRow.add(title);
 			miniRow.add(intro);
 			
-			var miniRowHeight = miniRow.height.replace(' dp', '');
-			miniRowHeight = parseInt(miniRowHeight);
+			if (Ti.Platform.osname === 'android') {
+				var miniRowHeight = miniRow.height.replace(' dp', '');
+				miniRowHeight = parseInt(miniRowHeight);
+			}
 			
 			if (data[i].header) {
 				
