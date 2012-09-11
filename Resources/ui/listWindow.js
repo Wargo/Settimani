@@ -19,8 +19,7 @@ module.exports = function() {
 	if (!Ti.App.Properties.getDouble('date', null)) {
 		setTimeout(function() {
 			MyWindow().open();
-			win.opacity = 1;
-		}, 100);
+		}, 10);
 	}
 	
 	if (Ti.Platform.osname === 'android') {
@@ -233,7 +232,9 @@ module.exports = function() {
 	}
 	
 	function loadArticle(row) {
-		alert(row);
+		
+		MyWindow().open();
+		
 	}
 	
 	win.add(tableView);

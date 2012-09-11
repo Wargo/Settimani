@@ -117,7 +117,7 @@ module.exports = {
 	
 	rowTitle: {
 		color:'#FF6600',
-		font:{fontWeight:'bold', fontSize:'18 dp'},
+		font:{fontWeight:'bold', fontSize:'16 dp'},
 		left:'50 dp',
 		right:'10 dp',
 		top:'0 dp',
