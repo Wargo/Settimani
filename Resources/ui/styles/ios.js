@@ -93,7 +93,8 @@ module.exports = {
 	},
 	
 	rowImage: {
-		left:5,
+		width:50,
+		left:0,
 		top:25
 	},
 	
@@ -106,7 +107,6 @@ module.exports = {
 	headerTableViewText: {
 		color:'#FFF',
 		left:10,
-		text:data[i].header,
 		font:{fontWeight:'bold'},
 		shadowColor:'#999',
 		shadowOffset:{x:1,y:1}

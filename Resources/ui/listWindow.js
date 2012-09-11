@@ -165,6 +165,8 @@ module.exports = function() {
 				
 				var auxSection = Ti.UI.createTableViewSection();
 				var headerText = Ti.UI.createLabel($$.headerTableViewText);
+				headerText.text = data[i].header;
+				
 				var header = Ti.UI.createView($$.headerTableViewSection);
 				header.add(headerText);
 				auxSection.headerView = header;
