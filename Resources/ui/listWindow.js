@@ -91,12 +91,11 @@ module.exports = function() {
 		
 		var row = Ti.UI.createTableViewRow($$.row);
 		
-		row.addEventListener('click', function() {
-			return;
-		});
-		
-		
 		if (Ti.Platform.osname === 'android') {
+			
+			row.addEventListener('click', function(e) {
+				loadArticle(e.row);
+			});
 			
 			var title = Ti.UI.createLabel($$.rowTitle);
 			title.text = data[i].title;
@@ -136,6 +135,10 @@ module.exports = function() {
 		
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
 			
+			miniRow.addEventListener('click', function(e) {
+				loadArticle(e.row);
+			});
+			
 			miniRow.addEventListener('click', function() {
 				return;
 			});
@@ -157,7 +160,7 @@ module.exports = function() {
 			if (data[i].header) {
 				
 				if (typeof numRows != 'undefined') {
-					adjust_height(numRows);
+					adjustHeight(numRows);
 				}
 				
 				var numRows = 0;
@@ -179,17 +182,21 @@ module.exports = function() {
 		}
 		
 		if (typeof numRows != 'undefined') {
-			adjust_height(numRows);
+			adjustHeight(numRows);
 		}
 		
 	}
 	
-	function adjust_height(numRows) {
+	function adjustHeight(numRows) {
 		if (Ti.Platform.osname === 'android') {
 			miniTableView.height = (miniRowHeight * numRows - 1) + ' dp';
 		} else {
 			miniTableView.height = miniRow.height * numRows - 1;
 		}
+	}
+	
+	function loadArticle(row) {
+		alert(row);
 	}
 	
 	win.add(tableView);
