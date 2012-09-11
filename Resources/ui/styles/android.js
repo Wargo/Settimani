@@ -61,6 +61,21 @@ module.exports = {
 		//height:'100 dp'
 	},
 	
+	miniRow: {
+			height:'80 dp'
+	},
+	
+	miniTableView: {
+		scrollable:false,
+		backgroundColor:'#FFF',
+		borderColor:'#CCC',
+		borderRadius:5,
+		top:'20 dp',
+		left:'20 dp',
+		right:'20 dp',
+		bottom:'20 dp'
+	},
+	
 	firstRow: {
 		backgroundColor:'#FFF',
 		right:'20 dp',

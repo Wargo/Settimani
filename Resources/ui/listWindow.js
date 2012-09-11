@@ -81,7 +81,8 @@ module.exports = function() {
 		
 		var row = Ti.UI.createTableViewRow($$.row);
 		
-		if (Ti.Platform.osname === 'android') {
+		/*
+		if (Ti.Platform.osname != 'android') {
 			
 			if (data[i].header) {
 				var content = Ti.UI.createView($$.firstRow);
@@ -109,11 +110,9 @@ module.exports = function() {
 			tableView.appendRow(row);
 			
 		} else {
-			
-			var miniRow = Ti.UI.createTableViewRow({
-				height:80,
-				title:data[i].title
-			});
+		*/
+			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
+			miniRowtitle = data[i].title;
 			
 			if (data[i].header) {
 				
@@ -125,15 +124,7 @@ module.exports = function() {
 				
 				row.header = data[i].header;
 				
-				var miniTableView = Ti.UI.createTableView({
-					scrollable:false,
-					backgroundColor:'#FFF',
-					borderRadius:5,
-					top:20,
-					left:20,
-					right:20,
-					bottom:20,
-				});
+				var miniTableView = Ti.UI.createTableView($$.miniTableView);
 				
 				row.add(miniTableView);
 				
@@ -146,7 +137,7 @@ module.exports = function() {
 			miniTableView.appendRow(miniRow);
 			//section.add(miniRow);
 			
-		}
+		//}
 		
 		if (typeof numRows != 'undefined') {
 			miniTableView.height = miniRow.height * numRows - 1;

@@ -60,6 +60,20 @@ module.exports = {
 		selectionStyle:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 	},
 	
+	miniRow: {
+			height:80
+	},
+	
+	miniTableView: {
+		scrollable:false,
+		backgroundColor:'#FFF',
+		borderRadius:5,
+		top:20,
+		left:20,
+		right:20,
+		bottom:20
+	},
+	
 	firstRow: {
 		backgroundColor:'#FFF',
 		right:'20 dp',
