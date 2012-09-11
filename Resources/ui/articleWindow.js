@@ -10,7 +10,8 @@ if (Ti.Platform.osname === 'android') {
 module.exports = function(data) {
 	
 	var win = Ti.UI.createWindow({
-		backgroundColor:'#FFF'
+		backgroundColor:'#FFF',
+		modal:true
 	});
 	
 	if (Ti.Platform.osname === 'android') {

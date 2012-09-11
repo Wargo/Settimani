@@ -226,7 +226,12 @@ module.exports = function() {
 		
 		var article = require(Mods.articleWindow);
 		var articleWin = article(row.data);
-		nav.open(articleWin);
+		
+		if (Ti.Platform.osname === 'android') {
+			articleWin.open();
+		} else {
+			nav.open(articleWin);
+		}
 		
 	}
 	
