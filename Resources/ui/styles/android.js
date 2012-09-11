@@ -59,6 +59,8 @@ module.exports = {
 	row: {
 		//backgroundColor:'#F2EDEA',
 		//height:'100 dp'
+		left: '20 dp',
+		right: '20 dp'
 	},
 	
 	miniRow: {
@@ -78,7 +80,6 @@ module.exports = {
 		bottom:'20 dp'
 	},
 	
-	/*
 	firstRow: {
 		backgroundColor:'#FFF',
 		right:'20 dp',
@@ -95,7 +96,8 @@ module.exports = {
 		backgroundColor:'#FFF',
 		right:'20 dp',
 		left:'20 dp',
-		top:'-1 dp',
+		//top:'-1 dp',
+		//bottom:'-1 dp',
 		height:'80 dp',
 		borderWidth:1,
 		borderColor:'#999'
@@ -112,7 +114,6 @@ module.exports = {
 		borderWidth:1,
 		borderColor:'#999'
 	},
-	*/
 	
 	rowTitle: {
 		color:'#FF6600',
@@ -120,7 +121,7 @@ module.exports = {
 		left:'50 dp',
 		right:'20 dp',
 		top:'0 dp',
-		height:'20 dp'
+		height:'25 dp'
 	},
 	
 	rowIntro: {

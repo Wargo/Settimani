@@ -70,8 +70,18 @@ module.exports = function() {
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 3'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 4'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 5'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
+		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 6'},
 		{title:'Lorem Ipsum', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
 	]
 	
@@ -85,26 +95,35 @@ module.exports = function() {
 			return;
 		});
 		
-		/*
-		if (Ti.Platform.osname != 'android') {
-			
-			if (data[i].header) {
-				var content = Ti.UI.createView($$.firstRow);
-				row.header = data[i].header;
-			} else if (data[i].last) {
-				var content = Ti.UI.createView($$.lastRow);
-			} else {
-				var content = Ti.UI.createView($$.middleRow);
-				if (data[i - 1].header) {
-					content.top = 0;
-				}
-			}
+		
+		if (Ti.Platform.osname === 'android') {
 			
 			var title = Ti.UI.createLabel($$.rowTitle);
 			title.text = data[i].title;
 			
 			var intro = Ti.UI.createLabel($$.rowIntro);
 			intro.text = data[i].intro;
+			
+			if (data[i].header) {
+				var content = Ti.UI.createView($$.firstRow);
+				row.header = data[i].header;
+			} else if (data[i].last) {
+				var content = Ti.UI.createView($$.lastRow);
+				title.top = '5 dp';
+				intro.top = '30 dp';
+				if (data[i - 1].header) {
+					content.add(Ti.UI.createView({
+						height:1,
+						backgroundColor:'#999',
+						top:'5 dp'
+					}));
+				}
+			} else {
+				var content = Ti.UI.createView($$.middleRow);
+				if (!data[i - 1].header) {
+					content.top = '-1 dp';
+				}
+			}
 			
 			content.add(title);
 			content.add(intro);
@@ -114,7 +133,7 @@ module.exports = function() {
 			tableView.appendRow(row);
 			
 		} else {
-		*/
+		
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
 			
 			miniRow.addEventListener('click', function() {
@@ -156,9 +175,8 @@ module.exports = function() {
 			numRows ++;
 			
 			miniTableView.appendRow(miniRow);
-			//section.add(miniRow);
 			
-		//}
+		}
 		
 		if (typeof numRows != 'undefined') {
 			adjust_height(numRows);
