@@ -6,148 +6,28 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005821 seconds on emulator to get ready
+[DEBUG] waited 0.004955 seconds on emulator to get ready
 [DEBUG] net.artvisual.settimani installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/pathMods.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/pathMods.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/app.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/app.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/android/default.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/default.png
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/android/appicon.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/appicon.png
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/picker.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/picker.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/styles/ios.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/styles/ios.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/styles/android.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/styles/android.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/images/bg_header.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/bg_header.png
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/images/calc.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/calc.png
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/images/home.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/home.png
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/configWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/configWindow.js
-[TRACE] COPYING CREATED FILE: /home/guille/titanium/Settimani/Resources/ui/listWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/listWindow.js
-[TRACE] Generating Java Classes
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/images/bg_header.png => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/images/bg_header.png
+[TRACE] COPYING MODIFIED FILE: /home/guille/titanium/Settimani/Resources/ui/listWindow.js => /home/guille/titanium/Settimani/build/android/bin/assets/Resources/ui/listWindow.js
+[INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-port-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-port-ldpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-ldpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-port-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-port-hdpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-land-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-land-ldpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-long-land-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-long-land-hdpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-mdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-mdpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-ldpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-ldpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-hdpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-hdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-hdpi/default_d44e27d97b.png
-[TRACE] COPYING FILE: /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-mdpi/default.png => /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-mdpi/default_d44e27d97b.png
-[DEBUG] app stylesheet => /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/ApplicationStylesheet.java
-[DEBUG] copying app icon: /home/guille/titanium/Settimani/build/android/bin/assets/Resources/appicon.png
-[DEBUG] generating theme.xml
 [DEBUG] found drawable-long-port-ldpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-long-port-ldpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-long-port-ldpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-long-port-ldpi/background.png
 [DEBUG] found drawable-notlong-land-ldpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-ldpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-ldpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-ldpi/background.png
 [DEBUG] found drawable-long-port-hdpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-long-port-hdpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-long-port-hdpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-long-port-hdpi/background.png
 [DEBUG] found drawable-long-land-ldpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-long-land-ldpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-long-land-ldpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-long-land-ldpi/background.png
 [DEBUG] found drawable-long-land-hdpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-long-land-hdpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-long-land-hdpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-long-land-hdpi/background.png
 [DEBUG] found drawable-notlong-land-mdpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-mdpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-mdpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-mdpi/background.png
 [DEBUG] found drawable-notlong-port-ldpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-ldpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-ldpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-ldpi/background.png
 [DEBUG] found drawable-notlong-land-hdpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-hdpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-notlong-land-hdpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-notlong-land-hdpi/background.png
 [DEBUG] found drawable-notlong-port-hdpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-hdpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-hdpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-hdpi/background.png
 [DEBUG] found drawable-notlong-port-mdpi splash screen at /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-mdpi/default.png
-[DEBUG] copying /home/guille/titanium/Settimani/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /home/guille/titanium/Settimani/build/android/res/drawable-notlong-port-mdpi/background.png
-[DEBUG] found splash screen at /home/guille/titanium/Settimani/build/android/bin/assets/Resources/default.png
-[TRACE] Writing out AndroidManifest.xml
-[DEBUG] adding /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/SettimaniActivity.java to javac build list
-[DEBUG] adding /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/R.java to javac build list
-[DEBUG] adding /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/SettimaniAppInfo.java to javac build list
-[DEBUG] adding /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/SettimaniApplication.java to javac build list
-[DEBUG] adding /home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/ApplicationStylesheet.java to javac build list
-[DEBUG] Building Java Sources: "/home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/SettimaniActivity.java" "/home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/R.java" "/home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/SettimaniAppInfo.java" "/home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/SettimaniApplication.java" "/home/guille/titanium/Settimani/build/android/gen/net/artvisual/settimani/ApplicationStylesheet.java"
 [INFO] Waiting for SDCard to become available..
-[INFO] Compiling Android Resources... This could take some time
-[DEBUG] Android classes.dex built
-[DEBUG] creating unsigned apk: /home/guille/titanium/Settimani/build/android/bin/app-unsigned.apk
-[DEBUG] from resource zip => assets/Resources/ui/images/bg_header.png
-[DEBUG] from resource zip => assets/Resources/ui/images/calc.png
-[DEBUG] from resource zip => assets/Resources/ui/images/home.png
-[DEBUG] from resource zip => assets/Resources/ui/styles/android.js
-[DEBUG] from resource zip => assets/Resources/ui/styles/ios.js
-[DEBUG] from resource zip => assets/Resources/ui/configWindow.js
-[DEBUG] from resource zip => assets/Resources/ui/listWindow.js
-[DEBUG] from resource zip => assets/Resources/ui/picker.js
-[DEBUG] from resource zip => assets/Resources/app.js
-[DEBUG] from resource zip => assets/Resources/appicon.png
-[DEBUG] from resource zip => assets/Resources/default.png
-[DEBUG] from resource zip => assets/Resources/pathMods.js
-[DEBUG] from resource zip => assets/Resources/ti.cloud.js
-[DEBUG] from resource zip => assets/app.json
-[DEBUG] from resource zip => assets/index.json
-[DEBUG] from resource zip => assets/tiapp.xml
-[DEBUG] from resource zip => res/drawable/appicon.png
-[DEBUG] from resource zip => res/drawable/background.png
-[DEBUG] from resource zip => res/drawable/close.png
-[DEBUG] from resource zip => res/drawable/facebook_login.png
-[DEBUG] from resource zip => res/drawable/facebook_login_down.png
-[DEBUG] from resource zip => res/drawable/facebook_login_wide.png
-[DEBUG] from resource zip => res/drawable/facebook_login_wide_down.png
-[DEBUG] from resource zip => res/drawable/facebook_logout.png
-[DEBUG] from resource zip => res/drawable/facebook_logout_down.png
-[DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
-[DEBUG] from resource zip => AndroidManifest.xml
-[DEBUG] from resource zip => resources.arsc
-[DEBUG] from resource zip => res/drawable-hdpi/close.png
-[DEBUG] from resource zip => res/drawable-ldpi/close.png
-[DEBUG] from resource zip => res/drawable-long-land-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-long-land-hdpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-long-land-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-long-land-ldpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-long-port-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-long-port-hdpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-long-port-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-long-port-ldpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/default_d44e27d97b.png
-[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/default_d44e27d97b.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/modules/titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/build.properties
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/background.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/thirdparty.jar => org/apache/Commons-NOTICE.txt
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/thirdparty.jar => org/apache/HttpComponents-NOTICE.txt
-[DEBUG] from JAR /home/guille/.titanium/mobilesdk/linux/2.0.1.GA2/android/thirdparty.jar => org/apache/mime4j-NOTICE.txt
-[DEBUG] installing native SDK libs
-[DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005402 seconds on emulator to get ready
-[INFO] Installing application on emulator
+[INFO] Re-launching application ... Settimani
 [INFO] Launching application ... Settimani
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=net.artvisual.settimani/.SettimaniActivity }
 
-[INFO] Deployed Settimani ... Application should be running.
+[INFO] Relaunched Settimani ... Application should be running.
