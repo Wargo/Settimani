@@ -114,8 +114,15 @@ module.exports = function() {
 				
 				tableViewData.push(auxSection);
 				
+				var headerText = Ti.UI.createLabel({
+					color:'#FFF',
+					left:10,
+					text:data[i].header,
+					font:{fontWeight:'bold'}
+				});
+				
 				var header = Ti.UI.createView($$.headerTableViewSection);
-				header.add(Ti.UI.createLabel({text:data[i].header}))
+				header.add(headerText)
 				
 				auxSection.headerView = header;
 			} else if (data[i].last) {
@@ -180,8 +187,15 @@ module.exports = function() {
 				
 				tableViewData.push(auxSection);
 				
+				var headerText = Ti.UI.createLabel({
+					color:'#FFF',
+					left:10,
+					text:data[i].header,
+					font:{fontWeight:'bold'}
+				});
+				
 				var header = Ti.UI.createView($$.headerTableViewSection);
-				header.add(Ti.UI.createLabel({text:data[i].header}))
+				header.add(headerText);
 				
 				auxSection.headerView = header;
 				

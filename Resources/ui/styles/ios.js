@@ -90,6 +90,12 @@ module.exports = {
 		right:10,
 		top:35,
 		height:50
+	},
+	
+	headerTableViewSection: {
+		height:30,
+		opacity:0.9,
+		backgroundColor:'#8EC7E8'
 	}
 	
 }
