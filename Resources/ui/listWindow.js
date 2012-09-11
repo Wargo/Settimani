@@ -191,7 +191,9 @@ module.exports = function() {
 					color:'#FFF',
 					left:10,
 					text:data[i].header,
-					font:{fontWeight:'bold'}
+					font:{fontWeight:'bold'},
+					shadowColor:'#999',
+					shadowOffset:{x:1,y:1}
 				});
 				
 				var header = Ti.UI.createView($$.headerTableViewSection);
@@ -201,12 +203,6 @@ module.exports = function() {
 				
 				var miniTableView = Ti.UI.createTableView($$.miniTableView);
 				
-				miniTableView.setShadow({
-					shadowOffset:{x:0,y:3},
-					shadowOpacity:0.6,
-					shadowRadius:3
-				});
-
 				row.add(miniTableView);
 				
 				//tableView.appendRow(row);
