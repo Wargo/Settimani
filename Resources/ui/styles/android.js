@@ -9,7 +9,21 @@ module.exports = {
 	
 	headerTitle: {
 		color:'#FFF',
-		font:{fontSize:'18 dp', fontWeight:'bold'}
+		font:{fontSize:'18 dp', fontWeight:'bold'},
+		width:'260 dp',
+		height:'23 dp'
+	},
+	
+	headerButton: {
+		right:'10 dp',
+		height:'25 dp',
+		width:'40 dp',
+		borderRadius:5,
+		borderColor:'#1A6A8A',
+		borderWidth:1,
+		color:'#FFF',
+		font:{fontWeigh:'bold'},
+		backgroundColor:'#1280AB'
 	},
 	
 	imageHome: {
@@ -121,7 +135,7 @@ module.exports = {
 		left:'50 dp',
 		right:'10 dp',
 		top:'0 dp',
-		height:'25 dp'
+		height:'23 dp'
 	},
 	
 	rowIntro: {
