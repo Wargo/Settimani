@@ -110,24 +110,6 @@ module.exports = function() {
 			if (data[i].header) {
 				var content = Ti.UI.createView($$.firstRow);
 				row.header = data[i].header;
-				
-				/*
-				var auxSection = Ti.UI.createTableViewSection();
-				
-				tableViewData.push(auxSection);
-				
-				var headerText = Ti.UI.createLabel({
-					color:'#FFF',
-					left:10,
-					text:data[i].header,
-					font:{fontWeight:'bold'}
-				});
-				
-				var header = Ti.UI.createView($$.headerTableViewSection);
-				header.add(headerText)
-				
-				auxSection.headerView = header;
-				*/
 			} else if (data[i].last) {
 				var content = Ti.UI.createView($$.lastRow);
 				title.top = '5 dp';
@@ -170,11 +152,6 @@ module.exports = function() {
 			
 			miniRow.add(title);
 			miniRow.add(intro);
-			
-			if (Ti.Platform.osname === 'android') {
-				var miniRowHeight = miniRow.height.replace(' dp', '');
-				miniRowHeight = parseInt(miniRowHeight);
-			}
 			
 			if (data[i].header) {
 				
@@ -247,12 +224,8 @@ module.exports = function() {
 			
 	}
 	
-	function adjustHeight(numRows) {
-		if (Ti.Platform.osname === 'android') {
-			miniTableView.height = (miniRowHeight * numRows - 1) + ' dp';
-		} else {
-			miniTableView.height = miniRow.height * numRows - 1;
-		}
+	function adjustHeight(numRows) { // Sólo iOS
+		miniTableView.height = miniRow.height * numRows - 1;
 	}
 	
 	function loadArticle(row) {
