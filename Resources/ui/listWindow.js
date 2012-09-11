@@ -109,7 +109,9 @@ module.exports = function() {
 			
 			if (data[i].header) {
 				var content = Ti.UI.createView($$.firstRow);
-				//row.header = data[i].header;
+				row.header = data[i].header;
+				
+				/*
 				var auxSection = Ti.UI.createTableViewSection();
 				
 				tableViewData.push(auxSection);
@@ -125,6 +127,7 @@ module.exports = function() {
 				header.add(headerText)
 				
 				auxSection.headerView = header;
+				*/
 			} else if (data[i].last) {
 				var content = Ti.UI.createView($$.lastRow);
 				title.top = '5 dp';
@@ -148,8 +151,8 @@ module.exports = function() {
 			
 			row.add(content);
 			
-			//tableView.appendRow(row);
-			auxSection.add(row);
+			tableView.appendRow(row);
+			//auxSection.add(row);
 			
 		} else {
 		
@@ -226,7 +229,9 @@ module.exports = function() {
 		
 	}
 	
-	tableView.data = tableViewData;
+	if (tableViewData.length > 0) {
+		tableView.data = tableViewData;
+	}
 	
 	function adjustHeight(numRows) {
 		if (Ti.Platform.osname === 'android') {
