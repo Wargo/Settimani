@@ -119,16 +119,16 @@ module.exports = {
 		color:'#FF6600',
 		font:{fontWeight:'bold', fontSize:'18 dp'},
 		left:'50 dp',
-		right:'20 dp',
+		right:'10 dp',
 		top:'0 dp',
 		height:'25 dp'
 	},
 	
 	rowIntro: {
 		color:'#333',
-		font:{fontSize:'12 dp'},
+		font:{fontSize:'14 dp'},
 		left:'50 dp',
-		right:'20 dp',
+		right:'10 dp',
 		top:'25 dp',
 		height:'45 dp'
 	}

@@ -61,7 +61,7 @@ module.exports = {
 	},
 	
 	miniRow: {
-		height:80
+		height:100
 	},
 	
 	miniTableView: {
@@ -76,20 +76,20 @@ module.exports = {
 	
 	rowTitle: {
 		color:'#FF6600',
-		font:{fontWeight:'bold', fontSize:'18 dp'},
-		left:'50 dp',
-		right:'20 dp',
-		top:'5 dp',
-		height:'20 dp'
+		font:{fontWeight:'bold', fontSize:18},
+		left:50,
+		right:10,
+		top:12,
+		height:20
 	},
 	
 	rowIntro: {
 		color:'#333',
-		font:{fontSize:'12 dp'},
-		left:'50 dp',
-		right:'20 dp',
-		top:'30 dp',
-		height:'45 dp'
+		font:{fontSize:14},
+		left:50,
+		right:10,
+		top:35,
+		height:50
 	}
 	
 }
