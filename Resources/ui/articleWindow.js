@@ -51,6 +51,14 @@ module.exports = function(data) {
 	
 	var content = Ti.UI.createView($$.articleContent);
 	
+	content.addEventListener('load', function() {
+		content.setShadow({
+			shadowOffset:{x:0,y:2},
+			shadowOpacity:0.2,
+			shadowRadius:2
+		})
+	});
+	
 	var title = Ti.UI.createLabel($$.articleTitle);
 	title.text = data.title;
 	
@@ -61,7 +69,7 @@ module.exports = function(data) {
 	image.image = data.image;
 	
 	var description = Ti.UI.createLabel($$.articleDescription);
-	description.text = data.intro + ' ' + data.intro + ' ' + data.intro + ' ' + data.intro + ' ' + data.intro;
+	description.text = data.description;
 	
 	var whiteView = Ti.UI.createView({
 		height:'10 dp'
@@ -75,9 +83,12 @@ module.exports = function(data) {
 
 	var scrollView = Ti.UI.createScrollView({
 		contentHeight:'auto',
-		showVerticalScrollIndicator:true,
-		top:'40 dp'
+		showVerticalScrollIndicator:true
 	});
+	
+	if (Ti.Platform.osname === 'android') {
+		top:'40 dp'
+	}
 	
 	var nextImage = Ti.UI.createImageView($$.nextImage);
 	var prevImage = Ti.UI.createImageView($$.prevImage);

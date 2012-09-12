@@ -108,8 +108,8 @@ module.exports = {
 	
 	prevImage: {
 		width:25,
-		left:32, // 7 + 25
-		top:25,
+		left:7,
+		top:45,
 		zIndex:100,
 		image:'/ui/images/next.png'
 	},
@@ -136,9 +136,7 @@ module.exports = {
 		right:20,
 		height:Ti.UI.SIZE,
 		backgroundColor:'#FFF',
-		borderRadius:5,
-		borderWidth:1,
-		borderColor:'#999'
+		borderRadius:5
 	},
 	
 	articleTitle: {

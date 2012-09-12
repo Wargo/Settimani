@@ -80,7 +80,9 @@ module.exports = function() {
 	
 	for (i in data) {
 		
+		data[i].intro = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
 		data[i].image = 'http://www.semanasdembarazo.com/wp-content/uploads/2012/09/semana361.jpg';
+		data[i].description = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\n';
 		
 		var title = Ti.UI.createLabel($$.rowTitle);
 		title.text = data[i].title;
