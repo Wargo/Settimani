@@ -51,14 +51,6 @@ module.exports = function(data) {
 	
 	var content = Ti.UI.createView($$.articleContent);
 	
-	content.addEventListener('load', function() {
-		content.setShadow({
-			shadowOffset:{x:0,y:2},
-			shadowOpacity:0.2,
-			shadowRadius:2
-		})
-	});
-	
 	var title = Ti.UI.createLabel($$.articleTitle);
 	title.text = data.title;
 	
@@ -87,7 +79,15 @@ module.exports = function(data) {
 	});
 	
 	if (Ti.Platform.osname === 'android') {
-		top:'40 dp'
+		scrollView.top = '40 dp';
+	} else {
+		content.addEventListener('load', function() {
+			content.setShadow({
+				shadowOffset:{x:0,y:2},
+				shadowOpacity:0.2,
+				shadowRadius:2
+			})
+		});
 	}
 	
 	var nextImage = Ti.UI.createImageView($$.nextImage);
