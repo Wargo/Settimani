@@ -81,13 +81,13 @@ module.exports = function(data) {
 	if (Ti.Platform.osname === 'android') {
 		scrollView.top = '40 dp';
 	} else {
-		content.addEventListener('load', function() {
+		setTimeout(function() {
 			content.setShadow({
 				shadowOffset:{x:0,y:2},
 				shadowOpacity:0.2,
 				shadowRadius:2
-			})
-		});
+			});
+		}, 100);
 	}
 	
 	var nextImage = Ti.UI.createImageView($$.nextImage);
