@@ -203,9 +203,9 @@ module.exports = function() {
 		for (i in tableViewData) {
 			
 			tableViewData[i]._miniTableView.setShadow({
-				shadowOffset:{x:0,y:3},
-				shadowOpacity:0.6,
-				shadowRadius:3
+				shadowOffset:{x:0,y:2},
+				shadowOpacity:0.2,
+				shadowRadius:2
 			});
 			
 			tableViewData[i]._header.setShadow({
