@@ -161,10 +161,63 @@ module.exports = {
 		image:'/ui/images/next_android.png'
 	},
 	
+	prevImage: {
+		width:'25 dp',
+		left:'33 dp', // 8 + 25
+		top:'25 dp',
+		zIndex:100,
+		image:'/ui/images/next_android.png'
+	},
+	
 	headerTableViewSection: {
 		height:'30 dp',
 		opacity:0.9,
 		backgroundColor:'#8EC7E8'
+	},
+	
+	articleContent: {
+		layout:'vertical',
+		left:'20 dp',
+		top:'15 dp',
+		bottom:'20 dp',
+		right:'20 dp',
+		height:Ti.UI.SIZE,
+		backgroundColor:'#FFF',
+		borderRadius:5,
+		borderWidth:1,
+		borderColor:'#999'
+	},
+	
+	articleTitle: {
+		top:'10 dp',
+		left:'20 dp',
+		right:'20 dp',
+		color:'#FF6600',
+		font:{fontWeight:'bold', fontSize:'18 dp'},
+		textAlign:'center'
+	},
+	
+	articleImage: {
+		top:'10 dp',
+		left:'20 dp',
+		right:'20 dp',
+		width:'240 dp'
+	},
+	
+	articleIntro: {
+		top:'10 dp',
+		left:'20 dp',
+		right:'20 dp',
+		color:'#0060AC',
+		font:{fontSize:'14 dp', fontWeight:'bold'}
+	},
+	
+	articleDescription: {
+		top:'10 dp',
+		left:'20 dp',
+		right:'20 dp',
+		color:'#333',
+		font:{fontSize:'14 dp'}
 	}
 	
 }

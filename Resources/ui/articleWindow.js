@@ -10,7 +10,7 @@ if (Ti.Platform.osname === 'android') {
 module.exports = function(data) {
 	
 	var win = Ti.UI.createWindow({
-		backgroundColor:'#FFF',
+		backgroundImage:'ui/images/bg_list.png',
 		modal:true
 	});
 	
@@ -42,12 +42,55 @@ module.exports = function(data) {
 			width:50
 		});
 		
+		win.backButtonTitle = L('weeks', 'Semanas');
+		
 		win.title = data.title;
 		
 		win.rightNavButton = todayButton;
 	}
 	
-	win.add(Ti.UI.createLabel({text:data.title}));
+	var content = Ti.UI.createView($$.articleContent);
+	
+	var title = Ti.UI.createLabel($$.articleTitle);
+	title.text = data.title;
+	
+	var intro = Ti.UI.createLabel($$.articleIntro);
+	intro.text = data.intro;
+	
+	var image = Ti.UI.createImageView($$.articleImage);
+	image.image = data.image;
+	
+	var description = Ti.UI.createLabel($$.articleDescription);
+	description.text = data.intro + ' ' + data.intro + ' ' + data.intro + ' ' + data.intro + ' ' + data.intro;
+	
+	var whiteView = Ti.UI.createView({
+		height:'10 dp'
+	});
+	
+	content.add(title);
+	content.add(intro);
+	content.add(image);
+	content.add(description);
+	content.add(whiteView);
+
+	var scrollView = Ti.UI.createScrollView({
+		contentHeight:'auto',
+		showVerticalScrollIndicator:true,
+		top:'40 dp'
+	});
+	
+	var nextImage = Ti.UI.createImageView($$.nextImage);
+	var prevImage = Ti.UI.createImageView($$.prevImage);
+	var tr = Ti.UI.create2DMatrix();
+	tr = tr.scale(-1, 1);
+	//tr.rotate(90);
+	prevImage.transform = tr;
+	
+	scrollView.add(nextImage);
+	scrollView.add(prevImage);
+	scrollView.add(content);
+	
+	win.add(scrollView);
 	
 	return win;
 	

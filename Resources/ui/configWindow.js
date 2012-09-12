@@ -11,7 +11,7 @@ module.exports = function() {
 	
 	var win = Ti.UI.createWindow({
 		exitOnClose:true,
-		backgroundColor:'#F2EDEA'
+		backgroundImage:'ui/images/bg_list.png'
 	});
 	
 	var mainView = Ti.UI.createView({

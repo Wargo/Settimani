@@ -106,6 +106,14 @@ module.exports = {
 		image:'/ui/images/next.png'
 	},
 	
+	prevImage: {
+		width:25,
+		left:32, // 7 + 25
+		top:25,
+		zIndex:100,
+		image:'/ui/images/next.png'
+	},
+	
 	headerTableViewSection: {
 		height:30,
 		opacity:0.9,
@@ -118,6 +126,51 @@ module.exports = {
 		font:{fontWeight:'bold'},
 		shadowColor:'#999',
 		shadowOffset:{x:1,y:1}
+	},
+	
+	articleContent: {
+		layout:'vertical',
+		left:20,
+		top:15,
+		bottom:20,
+		right:20,
+		height:Ti.UI.SIZE,
+		backgroundColor:'#FFF',
+		borderRadius:5,
+		borderWidth:1,
+		borderColor:'#999'
+	},
+	
+	articleTitle: {
+		top:10,
+		left:20,
+		right:20,
+		color:'#FF6600',
+		font:{fontWeight:'bold', fontSize:18},
+		textAlign:'center'
+	},
+	
+	articleImage: {
+		top:10,
+		left:20,
+		right:20,
+		width:240
+	},
+	
+	articleIntro: {
+		top:10,
+		left:20,
+		right:20,
+		color:'#0060AC',
+		font:{fontSize:14, fontWeight:'bold'}
+	},
+	
+	articleDescription: {
+		top:10,
+		left:20,
+		right:20,
+		color:'#333',
+		font:{fontSize:14}
 	}
 	
 }
