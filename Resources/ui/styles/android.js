@@ -27,14 +27,16 @@ module.exports = {
 	},
 	
 	imageHome: {
-		width:'320 dp'
+		width:'320 dp',
+		top:'40 dp'
 	},
 	
 	insertDate: {
 		backgroundColor:'#FFF',
 		borderRadius:5,
 		right:'10 dp',left:'10 dp',top:'10 dp',
-		height:'130 dp'
+		height:'130 dp',
+		top:'250 dp'
 	}, 
 	
 	dateItem: {

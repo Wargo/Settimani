@@ -36,19 +36,24 @@ module.exports = function() {
 		insertDate.borderColor = '#999';
 		insertDate.borderWidth = 1;
 	} else {
+		var insertDateShadow = Ti.UI.createView($$.insertDate);
+		insertDateShadow.zIndex = -10;
+		
 		setTimeout(function() {
-			mainView.setShadow({
+			insertDateShadow.setShadow({
 				shadowOffset:{x:0,y:3},
 				shadowOpacity:0.3,
 				shadowRadius:3
 			});
 		}, 100);
+		
+		win.add(insertDateShadow);
 	}
 	
 	var intro = Ti.UI.createLabel({
 		text:L('fill_preg_date', 'Introduce tu fecha de parto'),
-		font:{fontSize:'16 dp', fontFamily:'Arial Rounded MT Bold'},
-		color:'#2094c0',
+		font:{fontWeight:'bold', fontSize:'16 dp'},
+		color:'#2094C0',
 		top:'10 dp'
 	});
 	
@@ -74,7 +79,7 @@ module.exports = function() {
 	var yearText = Ti.UI.createLabel($$.dateItemText);
 	
 	var go = Ti.UI.createButton($$.button);
-	go.top = '20 dp';
+	go.top = '400 dp';
 	go.title = L('go', 'Ir');
 	go.enabled = false;
 	
@@ -106,17 +111,18 @@ module.exports = function() {
 	 * Calcular fecha
 	 */
 	var calcText = Ti.UI.createLabel({
-		top:'30 dp',
+		top:'480 dp',
+		right:'100 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:'16 dp'},
 		color:'#333',
-		left:'20 dp',
-		right:'20 dp',
+		left:'1 dp',
 		textAlign:'center'
 	});
 	
 	var calcButton = Ti.UI.createView({
-		top:'10 dp',
+		right:'10 dp',
+		top:'480 dp',
 		width:'80 dp',
 		height:'40 dp',
 		borderRadius:15,
@@ -202,22 +208,12 @@ module.exports = function() {
 	 * fin calcular
 	 */
 	
-	mainView.add(header);
-	mainView.add(image);
-	mainView.add(insertDate);
-	mainView.add(go);
-	
-	calcText.top = 0;
-	calcText.width = '200 dp';
-	calcText.left = '10 dp';
-	calcButton.top = 0;
-	var aux = Ti.UI.createView({
-		top:'20 dp',
-		layout:'horizontal'
-	});
-	aux.add(calcText);
-	aux.add(calcButton);
-	mainView.add(aux);
+	win.add(header);
+	win.add(image);
+	win.add(insertDate);
+	win.add(go);
+	win.add(calcText);
+	win.add(calcButton);
 
 	/*
 	 * funcionalidades
@@ -274,7 +270,7 @@ module.exports = function() {
 		
 	});
 	
-	win.add(mainView);
+	//win.add(mainView);
 	
 	return win;
 	
