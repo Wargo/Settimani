@@ -79,7 +79,7 @@ module.exports = function() {
 	
 	for (i in data) {
 		
-		data[i].title = 'Lorem ipsum ' + i;
+		data[i].title = 'Lorem ipsum ' + (parseInt(i) + 1);
 		data[i].intro = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
 		data[i].image = 'http://www.semanasdembarazo.com/wp-content/uploads/2012/09/semana361.jpg';
 		data[i].description = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
@@ -100,8 +100,8 @@ module.exports = function() {
 			var row = Ti.UI.createTableViewRow($$.row);
 			row.data = data[i];
 			
-			row.addEventListener('click', function() {
-				loadArticle(i);
+			row.addEventListener('click', function(e) {
+				loadArticle(e);
 			});
 			
 			if (data[i].header) {
@@ -146,9 +146,10 @@ module.exports = function() {
 		
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
 			miniRow.data = data[i];
+			miniRow._i = i;
 			
-			miniRow.addEventListener('click', function() {
-				loadArticle(i);
+			miniRow.addEventListener('click', function(e) {
+				loadArticle(e._i);
 			});
 			
 			miniRow.add(title);
