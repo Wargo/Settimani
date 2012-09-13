@@ -1,6 +1,8 @@
 
 module.exports = function(current, from, to, f_callback, f_cancel) {
 	
+	var currentValue = new Date(current);
+	
 	if (Ti.Platform.osname === 'android') {
 		
 		var picker = Ti.UI.createPicker({
@@ -10,7 +12,7 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 		});
 		
 		picker.showDatePickerDialog({
-			value:new Date(current),
+			value:currentValue,
 			callback: function(e) {
 				if (e.cancel) {
 					f_cancel();
@@ -32,7 +34,7 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 			type:Ti.UI.PICKER_TYPE_DATE,
 			minDate:from,
 			maxDate:to,
-			value:new Date(current)
+			value:currentValue
 		});
 		
 		var cancel = Ti.UI.createButton({
@@ -55,10 +57,6 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 		
 		view.add(toolbar);
 		view.add(picker);
-		
-		picker.addEventListener('load', function(e) {
-			currentValue = e.value;
-		})
 		
 		picker.addEventListener('change', function(e) {
 			currentValue = e.value;
