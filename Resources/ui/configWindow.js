@@ -47,7 +47,7 @@ module.exports = function() {
 	
 	var intro = Ti.UI.createLabel({
 		text:L('fill_preg_date', 'Introduce tu fecha de parto'),
-		font:{fontWeight:'bold', fontSize:'16 dp', fontFamily:'Arial'},
+		font:{fontSize:'16 dp', fontFamily:'Arial Rounded MT Bold'},
 		color:'#2094c0',
 		top:'10 dp'
 	});
@@ -138,7 +138,7 @@ module.exports = function() {
 			left:'20 dp',
 			right:'20 dp',
 			top:'20 dp',
-			height:Ti.Platform.osname === 'android' ? '200 dp' : '200 dp',
+			height:'200 dp',
 			borderRadius:10,
 			backgroundColor:'#000',
 			opacity:0.6
