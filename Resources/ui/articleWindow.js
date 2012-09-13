@@ -53,7 +53,7 @@ module.exports = function(data, x) {
 		});
 		
 		todayButton.addEventListener('click', function(e) {
-			if (e.value === 1) {
+			if (e.index === 1) {
 				scrollableView.currentPage ++;
 			} else {
 				scrollableView.currentPage --;
