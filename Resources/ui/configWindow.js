@@ -79,12 +79,14 @@ module.exports = function() {
 	var yearText = Ti.UI.createLabel($$.dateItemText);
 	
 	var go = Ti.UI.createButton($$.button);
-	go.top = '400 dp';
 	go.title = L('go', 'Ir');
 	go.enabled = false;
 	
 	if (Ti.Platform.osname != 'android') {
+		go.top = 360;
 		go.backgroundColor = '#DDD';
+	} else {
+		go.top = '400 dp';
 	}
 	
 	if (Ti.App.Properties.getDouble('date', null)) {
@@ -110,26 +112,9 @@ module.exports = function() {
 	/*
 	 * Calcular fecha
 	 */
-	var calcText = Ti.UI.createLabel({
-		top:'480 dp',
-		right:'100 dp',
-		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
-		font:{fontWeigh:'bold', fontSize:'16 dp'},
-		color:'#333',
-		left:'1 dp',
-		textAlign:'center'
-	});
+	var calcText = Ti.UI.createLabel($$.calcText);
 	
-	var calcButton = Ti.UI.createView({
-		right:'10 dp',
-		top:'480 dp',
-		width:'80 dp',
-		height:'40 dp',
-		borderRadius:15,
-		borderWidth:1,
-		borderColor:'#999',
-		backgroundColor:'#FFF'
-	});
+	var calcButton = Ti.UI.createView($$.calcButton);
 	calcButton.add(Ti.UI.createImageView({image:'/ui/images/calc.png'}));
 	
 	calcButton.addEventListener('click', function() {

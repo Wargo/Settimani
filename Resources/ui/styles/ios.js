@@ -14,13 +14,15 @@ module.exports = {
 	},
 	
 	imageHome: {
+		top:44
 	},
 	
 	insertDate: {
 		backgroundColor:'#FFF',
 		borderRadius:5,
 		right:10,left:10,top:10,
-		height:100
+		height:100,
+		top:250
 	}, 
 	
 	dateItem: {
@@ -48,6 +50,27 @@ module.exports = {
 		backgroundImage:'none',
 		color:'#FFF',
 		font:{fontSize:20, fontWeight:'bold'}
+	},
+	
+	calcText: {
+		top:420,
+		right:100,
+		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
+		font:{fontWeigh:'bold', fontSize:16},
+		color:'#333',
+		left:1,
+		textAlign:'center'
+	},
+	
+	calcButton: {
+		right:10,
+		top:420,
+		width:80,
+		height:40,
+		borderRadius:15,
+		borderWidth:1,
+		borderColor:'#999',
+		backgroundColor:'#FFF'
 	},
 	
 	tableView: {

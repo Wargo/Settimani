@@ -67,6 +67,27 @@ module.exports = {
 		font:{fontSize:'20 dp', fontWeight:'bold'}
 	},
 	
+	calcText: {
+		top:'480 dp',
+		right:'100 dp',
+		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
+		font:{fontWeigh:'bold', fontSize:'16 dp'},
+		color:'#333',
+		left:'1 dp',
+		textAlign:'center'
+	},
+	
+	calcButton: {
+		right:'10 dp',
+		top:'480 dp',
+		width:'80 dp',
+		height:'40 dp',
+		borderRadius:15,
+		borderWidth:1,
+		borderColor:'#999',
+		backgroundColor:'#FFF'
+	},
+	
 	tableView: {
 		top:'40 dp',
 		separatorColor:'transparent'
