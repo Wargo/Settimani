@@ -51,7 +51,6 @@ module.exports = function() {
 		color:'#2094c0',
 		top:'10 dp'
 	});
-	insertDate.add(intro);
 	
 	var day = Ti.UI.createView($$.dateItem);
 	var month = Ti.UI.createView($$.dateItem);
@@ -65,9 +64,12 @@ module.exports = function() {
 		year.right = 50;
 	}
 	
-	insertDate.add(day);
-	insertDate.add(month);
-	insertDate.add(year);
+	setTimeout(function() {
+		insertDate.add(intro);
+		insertDate.add(day);
+		insertDate.add(month);
+		insertDate.add(year);
+	}, 200);
 	
 	var dayText = Ti.UI.createLabel($$.dateItemText);
 	var monthText = Ti.UI.createLabel($$.dateItemText);
