@@ -78,6 +78,7 @@ module.exports = function(data, x) {
 	var scrollableView = Ti.UI.createScrollableView();
 	
 	for (i in data) {
+		
 		var current = data[i];
 		
 		var content = Ti.UI.createView($$.articleContent);

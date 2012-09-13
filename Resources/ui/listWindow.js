@@ -101,7 +101,7 @@ module.exports = function() {
 			row.data = data[i];
 			
 			row.addEventListener('click', function(e) {
-				loadArticle(e);
+				loadArticle(e.index);
 			});
 			
 			if (data[i].header) {
@@ -149,7 +149,7 @@ module.exports = function() {
 			miniRow._i = i;
 			
 			miniRow.addEventListener('click', function(e) {
-				loadArticle(e._i);
+				loadArticle(e.row._i);
 			});
 			
 			miniRow.add(title);
@@ -229,7 +229,7 @@ module.exports = function() {
 		
 		var article = require(Mods.articleWindow);
 		//var articleWin = article(row.data);
-		var articleWin = article(data, e.index);
+		var articleWin = article(data, e);
 		
 		if (Ti.Platform.osname === 'android') {
 			articleWin.open();
