@@ -17,12 +17,12 @@ module.exports = {
 	headerButton: {
 		right:'10 dp',
 		height:'25 dp',
-		width:'40 dp',
+		width:'45 dp',
 		borderRadius:5,
 		borderColor:'#1A6A8A',
 		borderWidth:1,
 		color:'#FFF',
-		font:{fontWeigh:'bold'},
+		font:{fontWeigh:'bold', fontSize:'12 dp'},
 		backgroundColor:'#1280AB'
 	},
 	
@@ -158,15 +158,15 @@ module.exports = {
 		right:'8 dp',
 		top:'25 dp',
 		zIndex:100,
-		image:'/ui/images/next_android.png'
+		image:'/ui/images/next.png'
 	},
 	
 	prevImage: {
 		width:'25 dp',
-		left:'33 dp', // 8 + 25
+		left:'8 dp', // 8 + 25
 		top:'25 dp',
 		zIndex:100,
-		image:'/ui/images/next_android.png'
+		image:'/ui/images/prev.png'
 	},
 	
 	headerTableViewSection: {

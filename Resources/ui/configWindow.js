@@ -57,8 +57,13 @@ module.exports = function() {
 	var month = Ti.UI.createView($$.dateItem);
 	var year = Ti.UI.createView($$.dateItem);
 	
-	day.left = 50;
-	year.right = 50;
+	if (Ti.Platform.osname === 'android') {
+		day.left = '50 dp';
+		year.right = '50 dp';
+	} else {
+		day.left = 50;
+		year.right = 50;
+	}
 	
 	insertDate.add(day);
 	insertDate.add(month);

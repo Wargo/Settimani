@@ -9,14 +9,13 @@ if (Ti.Platform.osname === 'android') {
 
 module.exports = function() {
 	
-	var MyWindow = require(Mods.configWindow);
-	
 	var win = Ti.UI.createWindow({
 		backgroundImage:'ui/images/bg_list.png',
 		exitOnClose:true
 	});
 	
 	if (!Ti.App.Properties.getDouble('date', null)) {
+		var MyWindow = require(Mods.configWindow);
 		setTimeout(function() {
 			MyWindow().open();
 		}, 10);
@@ -101,7 +100,7 @@ module.exports = function() {
 			row.data = data[i];
 			
 			row.addEventListener('click', function(e) {
-				loadArticle(e.row);
+				loadArticle(e);
 			});
 			
 			if (data[i].header) {
@@ -148,7 +147,7 @@ module.exports = function() {
 			miniRow.data = data[i];
 			
 			miniRow.addEventListener('click', function(e) {
-				loadArticle(e.row);
+				loadArticle(e);
 			});
 			
 			miniRow.add(title);
@@ -224,10 +223,11 @@ module.exports = function() {
 		miniTableView.height = miniRow.height * numRows - 1;
 	}
 	
-	function loadArticle(row) {
+	function loadArticle(e) {
 		
 		var article = require(Mods.articleWindow);
-		var articleWin = article(row.data);
+		//var articleWin = article(row.data);
+		var articleWin = article(data, e.index);
 		
 		if (Ti.Platform.osname === 'android') {
 			articleWin.open();
