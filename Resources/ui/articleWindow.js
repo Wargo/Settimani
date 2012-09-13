@@ -33,10 +33,14 @@ module.exports = function(data, x) {
 		next.title = '>';
 		
 		prev.addEventListener('click', function() {
-			scrollableView.currentPage --;
+			if (data[scrollableView.currentPage - 1]) {
+				scrollableView.scrollToView(scrollableView.currentPage - 1);
+			}
 		});
 		next.addEventListener('click', function() {
-			scrollableView.currentPage ++;
+			if (data[scrollableView.currentPage + 1]) {
+				scrollableView.scrollToView(scrollableView.currentPage + 1);
+			}
 		});
 		
 		header.add(prev);
@@ -54,9 +58,13 @@ module.exports = function(data, x) {
 		
 		todayButton.addEventListener('click', function(e) {
 			if (e.index === 1) {
-				scrollableView.currentPage ++;
+				if (data[scrollableView.currentPage + 1]) {
+					scrollableView.scrollToView(scrollableView.currentPage + 1);
+				}
 			} else {
-				scrollableView.currentPage --;
+				if (data[scrollableView.currentPage - 1]) {
+					scrollableView.scrollToView(scrollableView.currentPage - 1);
+				}
 			}
 		});
 		
@@ -117,10 +125,14 @@ module.exports = function(data, x) {
 		var prevImage = Ti.UI.createImageView($$.prevImage);
 		
 		prevImage.addEventListener('click', function() {
-			scrollableView.currentPage --;
+			if (data[scrollableView.currentPage - 1]) {
+				scrollableView.scrollToView(scrollableView.currentPage - 1);
+			}
 		});
 		nextImage.addEventListener('click', function() {
-			scrollableView.currentPage ++;
+			if (data[scrollableView.currentPage + 1]) {
+				scrollableView.scrollToView(scrollableView.currentPage + 1);
+			}
 		});
 		
 		scrollView.add(nextImage);
