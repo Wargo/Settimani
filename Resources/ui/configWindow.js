@@ -138,7 +138,7 @@ module.exports = function() {
 			left:'20 dp',
 			right:'20 dp',
 			top:'20 dp',
-			bottom:Ti.Platform.osname === 'android' ? '350 dp' : '270 dp',
+			height:Ti.Platform.osname === 'android' ? '200 dp' : '200 dp',
 			borderRadius:10,
 			backgroundColor:'#000',
 			opacity:0.6
@@ -150,7 +150,8 @@ module.exports = function() {
 			color:'#FFF',
 			left:'40 dp',
 			right:'40 dp',
-			top:'40 dp'
+			top:'40 dp',
+			font:{fontSize:'16 dp'}
 		});
 		win.add(popupText);
 		
@@ -160,6 +161,8 @@ module.exports = function() {
 		win.add(popupButton);
 		
 		popupButton.addEventListener('click', function() {
+			popupButton.hide();
+			
 			var pastDate = new Date();
 			pastDate.setDate(myDate.getDate() - 300);
 			
