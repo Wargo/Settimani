@@ -13,11 +13,11 @@ module.exports = function(data, x) {
 	
 	var win = Ti.UI.createWindow({
 		backgroundImage:'ui/images/bg_list.png',
-		modal:true,
-		navBarHidden:true
+		modal:true
 	});
 	
 	if (Ti.Platform.osname === 'android') {
+		win.navBarHidden = true;
 		var header = Ti.UI.createView($$.header);
 		var titleWin = Ti.UI.createLabel($$.headerTitle);
 		titleWin.text = current.title;
@@ -53,11 +53,10 @@ module.exports = function(data, x) {
 		});
 		
 		todayButton.addEventListener('click', function(e) {
-			alert(e)
-			if (e.value) {
-				scrollableView.currentPage --;
-			} else {
+			if (e.value === 1) {
 				scrollableView.currentPage ++;
+			} else {
+				scrollableView.currentPage --;
 			}
 		});
 		

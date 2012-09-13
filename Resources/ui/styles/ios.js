@@ -111,7 +111,7 @@ module.exports = {
 		left:7,
 		top:45,
 		zIndex:100,
-		image:'/ui/images/next.png'
+		image:'/ui/images/prev.png'
 	},
 	
 	headerTableViewSection: {
