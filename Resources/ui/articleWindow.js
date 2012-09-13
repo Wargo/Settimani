@@ -75,8 +75,22 @@ module.exports = function(data, x) {
 		win.rightNavButton = todayButton;
 	}
 	
-	var scrollableView = Ti.UI.createScrollableView();
+	var scrollableView = Ti.UI.createScrollableView({
+		cacheSize:3
+	});
 	
+	if (Ti.Platform.osname === 'android') {
+		scrollableView.top = '40 dp';
+	} else {
+		setTimeout(function() {
+			scrollableView.setShadow({
+				shadowOffset:{x:0,y:2},
+				shadowOpacity:0.2,
+				shadowRadius:2
+			});
+		}, 100);
+	}
+		
 	for (i in data) {
 		
 		var current = data[i];
@@ -109,18 +123,6 @@ module.exports = function(data, x) {
 			contentHeight:'auto',
 			showVerticalScrollIndicator:true
 		});
-		
-		if (Ti.Platform.osname === 'android') {
-			scrollableView.top = '40 dp';
-		} else {
-			setTimeout(function() {
-				content.setShadow({
-					shadowOffset:{x:0,y:2},
-					shadowOpacity:0.2,
-					shadowRadius:2
-				});
-			}, 100);
-		}
 		
 		var nextImage = Ti.UI.createImageView($$.nextImage);
 		var prevImage = Ti.UI.createImageView($$.prevImage);

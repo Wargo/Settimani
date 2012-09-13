@@ -37,9 +37,9 @@ module.exports = function() {
 		insertDate.borderWidth = 1;
 	} else {
 		setTimeout(function() {
-			insertDate.setShadow({
+			mainView.setShadow({
 				shadowOffset:{x:0,y:3},
-				shadowOpacity:0.5,
+				shadowOpacity:0.3,
 				shadowRadius:3
 			});
 		}, 100);
@@ -47,7 +47,7 @@ module.exports = function() {
 	
 	var intro = Ti.UI.createLabel({
 		text:L('fill_preg_date', 'Introduce tu fecha de parto'),
-		font:{fontWeight:'bold', fontSize:'16 dp'},
+		font:{fontWeight:'bold', fontSize:'16 dp', fontFamily:'Arial'},
 		color:'#2094c0',
 		top:'10 dp'
 	});
@@ -64,12 +64,10 @@ module.exports = function() {
 		year.right = 50;
 	}
 	
-	setTimeout(function() {
-		insertDate.add(intro);
-		insertDate.add(day);
-		insertDate.add(month);
-		insertDate.add(year);
-	}, 200);
+	insertDate.add(intro);
+	insertDate.add(day);
+	insertDate.add(month);
+	insertDate.add(year);
 	
 	var dayText = Ti.UI.createLabel($$.dateItemText);
 	var monthText = Ti.UI.createLabel($$.dateItemText);
