@@ -98,9 +98,6 @@ module.exports = function(data, x) {
 		var current = data[i];
 		
 		var content = Ti.UI.createView($$.articleContent);
-		var contentShadow = Ti.UI.createView($$.articleContent);
-		contentShadow.zIndex = -10;
-		contentShadow.height = 'auto';
 		
 		var title = Ti.UI.createLabel($$.articleTitle);
 		title.text = current.title;
@@ -145,14 +142,19 @@ module.exports = function(data, x) {
 		
 		scrollView.add(nextImage);
 		scrollView.add(prevImage);
-		scrollView.add(contentShadow);
 		scrollView.add(content);
 		
-		contentShadow.setShadow({
-			shadowOffset:{x:0,y:2},
-			shadowOpacity:0.2,
-			shadowRadius:2
-		});
+		if (Ti.Platform.osname != 'android') {
+			var contentShadow = Ti.UI.createView($$.articleContent);
+			contentShadow.zIndex = -10;
+			contentShadow.height = 'auto';
+			scrollView.add(contentShadow);
+			contentShadow.setShadow({
+				shadowOffset:{x:0,y:2},
+				shadowOpacity:0.2,
+				shadowRadius:2
+			});
+		}
 		
 		scrollableView.addView(scrollView);
 	}

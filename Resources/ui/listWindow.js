@@ -14,7 +14,7 @@ module.exports = function() {
 		exitOnClose:true
 	});
 	
-	if (!Ti.App.Properties.getDouble('date', null)) {
+	if (true || !Ti.App.Properties.getDouble('date', null)) {
 		var MyWindow = require(Mods.configWindow);
 		setTimeout(function() {
 			MyWindow().open();
