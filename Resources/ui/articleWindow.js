@@ -18,6 +18,7 @@ module.exports = function(data, x) {
 	
 	if (Ti.Platform.osname === 'android') {
 		win.navBarHidden = true;
+		win.fullscreen = true;
 		var header = Ti.UI.createView($$.header);
 		var titleWin = Ti.UI.createLabel($$.headerTitle);
 		titleWin.text = current.title;
