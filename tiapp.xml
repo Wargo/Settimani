@@ -48,9 +48,6 @@
 		<manifest android:installLocation="preferExternal">
 			<uses-sdk android:minSdkVersion="7" />
 		</manifest>
-		<orientations device="android">
-            <orientation>Ti.UI.PORTRAIT</orientation>
-        </orientations>
 	</android>
     <mobileweb>
         <precache/>

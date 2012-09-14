@@ -22,6 +22,7 @@ module.exports = function() {
 	}
 	
 	if (Ti.Platform.osname === 'android') {
+		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
 		var title = Ti.UI.createLabel($$.headerTitle);
 		title.text = L('main_title', 'Lagravidanza.net');
@@ -51,195 +52,180 @@ module.exports = function() {
 		win.rightNavButton = todayButton;
 	}
 	
-	var data = [
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 1'},
-		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum larga largo largo largo largo largo', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 2'},
-		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 3'},
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 4'},
-		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 5'},
-		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'},
-		{title:'Lorem Ipsum', category:'mom', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-		{title:'Lorem Ipsum', category:'general', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', header:'semana 6'},
-		{title:'Lorem Ipsum', category:'baby', intro:'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.', last:true},
-	]
+	var getData = require(Mods.bbdd);
+	getData(putData);
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
 	var tableViewData = [];
 	
-	for (i in data) {
+	function putData(data) {
 		
-		data[i].title = 'Lorem ipsum ' + (parseInt(i) + 1);
-		data[i].intro = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
-		data[i].image = 'http://www.semanasdembarazo.com/wp-content/uploads/2012/09/semana361.jpg';
-		data[i].description = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
-		
-		var title = Ti.UI.createLabel($$.rowTitle);
-		title.text = data[i].title;
-		
-		var intro = Ti.UI.createLabel($$.rowIntro);
-		intro.text = data[i].intro;
-		
-		var image = Ti.UI.createImageView($$.rowImage);
-		image.image = '/ui/images/' + data[i].category + '.gif';
-		
-		var nextImage = Ti.UI.createImageView($$.nextImage);
-		
-		if (Ti.Platform.osname === 'android') {
+		for (i in data) {
 			
-			var row = Ti.UI.createTableViewRow($$.row);
-			row.data = data[i];
+			//data[i].title = 'Lorem ipsum ' + (parseInt(i) + 1);
+			//data[i].intro = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
+			data[i].image = 'http://www.semanasdembarazo.com/wp-content/uploads/2012/09/semana361.jpg';
+			//data[i].description = 'Seguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.\r\n\r\nSeguramente empezara a pegar pataditas cuando lo quieras sentir te tendra atrapada, ten paciencia y descubre que es maravilloso.';
 			
-			row.addEventListener('click', function(e) {
-				loadArticle(e.index);
-			});
+			var title = Ti.UI.createLabel($$.rowTitle);
+			title.text = data[i].title;
 			
-			if (data[i].header) {
-				
-				var content = Ti.UI.createView($$.firstRow);
-				row.header = data[i].header;
-				
-				nextImage.top = '45 dp';
-				
-			} else if (data[i].last) {
-				
-				var content = Ti.UI.createView($$.lastRow);
-				title.top = '5 dp';
-				intro.top = '30 dp';
-				if (data[i - 1].header) {
-					content.add(Ti.UI.createView({
-						height:1,
-						backgroundColor:'#999',
-						top:'5 dp'
-					}));
-				}
-				
-			} else {
-				
-				var content = Ti.UI.createView($$.middleRow);
-				if (!data[i - 1].header) {
-					content.top = '-1 dp';
-				}
-				
-			}
+			var intro = Ti.UI.createLabel($$.rowIntro);
+			intro.text = data[i].intro;
 			
-			content.add(title);
-			content.add(intro);
-			content.add(image);
+			var image = Ti.UI.createImageView($$.rowImage);
+			image.image = '/ui/images/' + data[i].category + '.gif';
 			
-			row.add(nextImage);
-			row.add(content);
+			var nextImage = Ti.UI.createImageView($$.nextImage);
 			
-			tableView.appendRow(row);
-			
-		} else {
-		
-			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
-			miniRow.data = data[i];
-			miniRow._i = i;
-			
-			miniRow.addEventListener('click', function(e) {
-				loadArticle(e.row._i);
-			});
-			
-			miniRow.add(title);
-			miniRow.add(intro);
-			miniRow.add(image);
-			
-			if (data[i].header) {
+			if (Ti.Platform.osname === 'android') {
 				
 				var row = Ti.UI.createTableViewRow($$.row);
+				row.data = data[i];
 				
-				if (typeof numRows != 'undefined') {
-					adjustHeight(numRows);
+				row.addEventListener('click', function(e) {
+					loadArticle(e.index);
+				});
+				
+				if (data[i].header) {
+					
+					var content = Ti.UI.createView($$.firstRow);
+					row.header = data[i].header;
+					
+					nextImage.top = '45 dp';
+					
+				} else if (typeof data[i + 1] != 'undefined' && data[i + 1].header) {
+					
+					var content = Ti.UI.createView($$.lastRow);
+					title.top = '5 dp';
+					intro.top = '30 dp';
+					if (data[i - 1].header) {
+						content.add(Ti.UI.createView({
+							height:1,
+							backgroundColor:'#999',
+							top:'5 dp'
+						}));
+					}
+					
+				} else {
+					
+					var content = Ti.UI.createView($$.middleRow);
+					if (!data[i - 1].header) {
+						content.top = '-1 dp';
+					}
+					
 				}
-				var numRows = 0;
 				
-				var auxSection = Ti.UI.createTableViewSection();
-				var headerText = Ti.UI.createLabel($$.headerTableViewText);
-				headerText.text = data[i].header;
+				content.add(title);
+				content.add(intro);
+				content.add(image);
 				
-				var header = Ti.UI.createView($$.headerTableViewSection);
-				header.add(headerText);
-				auxSection.headerView = header;
+				row.add(nextImage);
+				row.add(content);
 				
-				var miniTableViewShadow = Ti.UI.createTableView($$.miniTableView);
-				miniTableViewShadow.zIndex = -10;
-				miniTableViewShadow.backgroundColor = 'transparent';
-				row.add(miniTableViewShadow);
+				tableView.appendRow(row);
 				
-				var miniTableView = Ti.UI.createTableView($$.miniTableView);
-				row.add(miniTableView);
+			} else {
+			
+				var miniRow = Ti.UI.createTableViewRow($$.miniRow);
+				miniRow.data = data[i];
+				miniRow._i = i;
 				
-				auxSection._header = header;
-				auxSection._miniTableViewShadow = miniTableViewShadow;
+				miniRow.addEventListener('click', function(e) {
+					loadArticle(e.row._i);
+				});
 				
-				tableViewData.push(auxSection);
-				auxSection.add(row);
+				miniRow.add(title);
+				miniRow.add(intro);
+				miniRow.add(image);
+				
+				if (data[i].header) {
+					
+					var row = Ti.UI.createTableViewRow($$.row);
+					
+					if (typeof numRows != 'undefined') {
+						adjustHeight(numRows);
+					}
+					var numRows = 0;
+					
+					var auxSection = Ti.UI.createTableViewSection();
+					var headerText = Ti.UI.createLabel($$.headerTableViewText);
+					headerText.text = data[i].header;
+					
+					var header = Ti.UI.createView($$.headerTableViewSection);
+					header.add(headerText);
+					auxSection.headerView = header;
+					
+					var miniTableViewShadow = Ti.UI.createTableView($$.miniTableView);
+					miniTableViewShadow.zIndex = -10;
+					miniTableViewShadow.backgroundColor = 'transparent';
+					row.add(miniTableViewShadow);
+					
+					var miniTableView = Ti.UI.createTableView($$.miniTableView);
+					row.add(miniTableView);
+					
+					auxSection._header = header;
+					auxSection._miniTableViewShadow = miniTableViewShadow;
+					
+					tableViewData.push(auxSection);
+					auxSection.add(row);
+					
+				}
+				
+				nextImage.top = nextImage.top + miniRow.height * numRows;
+				row.add(nextImage);
+				
+				numRows ++;
+				
+				miniTableView.appendRow(miniRow);
 				
 			}
 			
-			nextImage.top = nextImage.top + miniRow.height * numRows;
-			row.add(nextImage);
-			
-			numRows ++;
-			
-			miniTableView.appendRow(miniRow);
+			if (typeof numRows != 'undefined') {
+				adjustHeight(numRows);
+			}
 			
 		}
 		
-		if (typeof numRows != 'undefined') {
-			adjustHeight(numRows);
+		if (tableViewData.length > 0) { // Sólo en iOS
+			
+			tableView.data = tableViewData;
+			
+			for (i in tableViewData) {
+				
+				tableViewData[i]._miniTableViewShadow.setShadow({
+					shadowOffset:{x:0,y:3},
+					shadowOpacity:0.2,
+					shadowRadius:3
+				});
+				
+			}
+				
 		}
 		
-	}
-	
-	if (tableViewData.length > 0) { // Sólo en iOS
-		
-		tableView.data = tableViewData;
-		
-		for (i in tableViewData) {
-			
-			tableViewData[i]._miniTableViewShadow.setShadow({
-				shadowOffset:{x:0,y:3},
-				shadowOpacity:0.2,
-				shadowRadius:3
-			});
-			
-		}
-			
-	}
-	
-	function adjustHeight(numRows) { // Sólo iOS
-		miniTableView.height = miniRow.height * numRows - 1;
-		miniTableViewShadow.height = miniRow.height * numRows - 1;
-	}
-	
-	function loadArticle(e) {
-		
-		var article = require(Mods.articleWindow);
-		//var articleWin = article(row.data);
-		var articleWin = article(data, e);
-		
-		if (Ti.Platform.osname === 'android') {
-			articleWin.open();
-		} else {
-			nav.open(articleWin);
+		function adjustHeight(numRows) { // Sólo iOS
+			miniTableView.height = miniRow.height * numRows - 1;
+			miniTableViewShadow.height = miniRow.height * numRows - 1;
 		}
 		
-	}
+		function loadArticle(e) {
+			
+			var article = require(Mods.articleWindow);
+			//var articleWin = article(row.data);
+			var articleWin = article(data, e);
+			
+			if (Ti.Platform.osname === 'android') {
+				articleWin.open();
+			} else {
+				nav.open(articleWin);
+			}
+			
+		}
+		
+		win.add(tableView);
 	
-	win.add(tableView);
+	}
 	
 	return win;
 	
