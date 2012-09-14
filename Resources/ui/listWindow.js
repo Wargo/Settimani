@@ -157,15 +157,13 @@ module.exports = function() {
 					header.add(headerText);
 					auxSection.headerView = header;
 					
-					var miniTableViewShadow = Ti.UI.createTableView($$.miniTableView);
+					var miniTableViewShadow = Ti.UI.createView($$.miniTableView);
 					miniTableViewShadow.zIndex = -10;
-					miniTableViewShadow.backgroundColor = 'transparent';
 					row.add(miniTableViewShadow);
 					
 					var miniTableView = Ti.UI.createTableView($$.miniTableView);
 					row.add(miniTableView);
 					
-					//auxSection._header = header;
 					auxSection._miniTableViewShadow = miniTableViewShadow;
 					
 					tableViewData.push(auxSection);
@@ -192,19 +190,15 @@ module.exports = function() {
 			
 			tableView.data = tableViewData;
 			
-			setTimeout(function() {
+			for (i in tableViewData) {
 				
-				for (i in tableViewData) {
-					
-					tableViewData[i]._miniTableViewShadow.setShadow({
-						shadowOffset:{x:0,y:3},
-						shadowOpacity:0.2,
-						shadowRadius:3
-					});
-					
-				}
+				tableViewData[i]._miniTableViewShadow.setShadow({
+					shadowOffset:{x:0,y:3},
+					shadowOpacity:0.2,
+					shadowRadius:3
+				});
 				
-			}, 300);
+			}
 			
 		}
 		
