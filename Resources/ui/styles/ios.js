@@ -146,7 +146,7 @@ module.exports = {
 	headerTableViewText: {
 		color:'#FFF',
 		left:10,
-		font:{fontWeight:'bold'},
+		font:{fontWeight:'bold', fontSize:16},
 		shadowColor:'#999',
 		shadowOffset:{x:1,y:1}
 	},

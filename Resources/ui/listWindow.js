@@ -14,7 +14,7 @@ module.exports = function() {
 		exitOnClose:true
 	});
 	
-	if (true || !Ti.App.Properties.getDouble('date', null)) {
+	if (!Ti.App.Properties.getDouble('date', null)) {
 		var MyWindow = require(Mods.configWindow);
 		setTimeout(function() {
 			MyWindow().open();
@@ -173,11 +173,14 @@ module.exports = function() {
 				header.add(headerText);
 				auxSection.headerView = header;
 				
+				var miniTableViewShadow = Ti.UI.createTableView($$.miniTableView);
+				row.add(miniTableViewShadow);
+				
 				var miniTableView = Ti.UI.createTableView($$.miniTableView);
 				row.add(miniTableView);
 				
 				auxSection._header = header;
-				auxSection._miniTableView = miniTableView;
+				auxSection._miniTableViewShadow = miniTableViewShadow;
 				
 				tableViewData.push(auxSection);
 				auxSection.add(row);
@@ -205,7 +208,7 @@ module.exports = function() {
 		
 		for (i in tableViewData) {
 			
-			tableViewData[i]._miniTableView.setShadow({
+			tableViewData[i]._miniTableViewShadow.setShadow({
 				shadowOffset:{x:0,y:2},
 				shadowOpacity:0.2,
 				shadowRadius:2
