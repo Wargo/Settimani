@@ -174,6 +174,8 @@ module.exports = function() {
 				auxSection.headerView = header;
 				
 				var miniTableViewShadow = Ti.UI.createTableView($$.miniTableView);
+				miniTableViewShadow.zIndex = -10;
+				miniTableViewShadow.backgroundColor = 'transparent';
 				row.add(miniTableViewShadow);
 				
 				var miniTableView = Ti.UI.createTableView($$.miniTableView);
@@ -209,14 +211,8 @@ module.exports = function() {
 		for (i in tableViewData) {
 			
 			tableViewData[i]._miniTableViewShadow.setShadow({
-				shadowOffset:{x:0,y:2},
-				shadowOpacity:0.2,
-				shadowRadius:2
-			});
-			
-			tableViewData[i]._header.setShadow({
 				shadowOffset:{x:0,y:3},
-				shadowOpacity:0.6,
+				shadowOpacity:0.2,
 				shadowRadius:3
 			});
 			
@@ -226,6 +222,7 @@ module.exports = function() {
 	
 	function adjustHeight(numRows) { // Sólo iOS
 		miniTableView.height = miniRow.height * numRows - 1;
+		miniTableViewShadow.height = miniRow.height * numRows - 1;
 	}
 	
 	function loadArticle(e) {

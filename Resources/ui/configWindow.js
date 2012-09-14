@@ -42,7 +42,7 @@ module.exports = function() {
 		setTimeout(function() {
 			insertDateShadow.setShadow({
 				shadowOffset:{x:0,y:3},
-				shadowOpacity:0.3,
+				shadowOpacity:0.2,
 				shadowRadius:3
 			});
 		}, 100);
