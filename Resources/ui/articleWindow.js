@@ -100,7 +100,7 @@ module.exports = function(data, x) {
 		scrollableView.top = '40 dp';
 	}
 	
-	function createViews() {
+	function createViews(data) {
 		
 		for (i in data) {
 			
@@ -167,16 +167,30 @@ module.exports = function(data, x) {
 			
 			scrollableView.addView(scrollView);
 			
+			if (i == x) {
+				setTimeout(function(){
+					scrollableView.currentPage = x;
+					win.add(scrollableView);
+				}, 100);
+			} else if (i == parseInt(x) + 1) {
+				break;
+			}
+			
 		}
-		
-		scrollableView.currentPage = x;
-		
-		win.add(scrollableView);
 		
 		loader.hide();
 	}
 	
 	scrollableView.addEventListener('scroll', function(e) {
+		/*
+		if (scrollableView.views.length == scrollableView.currentPage + 1) {
+			var auxData = [];
+			auxData.push(data[scrollableView.currentPage + 2]);
+			x = scrollableView.currentPage + 1;
+			createViews(data);
+		}
+		*/
+		
 		if (data[scrollableView.currentPage].header) {
 			if (Ti.Platform.osname === 'android') {
 				titleWin.text = data[scrollableView.currentPage].header;
@@ -202,7 +216,7 @@ module.exports = function(data, x) {
 	}, 50);
 	
 	setTimeout(function() {
-		createViews();
+		createViews(data);
 	}, 500);
 	
 	return win;
