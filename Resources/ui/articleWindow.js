@@ -100,7 +100,7 @@ module.exports = function(data, x) {
 		scrollableView.top = '40 dp';
 	}
 	
-	function createViews(data) {
+	function createViews() {
 		
 		for (i in data) {
 			
@@ -167,11 +167,15 @@ module.exports = function(data, x) {
 			
 			scrollableView.addView(scrollView);
 			
+			loader.hide();
+			
 		}
 		
+		scrollableView.currentPage = x;
+		
+		win.add(scrollableView);
+		
 	}
-	
-	scrollableView.currentPage = x;
 	
 	scrollableView.addEventListener('scroll', function(e) {
 		if (data[scrollableView.currentPage].header) {
@@ -194,20 +198,13 @@ module.exports = function(data, x) {
 		}
 	});
 	
-	win.add(scrollableView);
-	
 	setTimeout(function() {
 		loader.show();
-	}, 100);
+	}, 50);
 	
 	setTimeout(function() {
-		createViews(data);
+		createViews();
 	}, 500);
-	
-	setTimeout(function() {
-		loader.hide();
-	}, 2000);
-	
 	
 	return win;
 	

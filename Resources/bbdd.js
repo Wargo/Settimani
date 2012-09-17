@@ -11,11 +11,11 @@ module.exports = function(f_callback) {
 			if (result.status === 'ok') {
 				f_callback(result.data);
 			} else {
-				alert('error de datos')
+				f_callback(null, 'error de datos')
 			}
 		},
 		onerror:function(e) {
-			alert('error de conex')
+			f_callback(null, 'error de conexión')
 		}
 	});
 	

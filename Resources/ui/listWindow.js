@@ -67,7 +67,14 @@ module.exports = function() {
 	
 	var tableViewData = [];
 	
-	function putData(data) {
+	function putData(data, error) {
+		
+		if (data === null) {
+			//alert(error);
+			//loader.hide();
+			getData(putData);
+			return false;
+		}
 		
 		for (i in data) {
 			
