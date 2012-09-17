@@ -95,6 +95,7 @@ module.exports = function() {
 	});
 	
 	var loadingRow = Ti.UI.createTableViewRow($$.row);
+	loadingRow.height = '40 dp';
 	loadingRow.focusable = false;
 	if (Ti.Platform.osname === 'android') {
 		var loadingMore = Ti.UI.createLabel({
@@ -123,8 +124,12 @@ module.exports = function() {
 	
 	function putData2(data, error) {
 		
-		tableView.deleteRow(loadingRow);
-		updating = false;
+		tableView.deleteRow(tableView.data.length);
+		
+		if (data) {
+			updating = false;
+		}
+		
 		putData(data, error);
 		
 	}
@@ -134,11 +139,11 @@ module.exports = function() {
 	function putData(data, error) {
 		
 		if (data === null) {
-			//alert(error);
-			//loader.hide();
-			getData(putData);
+			//getData(putData);
 			return false;
 		}
+		
+		lastRow += data.length;
 		
 		for (i in data) {
 			
@@ -286,6 +291,8 @@ module.exports = function() {
 		var article = require(Mods.articleWindow);
 		
 		function loadArticle(e) {
+			
+			alert(e);
 			
 			var auxData = [];
 			
