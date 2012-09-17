@@ -167,14 +167,13 @@ module.exports = function(data, x) {
 			
 			scrollableView.addView(scrollView);
 			
-			loader.hide();
-			
 		}
 		
 		scrollableView.currentPage = x;
 		
 		win.add(scrollableView);
 		
+		loader.hide();
 	}
 	
 	scrollableView.addEventListener('scroll', function(e) {
