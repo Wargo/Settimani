@@ -16,12 +16,22 @@ module.exports = function(data, x, loader) {
 		modal:true
 	});
 	
+	if (current.header) {
+		var headerText = current.header;
+	} else {
+		if (data[x - 1].header) {
+			var headerText = data[x - 1].header;
+		} else {
+			var headerText = data[x - 2].header;
+		}
+	}
+	
 	if (Ti.Platform.osname === 'android') {
 		win.navBarHidden = true;
 		win.fullscreen = true;
 		var header = Ti.UI.createView($$.header);
 		var titleWin = Ti.UI.createLabel($$.headerTitle);
-		titleWin.text = current.title;
+		titleWin.text = headerText;
 		
 		header.add(titleWin);
 		win.add(header);
@@ -71,27 +81,17 @@ module.exports = function(data, x, loader) {
 		
 		win.backButtonTitle = L('weeks', 'Semanas');
 		
-		win.title = current.title;
+		win.title = headerText;
 		
 		win.rightNavButton = todayButton;
 	}
 	
 	var scrollableView = Ti.UI.createScrollableView({
-		cacheSize:120
+		cacheSize:1
 	});
 	
 	if (Ti.Platform.osname === 'android') {
 		scrollableView.top = '40 dp';
-	} else {
-		setTimeout(function() {
-			/*
-			scrollableView.setShadow({
-				shadowOffset:{x:0,y:2},
-				shadowOpacity:0.2,
-				shadowRadius:2
-			});
-			*/
-		}, 100);
 	}
 		
 	for (i in data) {
@@ -163,10 +163,23 @@ module.exports = function(data, x, loader) {
 	scrollableView.currentPage = x;
 	
 	scrollableView.addEventListener('scroll', function(e) {
-		if (Ti.Platform.osname === 'android') {
-			titleWin.text = data[scrollableView.currentPage].title;
+		if (data[scrollableView.currentPage].header) {
+			if (Ti.Platform.osname === 'android') {
+				titleWin.text = data[scrollableView.currentPage].header;
+			} else {
+				win.title = data[scrollableView.currentPage].header;
+			}
 		} else {
-			win.title = data[scrollableView.currentPage].title;
+			if (data[scrollableView.currentPage - 1].header) {
+				var headerText = data[scrollableView.currentPage - 1].header;
+			} else {
+				var headerText = data[scrollableView.currentPage - 2].header;
+			}
+			if (Ti.Platform.osname === 'android') {
+				titleWin.text = headerText;
+			} else {
+				win.title = headerText;
+			}
 		}
 	});
 	

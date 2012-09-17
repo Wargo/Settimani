@@ -212,13 +212,13 @@ module.exports = function() {
 			miniTableViewShadow.height = miniRow.height * numRows - 1;
 		}
 		
+		var article = require(Mods.articleWindow);
+		
 		function loadArticle(e) {
 			
-			loader.show();
+			articleLoader.show();
 			
-			var article = require(Mods.articleWindow);
-			//var articleWin = article(row.data);
-			var articleWin = article(data, e, loader);
+			var articleWin = article(data, e, articleLoader);
 			
 			if (Ti.Platform.osname === 'android') {
 				articleWin.open();
@@ -231,6 +231,12 @@ module.exports = function() {
 		win.add(tableView);
 		
 		loader.hide();
+		
+		var articleLoader = Ti.UI.createActivityIndicator({
+			style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+			message:L('loading', 'Cargando...')
+		});
+		win.add(articleLoader);
 	
 	}
 	
