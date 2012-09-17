@@ -14,7 +14,7 @@ module.exports = function() {
 		exitOnClose:true
 	});
 	
-	if (true || !Ti.App.Properties.getDouble('date', null)) {
+	if (!Ti.App.Properties.getDouble('date', null)) {
 		var MyWindow = require(Mods.configWindow);
 		setTimeout(function() {
 			MyWindow().open();
@@ -90,7 +90,8 @@ module.exports = function() {
 					
 					nextImage.top = '45 dp';
 					
-				} else if (typeof data[i + 1] != 'undefined' && data[i + 1].header) {
+				//} else if (typeof data[i + 1] != 'undefined' && data[i + 1].header) {
+				} else if (data[i].last) {
 					
 					var content = Ti.UI.createView($$.lastRow);
 					title.top = '5 dp';
@@ -106,6 +107,7 @@ module.exports = function() {
 				} else {
 					
 					var content = Ti.UI.createView($$.middleRow);
+					
 					if (!data[i - 1].header) {
 						content.top = '-1 dp';
 					}
