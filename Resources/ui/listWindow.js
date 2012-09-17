@@ -14,11 +14,19 @@ module.exports = function() {
 		exitOnClose:true
 	});
 	
+	var loader = Ti.UI.createActivityIndicator({
+		style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+		message:L('loading', 'Cargando...')
+	});
+	win.add(loader);
+	
 	if (!Ti.App.Properties.getDouble('date', null)) {
 		var MyWindow = require(Mods.configWindow);
 		setTimeout(function() {
 			MyWindow().open();
 		}, 10);
+	} else {
+		loader.show();
 	}
 	
 	if (Ti.Platform.osname === 'android') {
@@ -206,9 +214,11 @@ module.exports = function() {
 		
 		function loadArticle(e) {
 			
+			loader.show();
+			
 			var article = require(Mods.articleWindow);
 			//var articleWin = article(row.data);
-			var articleWin = article(data, e);
+			var articleWin = article(data, e, loader);
 			
 			if (Ti.Platform.osname === 'android') {
 				articleWin.open();
@@ -219,6 +229,8 @@ module.exports = function() {
 		}
 		
 		win.add(tableView);
+		
+		loader.hide();
 	
 	}
 	

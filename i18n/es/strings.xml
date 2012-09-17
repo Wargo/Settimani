@@ -9,4 +9,5 @@
 	<string name="calc_text">Si no conoces tu fecha de parto calcúlala aquí</string>
 	<string name="calc_explain">Calcula la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.</string>
 	<string name="calculate">Calcular</string>
+	<string name="loading">Cargando...</string>
 </resources>

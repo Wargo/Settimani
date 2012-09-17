@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function(data, x) {
+module.exports = function(data, x, loader) {
 	
 	var current = data[x];
 	
@@ -77,7 +77,7 @@ module.exports = function(data, x) {
 	}
 	
 	var scrollableView = Ti.UI.createScrollableView({
-		cacheSize:3
+		cacheSize:120
 	});
 	
 	if (Ti.Platform.osname === 'android') {
@@ -171,6 +171,10 @@ module.exports = function(data, x) {
 	});
 	
 	win.add(scrollableView);
+	
+	setTimeout(function() {
+		loader.hide();
+	}, 1000);
 	
 	return win;
 	
