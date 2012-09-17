@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function(data, x, loader) {
+module.exports = function(data, x) {
 	
 	var current = data[x];
 	
@@ -15,6 +15,12 @@ module.exports = function(data, x, loader) {
 		backgroundImage:'ui/images/bg_list.png',
 		modal:true
 	});
+	
+	var loader = Ti.UI.createActivityIndicator({
+		style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+		message:L('loading', 'Cargando...')
+	});
+	win.add(loader);
 	
 	if (current.header) {
 		var headerText = current.header;
@@ -93,71 +99,76 @@ module.exports = function(data, x, loader) {
 	if (Ti.Platform.osname === 'android') {
 		scrollableView.top = '40 dp';
 	}
-		
-	for (i in data) {
-		
-		var current = data[i];
-		
-		var content = Ti.UI.createView($$.articleContent);
-		
-		var title = Ti.UI.createLabel($$.articleTitle);
-		title.text = current.title;
-		
-		var intro = Ti.UI.createLabel($$.articleIntro);
-		intro.text = current.intro;
-		
-		var image = Ti.UI.createImageView($$.articleImage);
-		image.image = current.image;
-		
-		var description = Ti.UI.createLabel($$.articleDescription);
-		description.text = current.description;
-		
-		var whiteView = Ti.UI.createView({
-			height:'10 dp'
-		});
-		
-		content.add(title);
-		content.add(intro);
-		content.add(image);
-		content.add(description);
-		content.add(whiteView);
 	
-		var scrollView = Ti.UI.createScrollView({
-			contentHeight:'auto',
-			showVerticalScrollIndicator:true
-		});
+	function createViews(data) {
 		
-		var nextImage = Ti.UI.createImageView($$.nextImage);
-		var prevImage = Ti.UI.createImageView($$.prevImage);
-		
-		prevImage.addEventListener('click', function() {
-			if (data[scrollableView.currentPage - 1]) {
-				scrollableView.scrollToView(scrollableView.currentPage - 1);
-			}
-		});
-		nextImage.addEventListener('click', function() {
-			if (data[scrollableView.currentPage + 1]) {
-				scrollableView.scrollToView(scrollableView.currentPage + 1);
-			}
-		});
-		
-		scrollView.add(nextImage);
-		scrollView.add(prevImage);
-		scrollView.add(content);
-		
-		if (Ti.Platform.osname != 'android') {
-			var contentShadow = Ti.UI.createView($$.articleContent);
-			contentShadow.zIndex = -10;
-			contentShadow.height = 'auto';
-			scrollView.add(contentShadow);
-			contentShadow.setShadow({
-				shadowOffset:{x:0,y:2},
-				shadowOpacity:0.2,
-				shadowRadius:2
+		for (i in data) {
+			
+			var current = data[i];
+			
+			var content = Ti.UI.createView($$.articleContent);
+			
+			var title = Ti.UI.createLabel($$.articleTitle);
+			title.text = current.title;
+			
+			var intro = Ti.UI.createLabel($$.articleIntro);
+			intro.text = current.intro;
+			
+			var image = Ti.UI.createImageView($$.articleImage);
+			image.image = current.image;
+			
+			var description = Ti.UI.createLabel($$.articleDescription);
+			description.text = current.description;
+			
+			var whiteView = Ti.UI.createView({
+				height:'10 dp'
 			});
+			
+			content.add(title);
+			content.add(intro);
+			content.add(image);
+			content.add(description);
+			content.add(whiteView);
+		
+			var scrollView = Ti.UI.createScrollView({
+				contentHeight:'auto',
+				showVerticalScrollIndicator:true
+			});
+			
+			var nextImage = Ti.UI.createImageView($$.nextImage);
+			var prevImage = Ti.UI.createImageView($$.prevImage);
+			
+			prevImage.addEventListener('click', function() {
+				if (data[scrollableView.currentPage - 1]) {
+					scrollableView.scrollToView(scrollableView.currentPage - 1);
+				}
+			});
+			nextImage.addEventListener('click', function() {
+				if (data[scrollableView.currentPage + 1]) {
+					scrollableView.scrollToView(scrollableView.currentPage + 1);
+				}
+			});
+			
+			scrollView.add(nextImage);
+			scrollView.add(prevImage);
+			scrollView.add(content);
+			
+			if (Ti.Platform.osname != 'android') {
+				var contentShadow = Ti.UI.createView($$.articleContent);
+				contentShadow.zIndex = -10;
+				contentShadow.height = 'auto';
+				scrollView.add(contentShadow);
+				contentShadow.setShadow({
+					shadowOffset:{x:0,y:2},
+					shadowOpacity:0.2,
+					shadowRadius:2
+				});
+			}
+			
+			scrollableView.addView(scrollView);
+			
 		}
 		
-		scrollableView.addView(scrollView);
 	}
 	
 	scrollableView.currentPage = x;
@@ -186,8 +197,17 @@ module.exports = function(data, x, loader) {
 	win.add(scrollableView);
 	
 	setTimeout(function() {
+		loader.show();
+	}, 100);
+	
+	setTimeout(function() {
+		createViews(data);
+	}, 500);
+	
+	setTimeout(function() {
 		loader.hide();
-	}, 1000);
+	}, 2000);
+	
 	
 	return win;
 	

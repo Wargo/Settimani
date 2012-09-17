@@ -216,9 +216,7 @@ module.exports = function() {
 		
 		function loadArticle(e) {
 			
-			articleLoader.show();
-			
-			var articleWin = article(data, e, articleLoader);
+			var articleWin = article(data, e);
 			
 			if (Ti.Platform.osname === 'android') {
 				articleWin.open();
@@ -232,12 +230,6 @@ module.exports = function() {
 		
 		loader.hide();
 		
-		var articleLoader = Ti.UI.createActivityIndicator({
-			style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-			message:L('loading', 'Cargando...')
-		});
-		win.add(articleLoader);
-	
 	}
 	
 	return win;
