@@ -66,14 +66,14 @@ module.exports = function(data, x) {
 		win.barImage = '/ui/images/bg_header.png';
 		win.barColor = '#198BB6';
 		
-		var todayButton = Ti.UI.createButtonBar({
+		var buttons = Ti.UI.createButtonBar({
 			labels:['<', '>'],
 			backgroundColor:'#198BB6',
 			color:'#FFF',
 			width:50
 		});
 		
-		todayButton.addEventListener('click', function(e) {
+		buttons.addEventListener('click', function(e) {
 			if (e.index === 1) {
 				if (data[scrollableView.currentPage + 1]) {
 					scrollableView.scrollToView(scrollableView.currentPage + 1);
@@ -89,7 +89,7 @@ module.exports = function(data, x) {
 		
 		win.title = headerText;
 		
-		win.rightNavButton = todayButton;
+		win.rightNavButton = buttons;
 	}
 	
 	var scrollableView = Ti.UI.createScrollableView({
@@ -167,6 +167,7 @@ module.exports = function(data, x) {
 			
 			scrollableView.addView(scrollView);
 			
+			/*
 			if (i == x) {
 				setTimeout(function(){
 					scrollableView.currentPage = x;
@@ -175,10 +176,14 @@ module.exports = function(data, x) {
 			} else if (i == parseInt(x) + 1) {
 				break;
 			}
+			*/
 			
 		}
 		
 		loader.hide();
+		
+		scrollableView.currentPage = x;
+		win.add(scrollableView);
 	}
 	
 	scrollableView.addEventListener('scroll', function(e) {

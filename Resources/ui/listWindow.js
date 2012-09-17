@@ -60,10 +60,74 @@ module.exports = function() {
 		win.rightNavButton = todayButton;
 	}
 	
+	var page = 1;
+	var lastDistance = 0;
+	var updating = false;
+	var lastRow = 0;
+	
 	var getData = require(Mods.bbdd);
-	getData(putData);
+	getData(putData, page);
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
+	
+	tableView.addEventListener('scroll', function(e) {
+		
+		var offset = e.contentOffset.y;
+		var height = e.size.height;
+		var total = offset + height;
+		var theEnd = e.contentSize.height;
+		var distance = theEnd - total;
+		
+		if (distance < lastDistance) {
+			
+			var nearEnd = theEnd * 0.95;
+			
+			if  (!updating && (total > nearEnd)) {
+				
+				append();
+				
+			}
+			
+		}
+		
+		lastDistance = distance;
+		
+	});
+	
+	var loadingRow = Ti.UI.createTableViewRow($$.row);
+	loadingRow.focusable = false;
+	if (Ti.Platform.osname === 'android') {
+		var loadingMore = Ti.UI.createLabel({
+			text:L('loading', 'Cargando...')
+		});
+	} else {
+		var loadingMore = Ti.UI.createActivityIndicator({
+			style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+			message:L('loading', 'Cargando...')
+		});
+	}
+	var loadingRowView = Ti.UI.createView();
+	
+	loadingRowView.add(loadingMore);
+	loadingRow.add(loadingRowView);
+	loadingMore.show();
+	
+	function append() {
+		
+		updating = true;
+		tableView.appendRow(loadingRow);
+		page += 1;
+		getData(putData2, page);
+		
+	}
+	
+	function putData2(data, error) {
+		
+		tableView.deleteRow(loadingRow);
+		updating = false;
+		putData(data, error);
+		
+	}
 	
 	var tableViewData = [];
 	
@@ -223,7 +287,26 @@ module.exports = function() {
 		
 		function loadArticle(e) {
 			
-			var articleWin = article(data, e);
+			var auxData = [];
+			
+			if (data[e].header) {
+				auxE = 0;
+				auxData.push(data[e]);
+				auxData.push(data[e + 1]);
+				auxData.push(data[e + 2]);
+			} else if (data[e].last) {
+				auxE = 2;
+				auxData.push(data[e - 2]);
+				auxData.push(data[e - 1]);
+				auxData.push(data[e]);
+			} else {
+				auxE = 1;
+				auxData.push(data[e - 1]);
+				auxData.push(data[e]);
+				auxData.push(data[e + 1]);
+			}
+			
+			var articleWin = article(auxData, auxE);
 			
 			if (Ti.Platform.osname === 'android') {
 				articleWin.open();

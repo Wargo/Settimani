@@ -1,5 +1,5 @@
 
-module.exports = function(f_callback) {
+module.exports = function(f_callback, page) {
 	
 	var path = 'http://www.semanasdembarazo.com/appMovil/weeks.php';
 	
@@ -19,7 +19,9 @@ module.exports = function(f_callback) {
 		}
 	});
 	
-	client.open('GET', path);
-	client.send();
+	client.open('POST', path);
+	client.send({
+		page:page
+	});
 	
 }
