@@ -10,8 +10,8 @@ if (Ti.Platform.osname === 'android') {
 module.exports = function() {
 	
 	var win = Ti.UI.createWindow({
-		backgroundImage:'ui/images/bg_list.png',
-		exitOnClose:true
+		backgroundColor:'#F2F2F2',
+		backgroundImage:'ui/images/bg_list.png'
 	});
 	
 	var loader = Ti.UI.createActivityIndicator({
@@ -38,12 +38,6 @@ module.exports = function() {
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
 		win.title = L('main_title', 'Lagravidanza.net');
-		/*
-		var auxWin = Ti.UI.createWindow();
-		var nav = Ti.UI.iPhone.createNavigationGroup({window:win});
-		auxWin.add(nav);
-		auxWin.open();
-		*/
 		var todayButton = Ti.UI.createButtonBar({
 			labels:[L('today', 'Hoy')],
 			backgroundColor:'#198BB6',

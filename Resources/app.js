@@ -7,9 +7,7 @@ if (Ti.Platform.osname != 'android') {
 
 (function() {
 	
-	var tabGroup = Ti.UI.createTabGroup({
-		tabsBackgroundImage:'ui/images/bg_tabs.png'
-	});
+	var tabGroup = Ti.UI.createTabGroup();
 	
 	var MyWindow = require(Mods.listWindow);
 	var win1 = new MyWindow();

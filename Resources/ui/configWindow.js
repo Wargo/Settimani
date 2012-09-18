@@ -10,7 +10,7 @@ if (Ti.Platform.osname === 'android') {
 module.exports = function(hideImage, tabGroup, baseWin) {
 	
 	var win = Ti.UI.createWindow({
-		exitOnClose:true,
+		backgroundColor:'#F2F2F2',
 		backgroundImage:'ui/images/bg_list.png'
 	});
 	
@@ -33,6 +33,7 @@ module.exports = function(hideImage, tabGroup, baseWin) {
 	var insertDate = Ti.UI.createView($$.insertDate);
 	
 	if (Ti.Platform.osname === 'android') {
+		win.orientationModes = [Ti.UI.PORTRAIT];
 		insertDate.borderColor = '#999';
 		insertDate.borderWidth = 1;
 	} else {
