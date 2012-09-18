@@ -28,7 +28,7 @@ module.exports = {
 	
 	imageHome: {
 		width:'320 dp',
-		top:'40 dp'
+		//top:'40 dp'
 	},
 	
 	insertDate: {
@@ -36,7 +36,8 @@ module.exports = {
 		borderRadius:5,
 		right:'10 dp',left:'10 dp',top:'10 dp',
 		height:'130 dp',
-		top:'250 dp'
+		//top:'250 dp'
+		top:'20 dp'
 	}, 
 	
 	dateItem: {
@@ -68,7 +69,8 @@ module.exports = {
 	},
 	
 	calcText: {
-		top:'480 dp',
+		//top:'480 dp',
+		top:'20 dp',
 		right:'100 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:'16 dp'},
@@ -79,7 +81,8 @@ module.exports = {
 	
 	calcButton: {
 		right:'10 dp',
-		top:'480 dp',
+		//top:'480 dp',
+		top:'20 dp',
 		width:'80 dp',
 		height:'40 dp',
 		borderRadius:15,
@@ -90,13 +93,11 @@ module.exports = {
 	
 	tableView: {
 		top:'40 dp',
-		bottom:'50 dp',
+		//bottom:'50 dp',
 		separatorColor:'transparent'
 	},
 	
 	row: {
-		//backgroundColor:'#F2EDEA',
-		//height:'100 dp'
 		left: '20 dp',
 		right: '20 dp'
 	},
@@ -117,8 +118,6 @@ module.exports = {
 		backgroundColor:'#FFF',
 		right:'20 dp',
 		left:'20 dp',
-		//top:'-1 dp',
-		//bottom:'-1 dp',
 		height:'80 dp',
 		borderWidth:1,
 		borderColor:'#999'
@@ -228,16 +227,17 @@ module.exports = {
 	},
 	
 	tabs: {
-		height:'60 dp',
+		height:'65 dp',
 		bottom:0,
 		backgroundImage:'/ui/images/bg_tabs.png',
 		zIndex:100
 	},
 	
 	tabButton: {
-		width:'90 dp',
-		height:'50 dp',
-		layout:'vertical'
+		width:'100 dp',
+		height:'60 dp',
+		layout:'vertical',
+		_selected:false
 	},
 	
 	tabImageBorder: {
@@ -250,6 +250,7 @@ module.exports = {
 	},
 	
 	tabImage: {
+		top: '5 dp',
 		width: '30 dp',
 		height: '30 dp'
 	}

@@ -14,7 +14,7 @@ module.exports = {
 	},
 	
 	imageHome: {
-		top:44
+		//top:44
 	},
 	
 	insertDate: {
@@ -22,7 +22,8 @@ module.exports = {
 		borderRadius:5,
 		right:10,left:10,top:10,
 		height:100,
-		top:250
+		//top:250
+		top:20
 	}, 
 	
 	dateItem: {
@@ -53,7 +54,8 @@ module.exports = {
 	},
 	
 	calcText: {
-		top:420,
+		//top:420,
+		top:20,
 		right:100,
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:16},
@@ -64,7 +66,8 @@ module.exports = {
 	
 	calcButton: {
 		right:10,
-		top:420,
+		//top:420,
+		top:20,
 		width:80,
 		height:40,
 		borderRadius:15,

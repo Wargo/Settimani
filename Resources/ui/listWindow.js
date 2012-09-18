@@ -20,14 +20,7 @@ module.exports = function() {
 	});
 	win.add(loader);
 	
-	if (!Ti.App.Properties.getDouble('date', null)) {
-		var MyWindow = require(Mods.configWindow);
-		setTimeout(function() {
-			MyWindow().open();
-		}, 10);
-	} else {
-		loader.show();
-	}
+	loader.show();
 	
 	if (Ti.Platform.osname === 'android') {
 		win.orientationModes = [Ti.UI.PORTRAIT];

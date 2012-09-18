@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function() {
+module.exports = function(hideImage, tabGroup) {
 	
 	var win = Ti.UI.createWindow({
 		exitOnClose:true,
@@ -83,10 +83,12 @@ module.exports = function() {
 	go.enabled = false;
 	
 	if (Ti.Platform.osname != 'android') {
-		go.top = 360;
+		//go.top = 360;
+		go.top = 20;
 		go.backgroundColor = '#DDD';
 	} else {
-		go.top = '400 dp';
+		//go.top = '400 dp';
+		go.top = '20 dp';
 	}
 	
 	if (Ti.App.Properties.getDouble('date', null)) {
@@ -116,6 +118,10 @@ module.exports = function() {
 	
 	var calcButton = Ti.UI.createView($$.calcButton);
 	calcButton.add(Ti.UI.createImageView({image:'/ui/images/calc.png'}));
+	
+	var calc = Ti.UI.createView();
+	calc.add(calcText);
+	calc.add(calcButton);
 	
 	calcButton.addEventListener('click', function() {
 		
@@ -193,13 +199,16 @@ module.exports = function() {
 	 * fin calcular
 	 */
 	
-	win.add(header);
-	win.add(image);
-	win.add(insertDate);
-	win.add(go);
-	win.add(calcText);
-	win.add(calcButton);
-
+	mainView.add(header);
+	if (!hideImage) {
+		mainView.add(image);
+	}
+	mainView.add(insertDate);
+	mainView.add(go);
+	//mainView.add(calcText);
+	//mainView.add(calcButton);
+	mainView.add(calc);
+	
 	/*
 	 * funcionalidades
 	 */
@@ -251,11 +260,20 @@ module.exports = function() {
 	
 	go.addEventListener('click', function() {
 		
-		win.close({top:'500 dp'});
+		if (!hideImage) {
+			go.opacity = 0;
+			tabGroup.open();
+			setTimeout(function() {
+				go.opacity = 1;
+				win.close({top:'500 dp'});
+			}, 500);
+		} else {
+			tabGroup.activeTab = 0;
+		}
 		
 	});
 	
-	//win.add(mainView);
+	win.add(mainView);
 	
 	return win;
 	

@@ -7,47 +7,94 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function() {
+module.exports = function(selected) {
 	
 	var view = Ti.UI.createView($$.tabs);
 	
-	var weeksButton = Ti.UI.createView($$.tabButton);
-	weeksButton.left = '30 dp';
-	var configButton = Ti.UI.createView($$.tabButton);
-	configButton.right = '30 dp';
+	var weeksButton = createButton(L('weeks', 'Semanas'), 'calendar.png');
+	var tipsButton = createButton(L('tips', 'Consejos'), 'tips.png');
+	var configButton = createButton(L('config', 'Configuración'), 'config.png');
 	
-	var weeksImage = Ti.UI.createImageView($$.tabImage);
-	weeksImage.image = '/ui/images/calendar.png';
-	var configImage = Ti.UI.createImageView($$.tabImage);
-	configImage.image = '/ui/images/config.png';
+	weeksButton.left = '5 dp';
+	configButton.right = '5 dp';
 	
-	/*
-	var weeksImageBorder = Ti.UI.createView($$.tabImageBorder);
-	var configImageBorder = Ti.UI.createView($$.tabImageBorder);
+	select(selected);
+
+	weeksButton.addEventListener('click', function() {
+		select(1);
+	});
 	
-	weeksImageBorder.add(weeksImage);
-	configImageBorder.add(configImage);
+	tipsButton.addEventListener('click', function() {
+		select(2);
+	});
 	
-	weeksButton.add(weeksImageBorder);
-	configButton.add(configImageBorder);
-	*/
-	
-	weeksButton.add(weeksImage);
-	configButton.add(configImage);
-	
-	weeksButton.backgroundImage = '/ui/images/button_tab.png';
-	
-	weeksText = Ti.UI.createLabel($$.tabButtonText);
-	weeksText.text = L('weeks', 'Semanas');
-	configText = Ti.UI.createLabel($$.tabButtonText);
-	configText.text = L('config', 'Configuración');
-	
-	weeksButton.add(weeksText);
-	configButton.add(configText);
+	configButton.addEventListener('click', function() {
+		select(3);
+	});
 	
 	view.add(weeksButton);
+	view.add(tipsButton);
 	view.add(configButton);
 	
+	view._weeksButton = weeksButton;
+	view._tipsButton = tipsButton;
+	view._configButton = configButton;
+	
 	return view;
+	
+	function createButton(title, image) {
+		var button = Ti.UI.createView($$.tabButton);
+		
+		var img = Ti.UI.createImageView($$.tabImage);
+		img.image = '/ui/images/' + image;
+		button.add(img);
+		
+		text = Ti.UI.createLabel($$.tabButtonText);
+		text.text = title;
+		
+		button.add(text);
+		
+		/*
+		var weeksImageBorder = Ti.UI.createView($$.tabImageBorder);
+		var configImageBorder = Ti.UI.createView($$.tabImageBorder);
+		
+		weeksImageBorder.add(weeksImage);
+		configImageBorder.add(configImage);
+		
+		weeksButton.add(weeksImageBorder);
+		configButton.add(configImageBorder);
+		*/
+		
+		return button;
+	}
+	
+	function select(button) {
+		switch (button) {
+			case 1:
+				weeksButton.backgroundColor = '#F2F2F2';
+				tipsButton.backgroundColor = 'transparent';
+				configButton.backgroundColor = 'transparent';
+				weeksButton._selected = true;
+				tipsButton._selected = false;
+				configButton._selected = false;
+				break;
+			case 2:
+				weeksButton.backgroundColor = 'transparent';
+				tipsButton.backgroundColor = '#F2F2F2';
+				configButton.backgroundColor = 'transparent';
+				weeksButton._selected = true;
+				tipsButton._selected = false;
+				configButton._selected = false;
+				break;
+			case 3:
+				weeksButton.backgroundColor = 'transparent';
+				tipsButton.backgroundColor = 'transparent';
+				configButton.backgroundColor = '#F2F2F2';
+				weeksButton._selected = true;
+				tipsButton._selected = false;
+				configButton._selected = false;
+				break;
+		}
+	}
 	
 }
