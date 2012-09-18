@@ -72,28 +72,40 @@ module.exports = function() {
 	
 	tableView.addEventListener('scroll', function(e) {
 		
-		var offset = e.contentOffset.y;
-		var height = e.size.height;
-		var total = offset + height;
-		var theEnd = e.contentSize.height;
-		var distance = theEnd - total;
-		
-		if (distance < lastDistance) {
+		if (Ti.Platform.osname === 'android') {
 			
-			var nearEnd = theEnd * 0.95;
-			
-			if  (!updating && (total > nearEnd)) {
+			if (e.firstVisibleItem + e.visibleItemCount == e.totalItemCount && e.totalItemCount > 0 && !updating) {
 				
 				append();
 				
 			}
 			
+		} else if (Ti.Platform.osname === 'iphone') {
+			
+			var offset = e.contentOffset.y;
+			var height = e.size.height;
+			var total = offset + height;
+			var theEnd = e.contentSize.height;
+			var distance = theEnd - total;
+			
+			if (distance < lastDistance) {
+				
+				var nearEnd = theEnd * 0.95;
+				
+				if  (!updating && (total > nearEnd)) {
+					
+					append();
+					
+				}
+				
+			}
+			
+			lastDistance = distance;
+			
 		}
 		
-		lastDistance = distance;
-		
 	});
-	
+		
 	var loadingRow = Ti.UI.createTableViewRow($$.row);
 	loadingRow.height = '40 dp';
 	loadingRow.focusable = false;
@@ -123,11 +135,22 @@ module.exports = function() {
 	}
 	
 	function putData2(data, error) {
-		
-		tableView.deleteRow(tableView.data.length);
+		var count = 0;
+		if (Ti.Platform.osname === 'android') {
+			for(var i = 0; i < tableView.data.length; i++) {
+				for(var j = 0; j < tableView.data[i].rowCount; j++) {
+					count ++;
+				}
+			}
+			tableView.deleteRow(count - 1);
+		} else {
+			tableView.deleteRow(tableView.data.length);
+		}	
 		
 		if (data) {
-			updating = false;
+			setTimeout(function() {
+				updating = false;
+			}, 500);
 		}
 		
 		putData(data, error);
