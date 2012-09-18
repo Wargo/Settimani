@@ -20,7 +20,7 @@ module.exports = function() {
 	});
 	win.add(loader);
 	
-	if (true || !Ti.App.Properties.getDouble('date', null)) {
+	if (!Ti.App.Properties.getDouble('date', null)) {
 		var MyWindow = require(Mods.configWindow);
 		setTimeout(function() {
 			MyWindow().open();

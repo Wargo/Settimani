@@ -8,7 +8,12 @@ if (Ti.Platform.osname != 'android') {
 (function() {
 	
 	var MyWindow = require(Mods.listWindow);
+	var win = new MyWindow();
 	
-	MyWindow().open();
+	var getTabs = require(Mods.tabs);
+	var tabs = getTabs();
+	
+	win.add(tabs);
+	win.open();
 	
 })();

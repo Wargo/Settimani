@@ -90,6 +90,7 @@ module.exports = {
 	
 	tableView: {
 		top:'40 dp',
+		bottom:'50 dp',
 		separatorColor:'transparent'
 	},
 	
@@ -229,7 +230,21 @@ module.exports = {
 	tabs: {
 		height:'50 dp',
 		bottom:0,
-		backgroundImage:'/ui/images/bg_tabs.png'
+		backgroundImage:'/ui/images/bg_tabs.png',
+		zIndex:100
+	},
+	
+	tabButton: {
+		width:'60 dp',
+		height:'50 dp'
+	},
+	
+	tabImage: {
+		width:'40 dp',
+		height:'30 dp',
+		borderColor:'#CCC',
+		borderWidth:1,
+		borderRadius:15
 	}
 	
 }
