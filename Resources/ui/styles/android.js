@@ -235,7 +235,7 @@ module.exports = {
 	},
 	
 	tabButton: {
-		width:'80 dp',
+		width:'90 dp',
 		height:'50 dp',
 		layout:'vertical'
 	},

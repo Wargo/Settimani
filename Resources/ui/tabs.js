@@ -35,7 +35,7 @@ module.exports = function() {
 	weeksButton.add(weeksImage);
 	configButton.add(configImage);
 	
-	weeksButton.backgroundColor = '#FFF';
+	weeksButton.backgroundImage = '/ui/images/button_tab.png';
 	
 	weeksText = Ti.UI.createLabel($$.tabButtonText);
 	weeksText.text = L('weeks', 'Semanas');
