@@ -228,23 +228,30 @@ module.exports = {
 	},
 	
 	tabs: {
-		height:'50 dp',
+		height:'60 dp',
 		bottom:0,
 		backgroundImage:'/ui/images/bg_tabs.png',
 		zIndex:100
 	},
 	
 	tabButton: {
+		width:'80 dp',
+		height:'50 dp',
+		layout:'vertical'
+	},
+	
+	tabImageBorder: {
 		width:'60 dp',
-		height:'50 dp'
+		height:'35 dp',
+		borderColor:'#CCC',
+		borderWidth:1,
+		borderRadius:10,
+		backgroundImage:'/ui/images/bg_tabs.png',
 	},
 	
 	tabImage: {
-		width:'40 dp',
-		height:'30 dp',
-		borderColor:'#CCC',
-		borderWidth:1,
-		borderRadius:15
+		width: '30 dp',
+		height: '30 dp'
 	}
 	
 }
