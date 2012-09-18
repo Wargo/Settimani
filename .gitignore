@@ -1,4 +1,5 @@
 tmp
+.fastDev.lock
 *.DS_Store
 *.class
 *.pyc
