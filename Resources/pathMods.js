@@ -7,6 +7,7 @@ module.exports = {
 	styles_android: 'ui/styles/android',
 	styles_ios: 'ui/styles/ios',
 	picker: 'ui/picker',
-	bbdd: 'bbdd'
+	bbdd: 'bbdd',
+	tabs: 'ui/tabs'
 	
 }

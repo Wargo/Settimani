@@ -224,6 +224,12 @@ module.exports = {
 		right:'20 dp',
 		color:'#333',
 		font:{fontSize:'14 dp'}
+	},
+	
+	tabs: {
+		height:'50 dp',
+		bottom:0,
+		backgroundImage:'/ui/images/bg_tabs.png'
 	}
 	
 }
