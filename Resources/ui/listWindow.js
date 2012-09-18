@@ -36,13 +36,14 @@ module.exports = function() {
 		
 		header.add(todayButton);
 	} else {
-		var auxWin = Ti.UI.createWindow();
-		win.title = L('main_title', 'Lagravidanza.net');
 		win.barImage = '/ui/images/bg_header.png';
+		win.title = L('main_title', 'Lagravidanza.net');
+		/*
+		var auxWin = Ti.UI.createWindow();
 		var nav = Ti.UI.iPhone.createNavigationGroup({window:win});
 		auxWin.add(nav);
 		auxWin.open();
-		
+		*/
 		var todayButton = Ti.UI.createButtonBar({
 			labels:[L('today', 'Hoy')],
 			backgroundColor:'#198BB6',
@@ -343,9 +344,9 @@ module.exports = function() {
 		if (Ti.Platform.osname === 'android') {
 			articleWin.open();
 		} else {
-			nav.open(articleWin);
+			win._nav.open(articleWin);
 		}
-			
+		
 	}
 	
 	return win;

@@ -25,26 +25,35 @@ if (Ti.Platform.osname != 'android') {
 	
 	var tab2 = Ti.UI.createTab({
 		window: win2,
-		title:L('config', 'Config'),
+		title:L('config', 'Configuración'),
 		icon:'/ui/images/config.png'
 	});
 	
-	win1.containingTab = tab1;
-	win2.containingTab = tab2;
+	if (Ti.Platform.osname != 'android') {
+		var nav = Ti.UI.iPhone.createNavigationGroup({
+			window:win1
+		});
+		var baseWin = Ti.UI.createWindow({
+			navBarHidden:true
+		});
+		baseWin.add(nav);
+		tab1.window = baseWin;
+		win1._nav = nav;
+		win1._baseWin = baseWin;
+	} else {
+		var baseWin = null;
+	}
 	
 	tabGroup.addTab(tab1);
 	tabGroup.addTab(tab2);
 	
-	/*
-	var getTabs = require(Mods.tabs);
-	var tabs = getTabs(1);
-	win.add(tabs);
-	*/
-	
-	if (!Ti.App.Properties.getDouble('date', null)) {
+	if (true || !Ti.App.Properties.getDouble('date', null)) {
 		var MyWindow = require(Mods.configWindow);
-		MyWindow(false, tabGroup).open();
+		MyWindow(false, tabGroup, baseWin).open();
 	} else {
+		if (Ti.Platform.osname != 'android') {
+			baseWin.open();
+		}
 		tabGroup.open();
 	}
 	

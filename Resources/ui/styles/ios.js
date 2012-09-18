@@ -55,7 +55,7 @@ module.exports = {
 	
 	calcText: {
 		//top:420,
-		top:20,
+		top:10,
 		right:100,
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
 		font:{fontWeigh:'bold', fontSize:16},
@@ -67,7 +67,7 @@ module.exports = {
 	calcButton: {
 		right:10,
 		//top:420,
-		top:20,
+		top:10,
 		width:80,
 		height:40,
 		borderRadius:15,
