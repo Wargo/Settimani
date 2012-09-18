@@ -292,7 +292,7 @@ module.exports = function() {
 		
 		function loadArticle(e) {
 			
-			alert(e);
+			e = parseInt(e);
 			
 			var auxData = [];
 			
@@ -320,7 +320,7 @@ module.exports = function() {
 			} else {
 				nav.open(articleWin);
 			}
-			
+				
 		}
 		
 		win.add(tableView);
