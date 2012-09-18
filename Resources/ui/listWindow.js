@@ -158,6 +158,7 @@ module.exports = function() {
 	}
 	
 	var tableViewData = [];
+	var fullData = [];
 	
 	function putData(data, error) {
 		
@@ -169,6 +170,8 @@ module.exports = function() {
 		lastRow += data.length;
 		
 		for (i in data) {
+			
+			fullData.push(data[i]);
 			
 			var title = Ti.UI.createLabel($$.rowTitle);
 			title.text = data[i].title;
@@ -187,7 +190,7 @@ module.exports = function() {
 				row.data = data[i];
 				
 				row.addEventListener('click', function(e) {
-					loadArticle(e.index);
+					loadArticle(e.index, fullData);
 				});
 				
 				if (data[i].header) {
@@ -306,50 +309,50 @@ module.exports = function() {
 			
 		}
 		
-		function adjustHeight(numRows) { // Sólo iOS
-			miniTableView.height = miniRow.height * numRows - 1;
-			miniTableViewShadow.height = miniRow.height * numRows - 1;
-		}
-		
-		var article = require(Mods.articleWindow);
-		
-		function loadArticle(e) {
-			
-			e = parseInt(e);
-			
-			var auxData = [];
-			
-			if (data[e].header) {
-				auxE = 0;
-				auxData.push(data[e]);
-				auxData.push(data[e + 1]);
-				auxData.push(data[e + 2]);
-			} else if (data[e].last) {
-				auxE = 2;
-				auxData.push(data[e - 2]);
-				auxData.push(data[e - 1]);
-				auxData.push(data[e]);
-			} else {
-				auxE = 1;
-				auxData.push(data[e - 1]);
-				auxData.push(data[e]);
-				auxData.push(data[e + 1]);
-			}
-			
-			var articleWin = article(auxData, auxE);
-			
-			if (Ti.Platform.osname === 'android') {
-				articleWin.open();
-			} else {
-				nav.open(articleWin);
-			}
-				
-		}
-		
 		win.add(tableView);
 		
 		loader.hide();
 		
+	}
+	
+	function adjustHeight(numRows) { // Sólo iOS
+		miniTableView.height = miniRow.height * numRows - 1;
+		miniTableViewShadow.height = miniRow.height * numRows - 1;
+	}
+	
+	var article = require(Mods.articleWindow);
+		
+	function loadArticle(e, data) {
+		
+		e = parseInt(e);
+		
+		var auxData = [];
+		
+		if (data[e].header) {
+			auxE = 0;
+			auxData.push(data[e]);
+			auxData.push(data[e + 1]);
+			auxData.push(data[e + 2]);
+		} else if (data[e].last) {
+			auxE = 2;
+			auxData.push(data[e - 2]);
+			auxData.push(data[e - 1]);
+			auxData.push(data[e]);
+		} else {
+			auxE = 1;
+			auxData.push(data[e - 1]);
+			auxData.push(data[e]);
+			auxData.push(data[e + 1]);
+		}
+		
+		var articleWin = article(auxData, auxE);
+		
+		if (Ti.Platform.osname === 'android') {
+			articleWin.open();
+		} else {
+			nav.open(articleWin);
+		}
+			
 	}
 	
 	return win;
