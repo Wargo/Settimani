@@ -240,7 +240,7 @@ module.exports = function() {
 				miniRow._i = i;
 				
 				miniRow.addEventListener('click', function(e) {
-					loadArticle(e.row._i);
+					loadArticle(e.row._i, data);
 				});
 				
 				miniRow.add(title);
@@ -309,15 +309,15 @@ module.exports = function() {
 			
 		}
 		
+		function adjustHeight(numRows) { // Sólo iOS
+			miniTableView.height = miniRow.height * numRows - 1;
+			miniTableViewShadow.height = miniRow.height * numRows - 1;
+		}
+		
 		win.add(tableView);
 		
 		loader.hide();
 		
-	}
-	
-	function adjustHeight(numRows) { // Sólo iOS
-		miniTableView.height = miniRow.height * numRows - 1;
-		miniTableViewShadow.height = miniRow.height * numRows - 1;
 	}
 	
 	var article = require(Mods.articleWindow);
