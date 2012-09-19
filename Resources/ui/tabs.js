@@ -21,15 +21,21 @@ module.exports = function(selected) {
 	select(selected);
 
 	weeksButton.addEventListener('click', function() {
-		select(1);
+		//select(1);
+		Ti.App.win1.open();
+		Ti.App.win1.show();
+		Ti.App.win2.hide();
 	});
 	
 	tipsButton.addEventListener('click', function() {
-		select(2);
+		//select(2);
 	});
 	
 	configButton.addEventListener('click', function() {
-		select(3);
+		//select(3);
+		Ti.App.win2.open();
+		Ti.App.win2.show();
+		Ti.App.win1.hide();
 	});
 	
 	view.add(weeksButton);

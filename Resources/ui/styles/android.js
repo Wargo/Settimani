@@ -93,7 +93,7 @@ module.exports = {
 	
 	tableView: {
 		top:'40 dp',
-		//bottom:'50 dp',
+		bottom:'65 dp',
 		separatorColor:'transparent'
 	},
 	
@@ -150,7 +150,7 @@ module.exports = {
 		left:'50 dp',
 		right:'10 dp',
 		top:'20 dp',
-		height:'53 dp'
+		height:'52 dp'
 	},
 	
 	rowImage: {

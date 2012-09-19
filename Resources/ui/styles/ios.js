@@ -78,7 +78,8 @@ module.exports = {
 	
 	tableView: {
 		separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
-		backgroundColor:'transparent'
+		backgroundColor:'transparent',
+		bottom:65
 	},
 	
 	row: {

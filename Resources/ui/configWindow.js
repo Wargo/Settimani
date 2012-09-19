@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function(hideImage, tabGroup, baseWin) {
+module.exports = function(hideImage) {
 	
 	var win = Ti.UI.createWindow({
 		backgroundColor:'#F2F2F2',
@@ -205,12 +205,15 @@ module.exports = function(hideImage, tabGroup, baseWin) {
 	 * fin calcular
 	 */
 	
+	mainView.add(header);
 	if (!hideImage) {
-		mainView.add(header);
 		mainView.add(image);
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
 		win.title = L('config', 'Configuración');
+		var getTabs = require(Mods.tabs);
+		var tabs = getTabs(3);
+		win.add(tabs);
 	}
 	mainView.add(insertDate);
 	mainView.add(go);
@@ -271,16 +274,17 @@ module.exports = function(hideImage, tabGroup, baseWin) {
 		
 		if (!hideImage) {
 			go.opacity = 0;
-			if (Ti.Platform.osname != 'android') {
+			/*if (Ti.Platform.osname != 'android') {
 				baseWin.open();
 			}
-			tabGroup.open();
+			tabGroup.open();*/
 			setTimeout(function() {
 				go.opacity = 1;
 				win.close({top:'500 dp'});
 			}, 500);
 		} else {
-			tabGroup.activeTab = 0;
+			win.close();
+			//tabGroup.activeTab = 0;
 		}
 		
 	});
