@@ -11,9 +11,19 @@ if (Ti.Platform.osname != 'android') {
 	
 	var MyWindow = require(Mods.listWindow);
 	Ti.App.win1 = new MyWindow();
+	Ti.App.win2 = new MyWindow();
 	
 	var MyWindow = require(Mods.configWindow);
-	Ti.App.win2 = new MyWindow(true);
+	Ti.App.win3 = new MyWindow(true);
+	
+	var tabs = getTabs(1);
+	Ti.App.win1.add(tabs);
+	
+	var tabs = getTabs(2);
+	Ti.App.win2.add(tabs);
+	
+	var tabs = getTabs(3);
+	Ti.App.win3.add(tabs);
 	
 	if (Ti.Platform.osname != 'android') {
 		
@@ -26,17 +36,9 @@ if (Ti.Platform.osname != 'android') {
 		baseWin.add(nav);
 		Ti.App.win1._nav = nav;
 		
-		var tabs = getTabs(1);
-	
-		Ti.App.win1.add(tabs);
-		
 		baseWin.open();
 		
 	} else {
-		
-		var tabs = getTabs(1);
-	
-		Ti.App.win1.add(tabs);
 		
 		Ti.App.win1.open();
 		

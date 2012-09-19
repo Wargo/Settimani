@@ -31,17 +31,23 @@ module.exports = function(selected) {
 		Ti.App.win1.open();
 		Ti.App.win1.show();
 		Ti.App.win2.hide();
+		Ti.App.win3.hide();
 	});
 	
 	tipsButton.addEventListener('click', function() {
 		//select(2);
+		Ti.App.win2.open();
+		Ti.App.win2.show();
+		Ti.App.win1.hide();
+		Ti.App.win3.hide();
 	});
 	
 	configButton.addEventListener('click', function() {
 		//select(3);
-		Ti.App.win2.open();
-		Ti.App.win2.show();
+		Ti.App.win3.open();
+		Ti.App.win3.show();
 		Ti.App.win1.hide();
+		Ti.App.win2.hide();
 	});
 	
 	view.add(weeksButton);

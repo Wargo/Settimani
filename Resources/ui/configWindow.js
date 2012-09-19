@@ -211,14 +211,9 @@ module.exports = function(hideImage) {
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
 		win.title = L('config', 'Configuración');
-		var getTabs = require(Mods.tabs);
-		var tabs = getTabs(3);
-		win.add(tabs);
 	}
 	mainView.add(insertDate);
 	mainView.add(go);
-	//mainView.add(calcText);
-	//mainView.add(calcButton);
 	mainView.add(calc);
 	
 	/*
