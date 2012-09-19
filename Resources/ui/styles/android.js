@@ -253,6 +253,11 @@ module.exports = {
 		top: '5 dp',
 		width: '30 dp',
 		height: '30 dp'
+	},
+	
+	tabButtonText: {
+		font:{fontSize:'15 dp'},
+		color:'#999'
 	}
 	
 }

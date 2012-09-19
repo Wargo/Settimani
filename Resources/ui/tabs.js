@@ -11,6 +11,12 @@ module.exports = function(selected) {
 	
 	var view = Ti.UI.createView($$.tabs);
 	
+	view.add(Ti.UI.createView({
+		height:1,
+		backgroundColor:'#999',
+		top:0
+	}));
+	
 	var weeksButton = createButton(L('weeks', 'Semanas'), 'calendar.png');
 	var tipsButton = createButton(L('tips', 'Consejos'), 'tips.png');
 	var configButton = createButton(L('config', 'Configuración'), 'config.png');

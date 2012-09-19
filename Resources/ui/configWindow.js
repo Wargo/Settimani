@@ -20,7 +20,7 @@ module.exports = function(hideImage) {
 	
 	var header = Ti.UI.createView($$.header);
 	var title = Ti.UI.createLabel($$.headerTitle);
-	title.text = L('main_title', 'Lagravidanza.net');
+	title.text = L('config', 'Configuración');
 	
 	header.add(title);
 	

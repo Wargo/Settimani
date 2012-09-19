@@ -11,13 +11,23 @@ module.exports = function(data, x) {
 	
 	var current = data[x];
 	
-	var win = Ti.UI.createWindow({
-		backgroundImage:'ui/images/bg_list.png',
-		exitOnClose:false,
-		fullscreen:true,
-		navBarHidden:true,
-		modal:true
-	});
+	if (Ti.Platform.osname === 'android') {
+		
+		var win = Ti.UI.createWindow({
+			backgroundImage:'ui/images/bg_list.png',
+			exitOnClose:false,
+			fullscreen:true,
+			navBarHidden:true,
+			modal:true
+		});
+		
+	} else {
+		
+		var win = Ti.UI.createWindow({
+			backgroundImage:'ui/images/bg_list.png'
+		});
+		
+	}
 	
 	var loader = Ti.UI.createActivityIndicator({
 		style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,

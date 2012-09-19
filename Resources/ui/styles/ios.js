@@ -10,7 +10,7 @@ module.exports = {
 	
 	headerTitle: {
 		color:'#FFF',
-		font:{fontSize:18, fontWeight:'bold'}
+		font:{fontSize:19, fontWeight:'bold'}
 	},
 	
 	imageHome: {
@@ -225,6 +225,11 @@ module.exports = {
 		top:5,
 		width:30,
 		height:30
+	},
+	
+	tabButtonText: {
+		font:{fontSize:15},
+		color:'#999'
 	}
 	
 }
