@@ -196,6 +196,35 @@ module.exports = {
 		right:20,
 		color:'#333',
 		font:{fontSize:14}
+	},
+	
+	tabs: {
+		height:65,
+		bottom:0,
+		backgroundImage:'/ui/images/bg_tabs.png',
+		zIndex:100
+	},
+	
+	tabButton: {
+		width:100,
+		height:60,
+		layout:'vertical',
+		_selected:false
+	},
+	
+	tabImageBorder: {
+		width:60,
+		height:35,
+		borderColor:'#CCC',
+		borderWidth:1,
+		borderRadius:10,
+		backgroundImage:'/ui/images/bg_tabs.png',
+	},
+	
+	tabImage: {
+		top:5,
+		width:30,
+		height:30
 	}
 	
 }

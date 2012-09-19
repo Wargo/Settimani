@@ -30,7 +30,7 @@ if (Ti.Platform.osname != 'android') {
 	
 		Ti.App.win1.add(tabs);
 		
-		nav.open();
+		baseWin.open();
 		
 	} else {
 		

@@ -42,7 +42,7 @@ module.exports = function(hideImage) {
 		if (!hideImage) {
 			insertDateShadow.top = 260;
 		} else {
-			insertDateShadow.top = 24;
+			insertDateShadow.top = 65;
 		}
 		
 		setTimeout(function() {
