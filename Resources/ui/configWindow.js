@@ -215,6 +215,7 @@ module.exports = function(hideImage) {
 		mainView.add(go);
 	} else {
 		mainView.add(insertDate);
+		calc.top = 20;
 	}
 	mainView.add(calc);
 	

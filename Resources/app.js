@@ -43,7 +43,10 @@ if (Ti.Platform.osname != 'android') {
 			navBarHidden:true
 		});
 		baseWin2.add(nav2);
-		Ti.App.win1._nav = nav2;
+		Ti.App.win2._nav = nav2;
+		
+		Ti.App.win1 = baseWin1;
+		Ti.App.win2 = baseWin2;
 		
 		baseWin1.open();
 		
