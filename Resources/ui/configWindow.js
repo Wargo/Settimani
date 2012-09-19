@@ -205,15 +205,17 @@ module.exports = function(hideImage) {
 	 * fin calcular
 	 */
 	
+	win.barImage = '/ui/images/bg_header.png';
+	win.title = L('config', 'Configuración');
+	
 	mainView.add(header);
 	if (!hideImage) {
 		mainView.add(image);
+		mainView.add(insertDate);
+		mainView.add(go);
 	} else {
-		win.barImage = '/ui/images/bg_header.png';
-		win.title = L('config', 'Configuración');
+		mainView.add(insertDate);
 	}
-	mainView.add(insertDate);
-	mainView.add(go);
 	mainView.add(calc);
 	
 	/*
@@ -268,18 +270,7 @@ module.exports = function(hideImage) {
 	go.addEventListener('click', function() {
 		
 		if (!hideImage) {
-			go.opacity = 0;
-			/*if (Ti.Platform.osname != 'android') {
-				baseWin.open();
-			}
-			tabGroup.open();*/
-			setTimeout(function() {
-				go.opacity = 1;
-				win.close({top:'500 dp'});
-			}, 500);
-		} else {
-			win.close();
-			//tabGroup.activeTab = 0;
+			win.close({top:'500 dp'});
 		}
 		
 	});

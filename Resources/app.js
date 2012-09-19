@@ -9,12 +9,12 @@ if (Ti.Platform.osname != 'android') {
 	
 	var getTabs = require(Mods.tabs);
 	
-	var MyWindow = require(Mods.listWindow);
-	Ti.App.win1 = new MyWindow();
-	Ti.App.win2 = new MyWindow();
+	var listWin = require(Mods.listWindow);
+	Ti.App.win1 = new listWin();
+	Ti.App.win2 = new listWin();
 	
-	var MyWindow = require(Mods.configWindow);
-	Ti.App.win3 = new MyWindow(true);
+	var confWin = require(Mods.configWindow);
+	Ti.App.win3 = new confWin(true);
 	
 	var tabs = getTabs(1);
 	Ti.App.win1.add(tabs);
@@ -27,21 +27,36 @@ if (Ti.Platform.osname != 'android') {
 	
 	if (Ti.Platform.osname != 'android') {
 		
-		var nav = Ti.UI.iPhone.createNavigationGroup({
+		var nav1 = Ti.UI.iPhone.createNavigationGroup({
 			window:Ti.App.win1
 		});
-		var baseWin = Ti.UI.createWindow({
+		var baseWin1 = Ti.UI.createWindow({
 			navBarHidden:true
 		});
-		baseWin.add(nav);
-		Ti.App.win1._nav = nav;
+		baseWin1.add(nav1);
+		Ti.App.win1._nav = nav1;
 		
-		baseWin.open();
+		var nav2 = Ti.UI.iPhone.createNavigationGroup({
+			window:Ti.App.win2
+		});
+		var baseWin2 = Ti.UI.createWindow({
+			navBarHidden:true
+		});
+		baseWin2.add(nav2);
+		Ti.App.win1._nav = nav2;
+		
+		baseWin1.open();
 		
 	} else {
 		
 		Ti.App.win1.open();
 		
+	}
+	
+	if (true || !Ti.App.Properties.getDouble('date', null)) {
+		setTimeout(function() {
+			confWin(false).open();
+		}, 100);
 	}
 	
 })();
