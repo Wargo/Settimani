@@ -12,7 +12,11 @@ module.exports = function(data, x) {
 	var current = data[x];
 	
 	var win = Ti.UI.createWindow({
-		backgroundImage:'ui/images/bg_list.png'
+		backgroundImage:'ui/images/bg_list.png',
+		exitOnClose:false,
+		fullscreen:true,
+		navBarHidden:true,
+		modal:true
 	});
 	
 	var loader = Ti.UI.createActivityIndicator({
@@ -32,7 +36,6 @@ module.exports = function(data, x) {
 	}
 	
 	if (Ti.Platform.osname === 'android') {
-		win.navBarHidden = true;
 		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
 		var titleWin = Ti.UI.createLabel($$.headerTitle);
