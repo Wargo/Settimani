@@ -167,10 +167,11 @@ module.exports = function() {
 			var intro = Ti.UI.createLabel($$.rowIntro);
 			intro.text = data[i].intro;
 			
-			var image = Ti.UI.createImageView($$.rowImage);
-			image.image = '/ui/images/' + data[i].category + '.gif';
-			
 			var nextImage = Ti.UI.createImageView($$.nextImage);
+			
+			var checkbox = Ti.UI.createImageView($$.checkbox);
+			//if ...
+			checkbox.image = '/ui/images/unchecked.png';
 			
 			if (Ti.Platform.osname === 'android') {
 				
@@ -178,7 +179,15 @@ module.exports = function() {
 				row.data = data[i];
 				
 				row.addEventListener('click', function(e) {
-					loadArticle(e.index, fullData);
+					if (e.source.image) {
+						if (e.source.image == '/ui/images/unchecked.png') {
+							e.source.image = '/ui/images/checked.png';
+						} else {
+							e.source.image = '/ui/images/unchecked.png';	
+						}
+					} else {
+						loadArticle(e.index, fullData);
+					}
 				});
 				
 				if (data[i].header) {
@@ -213,7 +222,7 @@ module.exports = function() {
 				
 				content.add(title);
 				content.add(intro);
-				content.add(image);
+				content.add(checkbox);
 				
 				row.add(nextImage);
 				row.add(content);
@@ -232,7 +241,8 @@ module.exports = function() {
 				
 				miniRow.add(title);
 				miniRow.add(intro);
-				miniRow.add(image);
+				//miniRow.add(image);
+				miniRow.add(checkbox);
 				
 				if (data[i].header) {
 					

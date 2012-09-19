@@ -11,7 +11,9 @@ if (Ti.Platform.osname != 'android') {
 	
 	var listWin = require(Mods.listWindow);
 	Ti.App.win1 = new listWin();
-	Ti.App.win2 = new listWin();
+	
+	var tipWin = require(Mods.tipsWindow);
+	Ti.App.win2 = new tipWin();
 	
 	var confWin = require(Mods.configWindow);
 	Ti.App.win3 = new confWin(true);
@@ -56,10 +58,10 @@ if (Ti.Platform.osname != 'android') {
 		
 	}
 	
-	if (true || !Ti.App.Properties.getDouble('date', null)) {
+	if (!Ti.App.Properties.getDouble('date', null)) {
 		setTimeout(function() {
 			confWin(false).open();
-		}, 100);
+		}, 10);
 	}
 	
 })();

@@ -258,6 +258,12 @@ module.exports = {
 	tabButtonText: {
 		font:{fontSize:'15 dp'},
 		color:'#999'
+	},
+	
+	checkbox: {
+		width:'30 dp',
+		height:'30 dp',
+		left:'10 dp'
 	}
 	
 }
