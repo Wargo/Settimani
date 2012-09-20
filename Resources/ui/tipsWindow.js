@@ -38,12 +38,9 @@ module.exports = function() {
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
 		win.title = L('main_title', 'Lagravidanza.net');
-		var todayButton = Ti.UI.createButtonBar({
-			labels:[L('today', 'Hoy')],
-			backgroundColor:'#198BB6',
-			color:'#FFF',
-			width:50
-		});
+		
+		var todayButton = Ti.UI.createButtonBar($$.headerButton);
+		todayButton.labels = [L('today', 'Hoy')];
 		
 		win.rightNavButton = todayButton;
 	}

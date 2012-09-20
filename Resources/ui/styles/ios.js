@@ -13,8 +13,11 @@ module.exports = {
 		font:{fontSize:19, fontWeight:'bold'}
 	},
 	
-	imageHome: {
-		//top:44
+	headerButton: {
+		backgroundColor:'#198BB6',
+		color:'#FFF',
+		width:50,
+		height:30
 	},
 	
 	insertDate: {
@@ -22,7 +25,6 @@ module.exports = {
 		borderRadius:5,
 		right:10,left:10,top:10,
 		height:100,
-		//top:250
 		top:20
 	}, 
 	
@@ -54,7 +56,6 @@ module.exports = {
 	},
 	
 	calcText: {
-		//top:420,
 		top:10,
 		right:100,
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
@@ -66,7 +67,6 @@ module.exports = {
 	
 	calcButton: {
 		right:10,
-		//top:420,
 		top:10,
 		width:80,
 		height:40,
