@@ -236,7 +236,16 @@ module.exports = function() {
 				miniRow._i = i;
 				
 				miniRow.addEventListener('click', function(e) {
-					loadArticle(e.row._i, data);
+					//loadArticle(e.row._i, data);
+					if (e.source.image) {
+						if (e.source.image == '/ui/images/unchecked.png') {
+							e.source.image = '/ui/images/checked.png';
+						} else {
+							e.source.image = '/ui/images/unchecked.png';	
+						}
+					} else {
+						loadArticle(e.row._i, data);
+					}
 				});
 				
 				miniRow.add(title);
