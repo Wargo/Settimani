@@ -166,9 +166,9 @@ module.exports = function() {
 			
 			var nextImage = Ti.UI.createImageView($$.nextImage);
 			
-			var checkbox = Ti.UI.createImageView($$.checkbox);
+			var checkbox = Ti.UI.createView($$.checkbox);
 			//if ...
-			checkbox.image = '/ui/images/unchecked.png';
+			checkbox.backgroundImage = '/ui/images/unchecked.png';
 			
 			if (Ti.Platform.osname === 'android') {
 				
@@ -176,11 +176,11 @@ module.exports = function() {
 				row.data = data[i];
 				
 				row.addEventListener('click', function(e) {
-					if (e.source.image) {
-						if (e.source.image == '/ui/images/unchecked.png') {
-							e.source.image = '/ui/images/checked.png';
+					if (e.source.backgroundImage) {
+						if (e.source.backgroundImage == '/ui/images/unchecked.png') {
+							e.source.backgroundImage = '/ui/images/checked.png';
 						} else {
-							e.source.image = '/ui/images/unchecked.png';	
+							e.source.backgroundImage = '/ui/images/unchecked.png';
 						}
 					} else {
 						loadArticle(e.index, fullData);
@@ -233,7 +233,6 @@ module.exports = function() {
 				miniRow._i = i;
 				
 				miniRow.addEventListener('click', function(e) {
-					//loadArticle(e.row._i, data);
 					if (e.source.image) {
 						if (e.source.image == '/ui/images/unchecked.png') {
 							e.source.image = '/ui/images/checked.png';
