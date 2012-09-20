@@ -97,18 +97,20 @@ module.exports = function(hideImage) {
 		go.top = '20 dp';
 	}
 	
-	if (Ti.App.Properties.getDouble('date', null)) {
-		var auxDate = new Date(Ti.App.Properties.getDouble('date'));
-		dayText.text = auxDate.getDate();
-		monthText.text = auxDate.getMonth() + 1;
-		yearText.text = auxDate.getFullYear();
-		go.enabled = true;
-		go.backgroundColor = '#33aa46';
-	} else {
-		dayText.text = L('day', 'Día');
-		monthText.text = L('month', 'Mes');
-		yearText.text = L('year', 'Año');
-	}
+	win.addEventListener('focus', function() {
+		if (Ti.App.Properties.getDouble('date', null)) {
+			var auxDate = new Date(Ti.App.Properties.getDouble('date'));
+			dayText.text = auxDate.getDate();
+			monthText.text = auxDate.getMonth() + 1;
+			yearText.text = auxDate.getFullYear();
+			go.enabled = true;
+			go.backgroundColor = '#33aa46';
+		} else {
+			dayText.text = L('day', 'Día');
+			monthText.text = L('month', 'Mes');
+			yearText.text = L('year', 'Año');
+		}
+	});
 	
 	day.add(dayText);
 	month.add(monthText);
