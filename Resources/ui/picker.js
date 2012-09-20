@@ -27,7 +27,8 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 		var view = Ti.UI.createView({
 			bottom:-300,
 			layout:'vertical',
-			height:216 + 40
+			height:216 + 40,
+			zIndex:150
 		});
 		
 		var picker = Ti.UI.createPicker({

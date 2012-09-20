@@ -82,7 +82,8 @@ module.exports = function(data, x) {
 			labels:['<', '>'],
 			backgroundColor:'#198BB6',
 			color:'#FFF',
-			width:50
+			width:50,
+			height:30
 		});
 		
 		buttons.addEventListener('click', function(e) {
