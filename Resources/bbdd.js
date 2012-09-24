@@ -1,9 +1,17 @@
 
-module.exports = function(f_callback, page) {
+module.exports = function(f_callback, page, onlyTips) {
 	
-	if (Ti.App.Properties.getString('bbdd_' + page, null)) {
+	if (onlyTips) {
+		var prop = 'bbdd_1_' + page;
+	} else {
+		var prop = 'bbdd_2_' + page;
+	}
+	
+	//Ti.App.Properties.removeProperty(prop); // to dev
+	
+	if (Ti.App.Properties.getString(prop, null)) {
 		
-		var result = JSON.parse(Ti.App.Properties.getString('bbdd_' + page));
+		var result = JSON.parse(Ti.App.Properties.getString(prop));
 		
 		setTimeout(function() {
 			f_callback(result.data);
@@ -19,7 +27,7 @@ module.exports = function(f_callback, page) {
 				var result = JSON.parse(this.responseText);
 				
 				if (result.status === 'ok') {
-					Ti.App.Properties.setString('bbdd_' + page, this.responseText);
+					Ti.App.Properties.setString(prop, this.responseText);
 					f_callback(result.data);
 				} else {
 					f_callback(null, 'error de datos')
@@ -32,7 +40,8 @@ module.exports = function(f_callback, page) {
 		
 		client.open('POST', path);
 		client.send({
-			page:page
+			page:page,
+			onlyTips:onlyTips
 		});
 		
 	}

@@ -222,7 +222,35 @@ module.exports = function(hideImage) {
 	var deleteDataText = Ti.UI.createLabel($$.deleteDataText);
 	
 	deleteDataButton.addEventListener('click', function() {
+		var confirm = Ti.UI.createAlertDialog({
+			title:L('deletedData', 'Datos borrados'),
+			message:L('msgDeletedData', 'Los datos han sido borrados correctamente'),
+			buttonNames:[L('ok', 'Ok'), L('cancel', 'Cancelar')],
+			cancel:1
+		});
 		
+		confirm.show();
+		
+		confirm.addEventListener('click', function(e) {
+			if (e.index === e.cancel || e.cancel === true) {
+				return
+			}
+			Ti.App.Properties.removeProperty('date');
+			for (i = 0; i <= 15; i ++) {
+				Ti.App.Properties.removeProperty('bbdd_1_' + i);
+				Ti.App.Properties.removeProperty('bbdd_2_' + i);
+			}
+			Ti.UI.createAlertDialog({
+				title:L('deletedData', 'Datos borrados'),
+				message:L('msgDeletedData', 'Los datos han sido borrados correctamente'),
+				ok:L('ok', 'Ok')
+			}).show();
+			Ti.App.win1.show();
+			Ti.App.win2.hide();
+			Ti.App.win3.hide();
+			var confWin = require(Mods.configWindow);
+			confWin(false).open();
+		});
 	});
 	
 	win.barImage = '/ui/images/bg_header.png';

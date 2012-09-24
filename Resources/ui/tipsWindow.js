@@ -52,7 +52,7 @@ module.exports = function() {
 	var lastRow = 0;
 	
 	var getData = require(Mods.bbdd);
-	getData(putData, page);
+	getData(putData, page, true);
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
@@ -210,7 +210,7 @@ module.exports = function() {
 					
 					var content = Ti.UI.createView($$.middleRow);
 					
-					if (!data[i - 1].header) {
+					if (typeof data[i - 1] != 'undefined' && !data[i - 1].header) {
 						content.top = '-1 dp';
 					}
 					
