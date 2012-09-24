@@ -169,13 +169,25 @@ module.exports = function() {
 			
 			var nextImage = Ti.UI.createImageView($$.nextImage);
 			
+			var checkbox = Ti.UI.createView($$.checkbox);
+			//if ...
+			checkbox.backgroundImage = '/ui/images/unchecked.png';
+			
 			if (Ti.Platform.osname === 'android') {
 				
 				var row = Ti.UI.createTableViewRow($$.row);
 				row.data = data[i];
 				
 				row.addEventListener('click', function(e) {
-					loadArticle(e.index, fullData);
+					if (e.source.backgroundImage) {
+						if (e.source.backgroundImage == '/ui/images/unchecked.png') {
+							e.source.backgroundImage = '/ui/images/checked.png';
+						} else {
+							e.source.backgroundImage = '/ui/images/unchecked.png';
+						}
+					} else {
+						loadArticle(e.index, fullData);
+					}
 				});
 				
 				if (data[i].header) {
@@ -210,7 +222,11 @@ module.exports = function() {
 				
 				content.add(title);
 				content.add(intro);
-				content.add(image);
+				if (data[i].category != 'tip') {
+					content.add(image);
+				} else {
+					content.add(checkbox);
+				}
 				
 				row.add(nextImage);
 				row.add(content);
@@ -224,12 +240,24 @@ module.exports = function() {
 				miniRow._i = i;
 				
 				miniRow.addEventListener('click', function(e) {
-					loadArticle(e.row._i, data);
+					if (e.source.image) {
+						if (e.source.image == '/ui/images/unchecked.png') {
+							e.source.image = '/ui/images/checked.png';
+						} else {
+							e.source.image = '/ui/images/unchecked.png';	
+						}
+					} else {
+						loadArticle(e.row._i, data);
+					}
 				});
 				
 				miniRow.add(title);
 				miniRow.add(intro);
-				miniRow.add(image);
+				if (data[i].category != 'tip') {
+					miniRow.add(image);
+				} else {
+					miniRow.add(checkbox);
+				}
 				
 				if (data[i].header) {
 					
