@@ -1,7 +1,7 @@
 
 module.exports = function(f_callback, page) {
 	
-	Ti.App.Properties.removeProperty('bbdd_' + page); // Limpiando temporales
+	//Ti.App.Properties.removeProperty('bbdd_' + page); // Limpiando temporales
 	
 	if (Ti.App.Properties.getString('bbdd_' + page, null)) {
 		
