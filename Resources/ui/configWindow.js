@@ -127,7 +127,9 @@ module.exports = function(hideImage) {
 	var calcButton = Ti.UI.createView($$.calcButton);
 	calcButton.add(Ti.UI.createImageView({image:'/ui/images/calc.png'}));
 	
-	var calc = Ti.UI.createView();
+	var calc = Ti.UI.createView({
+		height:'100 dp'
+	});
 	calc.add(calcText);
 	calc.add(calcButton);
 	
@@ -209,7 +211,15 @@ module.exports = function(hideImage) {
 	
 	var deleteDataButton = Ti.UI.createButton($$.button);
 	deleteDataButton.title = L('deleteButton', 'Borrar contenido local');
-	deleteDataButton.top = '20 dp';
+	deleteDataButton.top = '50 dp';
+	deleteDataButton.backgroundColor = '#CC0000';
+	deleteDataButton.width = '250 dp';
+	
+	var deleteDataText = Ti.UI.createLabel($$.deleteDataText);
+	
+	deleteDataButton.addEventListener('click', function() {
+		
+	});
 	
 	win.barImage = '/ui/images/bg_header.png';
 	win.title = L('config', 'Configuración');
@@ -219,12 +229,14 @@ module.exports = function(hideImage) {
 		mainView.add(image);
 		mainView.add(insertDate);
 		mainView.add(go);
+		mainView.add(calc);
 	} else {
 		mainView.add(insertDate);
 		calc.top = 20;
+		mainView.add(calc);
 		mainView.add(deleteDataButton);
+		mainView.add(deleteDataText);
 	}
-	mainView.add(calc);
 	
 	/*
 	 * funcionalidades

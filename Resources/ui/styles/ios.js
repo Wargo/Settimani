@@ -236,6 +236,16 @@ module.exports = {
 		width:30,
 		height:30,
 		left:10
+	},
+	
+	deleteDataText: {
+		color:'#999',
+		top:10,
+		left:30,
+		right:30,
+		text:L('delete_text', 'A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto'),
+		textAlign:'center',
+		font:{fontSize:12}
 	}
 	
 }
