@@ -241,11 +241,11 @@ module.exports = function() {
 				miniRow._i = i;
 				
 				miniRow.addEventListener('click', function(e) {
-					if (e.source.image) {
-						if (e.source.image == '/ui/images/unchecked.png') {
-							e.source.image = '/ui/images/checked.png';
+					if (e.source.backgroundImage) {
+						if (e.source.backgroundImage == '/ui/images/unchecked.png') {
+							e.source.backgroundImage = '/ui/images/checked.png';
 						} else {
-							e.source.image = '/ui/images/unchecked.png';	
+							e.source.backgroundImage = '/ui/images/unchecked.png';
 						}
 					} else {
 						loadArticle(e.row._i, data);
