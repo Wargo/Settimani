@@ -61,9 +61,7 @@ module.exports = function() {
 		if (Ti.Platform.osname === 'android') {
 			
 			if (e.firstVisibleItem + e.visibleItemCount == e.totalItemCount && e.totalItemCount > 0 && !updating) {
-				
 				append();
-				
 			}
 			
 		} else if (Ti.Platform.osname === 'iphone') {
@@ -79,9 +77,7 @@ module.exports = function() {
 				var nearEnd = theEnd * 0.95;
 				
 				if  (!updating && (total > nearEnd)) {
-					
 					append();
-					
 				}
 				
 			}
@@ -97,12 +93,14 @@ module.exports = function() {
 	loadingRow.focusable = false;
 	if (Ti.Platform.osname === 'android') {
 		var loadingMore = Ti.UI.createLabel({
-			text:L('loading', 'Cargando...')
+			text:L('loading', 'Cargando...'),
+			color:'#999'
 		});
 	} else {
 		var loadingMore = Ti.UI.createActivityIndicator({
 			style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-			message:L('loading', 'Cargando...')
+			message:L('loading', 'Cargando...'),
+			color:'#999'
 		});
 	}
 	var loadingRowView = Ti.UI.createView();

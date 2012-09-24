@@ -93,12 +93,14 @@ module.exports = function() {
 	loadingRow.focusable = false;
 	if (Ti.Platform.osname === 'android') {
 		var loadingMore = Ti.UI.createLabel({
-			text:L('loading', 'Cargando...')
+			text:L('loading', 'Cargando...'),
+			color:'#999'
 		});
 	} else {
 		var loadingMore = Ti.UI.createActivityIndicator({
 			style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-			message:L('loading', 'Cargando...')
+			message:L('loading', 'Cargando...'),
+			color:'#999'
 		});
 	}
 	var loadingRowView = Ti.UI.createView();
