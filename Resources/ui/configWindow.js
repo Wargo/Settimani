@@ -207,6 +207,10 @@ module.exports = function(hideImage) {
 	 * fin calcular
 	 */
 	
+	var deleteDataButton = Ti.UI.createButton($$.button);
+	deleteDataButton.title = L('deleteButton', 'Borrar contenido local');
+	deleteDataButton.top = '20 dp';
+	
 	win.barImage = '/ui/images/bg_header.png';
 	win.title = L('config', 'Configuración');
 	
@@ -218,6 +222,7 @@ module.exports = function(hideImage) {
 	} else {
 		mainView.add(insertDate);
 		calc.top = 20;
+		mainView.add(deleteDataButton);
 	}
 	mainView.add(calc);
 	

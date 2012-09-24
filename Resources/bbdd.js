@@ -1,8 +1,6 @@
 
 module.exports = function(f_callback, page) {
 	
-	//Ti.App.Properties.removeProperty('bbdd_' + page); // Limpiando temporales
-	
 	if (Ti.App.Properties.getString('bbdd_' + page, null)) {
 		
 		var result = JSON.parse(Ti.App.Properties.getString('bbdd_' + page));
