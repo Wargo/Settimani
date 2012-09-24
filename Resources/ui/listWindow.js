@@ -16,7 +16,8 @@ module.exports = function() {
 	
 	var loader = Ti.UI.createActivityIndicator({
 		style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-		message:L('loading', 'Cargando...')
+		message:L('loading', 'Cargando...'),
+		color:'#999'
 	});
 	win.add(loader);
 	

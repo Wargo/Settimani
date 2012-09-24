@@ -58,7 +58,7 @@ if (Ti.Platform.osname != 'android') {
 		
 	}
 	
-	if (!Ti.App.Properties.getDouble('date', null)) {
+	if (true || !Ti.App.Properties.getDouble('date', null)) {
 		setTimeout(function() {
 			confWin(false).open();
 		}, 10);
