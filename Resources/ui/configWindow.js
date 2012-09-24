@@ -211,9 +211,13 @@ module.exports = function(hideImage) {
 	
 	var deleteDataButton = Ti.UI.createButton($$.button);
 	deleteDataButton.title = L('deleteButton', 'Borrar contenido local');
-	deleteDataButton.top = '50 dp';
 	deleteDataButton.backgroundColor = '#CC0000';
 	deleteDataButton.width = '250 dp';
+	if (Ti.Platform.osname === 'android') {
+		deleteDataButton.top = '50 dp';
+	} else {
+		deleteDataButton.top = '20 dp';
+	}
 	
 	var deleteDataText = Ti.UI.createLabel($$.deleteDataText);
 	

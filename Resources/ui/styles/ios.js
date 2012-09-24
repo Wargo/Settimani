@@ -245,7 +245,7 @@ module.exports = {
 		right:30,
 		text:L('delete_text', 'A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto'),
 		textAlign:'center',
-		font:{fontSize:12}
+		font:{fontSize:13}
 	}
 	
 }
