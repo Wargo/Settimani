@@ -7,6 +7,8 @@ if (Ti.Platform.osname != 'android') {
 
 (function() {
 	
+	Ti.App.checkboxes = [];
+	
 	var getTabs = require(Mods.tabs);
 	
 	var listWin = require(Mods.listWindow);

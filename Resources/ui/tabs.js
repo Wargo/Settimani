@@ -32,6 +32,7 @@ module.exports = function(selected) {
 		Ti.App.win1.show();
 		Ti.App.win2.hide();
 		Ti.App.win3.hide();
+		setCheckboxes();
 	});
 	
 	tipsButton.addEventListener('click', function() {
@@ -40,6 +41,7 @@ module.exports = function(selected) {
 		Ti.App.win2.show();
 		Ti.App.win1.hide();
 		Ti.App.win3.hide();
+		setCheckboxes();
 	});
 	
 	configButton.addEventListener('click', function() {
@@ -72,17 +74,6 @@ module.exports = function(selected) {
 		
 		button.add(text);
 		
-		/*
-		var weeksImageBorder = Ti.UI.createView($$.tabImageBorder);
-		var configImageBorder = Ti.UI.createView($$.tabImageBorder);
-		
-		weeksImageBorder.add(weeksImage);
-		configImageBorder.add(configImage);
-		
-		weeksButton.add(weeksImageBorder);
-		configButton.add(configImageBorder);
-		*/
-		
 		return button;
 	}
 	
@@ -112,6 +103,17 @@ module.exports = function(selected) {
 				tipsButton._selected = false;
 				configButton._selected = false;
 				break;
+		}
+	}
+	
+	
+	function setCheckboxes() {
+		for (i in Ti.App.checkboxes) {
+			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes[i]._id, false)) {
+				Ti.App.checkboxes[i].backgroundImage = '/ui/images/checked.png';
+			} else {
+				Ti.App.checkboxes[i].backgroundImage = '/ui/images/unchecked.png';
+			}
 		}
 	}
 	

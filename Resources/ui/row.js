@@ -30,6 +30,9 @@ module.exports = function(fullData, data, i, tableView) {
 		checkbox.backgroundImage = '/ui/images/unchecked.png';
 	}
 	
+	checkbox._id = data[i].ID;
+	Ti.App.checkboxes.push(checkbox);
+	
 	if (Ti.Platform.osname === 'android') {
 		
 		var row = Ti.UI.createTableViewRow($$.row);
