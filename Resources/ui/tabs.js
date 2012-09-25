@@ -108,11 +108,18 @@ module.exports = function(selected) {
 	
 	
 	function setCheckboxes() {
-		for (i in Ti.App.checkboxes) {
-			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes[i]._id, false)) {
-				Ti.App.checkboxes[i].backgroundImage = '/ui/images/checked.png';
+		for (i in Ti.App.checkboxes1) {
+			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes1[i]._id, false)) {
+				Ti.App.checkboxes1[i].backgroundImage = '/ui/images/checked.png';
 			} else {
-				Ti.App.checkboxes[i].backgroundImage = '/ui/images/unchecked.png';
+				Ti.App.checkboxes1[i].backgroundImage = '/ui/images/unchecked.png';
+			}
+		}
+		for (i in Ti.App.checkboxes2) {
+			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes2[i]._id, false)) {
+				Ti.App.checkboxes2[i].backgroundImage = '/ui/images/checked.png';
+			} else {
+				Ti.App.checkboxes2[i].backgroundImage = '/ui/images/unchecked.png';
 			}
 		}
 	}

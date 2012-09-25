@@ -9,6 +9,8 @@ if (Ti.Platform.osname === 'android') {
 	
 module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
+	var checkboxes = [];
+	
 	for (i in data) {
 		
 		fullData.push(data[i]);
@@ -33,7 +35,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		}
 		
 		checkbox._id = data[i].ID;
-		Ti.App.checkboxes.push(checkbox);
+		checkboxes.push(checkbox);
 		
 		if (Ti.Platform.osname === 'android') {
 			
@@ -107,10 +109,10 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 				if (e.source.backgroundImage) {
 					if (e.source.backgroundImage == '/ui/images/unchecked.png') {
 						e.source.backgroundImage = '/ui/images/checked.png';
-						Ti.App.Properties.setBool('tip_' + data[i].ID, true);
+						Ti.App.Properties.setBool('tip_' + e.row.data.ID, true);
 					} else {
 						e.source.backgroundImage = '/ui/images/unchecked.png';
-						Ti.App.Properties.setBool('tip_' + data[i].ID, false);
+						Ti.App.Properties.setBool('tip_' + e.row.data.ID, false);
 					}
 				} else {
 					loadArticle(e.row._i, data);
@@ -184,24 +186,30 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		
 		var auxData = [];
 		
-		if (data[e].header) {
-			auxE = 0;
-			auxData.push(data[e]);
-			auxData.push(data[e + 1]);
-			auxData.push(data[e + 2]);
-		} else if (data[e].last) {
-			auxE = 2;
-			auxData.push(data[e - 2]);
-			auxData.push(data[e - 1]);
-			auxData.push(data[e]);
-		} else {
-			auxE = 1;
-			auxData.push(data[e - 1]);
-			auxData.push(data[e]);
-			auxData.push(data[e + 1]);
+		var x = e;
+		while (!data[x].header) {
+			x --;
+		}
+		var first = x;
+		
+		var x = e;
+		while (!data[x].last) {
+			x ++;
+		}
+		var last = x;
+		
+		var auxE = 0;
+		var cont = 0;
+		for (i = first; i <= last; i ++) {
+			if (i != e) {
+				cont ++;
+			} else {
+				auxE = cont;
+			}
+			auxData.push(data[i]);
 		}
 		
-		var articleWin = article(auxData, auxE);
+		var articleWin = article(auxData, auxE, data[first].header);
 		
 		if (Ti.Platform.osname === 'android') {
 			articleWin.open();
@@ -210,5 +218,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		}
 		
 	}
+	
+	return checkboxes;
 	
 }

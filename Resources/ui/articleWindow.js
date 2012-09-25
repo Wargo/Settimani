@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function(data, x) {
+module.exports = function(data, x, headerText) {
 	
 	var current = data[x];
 	
@@ -35,6 +35,7 @@ module.exports = function(data, x) {
 	});
 	win.add(loader);
 	
+	/*
 	if (current.header) {
 		var headerText = current.header;
 	} else {
@@ -44,6 +45,7 @@ module.exports = function(data, x) {
 			var headerText = data[x - 2].header;
 		}
 	}
+	*/
 	
 	if (Ti.Platform.osname === 'android') {
 		win.orientationModes = [Ti.UI.PORTRAIT];
@@ -199,16 +201,8 @@ module.exports = function(data, x) {
 		win.add(scrollableView);
 	}
 	
+	/*
 	scrollableView.addEventListener('scroll', function(e) {
-		/*
-		if (scrollableView.views.length == scrollableView.currentPage + 1) {
-			var auxData = [];
-			auxData.push(data[scrollableView.currentPage + 2]);
-			x = scrollableView.currentPage + 1;
-			createViews(data);
-		}
-		*/
-		
 		if (data[scrollableView.currentPage].header) {
 			if (Ti.Platform.osname === 'android') {
 				titleWin.text = data[scrollableView.currentPage].header;
@@ -228,6 +222,7 @@ module.exports = function(data, x) {
 			}
 		}
 	});
+	*/
 	
 	setTimeout(function() {
 		loader.show();
