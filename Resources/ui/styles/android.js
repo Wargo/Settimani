@@ -274,6 +274,15 @@ module.exports = {
 		text:L('delete_text', 'A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto'),
 		textAlign:'center',
 		font:{fontSize:'12 dp'}
+	},
+	
+	tipFor: {
+		color:'#999',
+		left:'3 dp',
+		width:'50 dp',
+		height:'20 dp',
+		bottom:'3 dp',
+		font:{fontSize:'12 dp'}
 	}
 	
 }

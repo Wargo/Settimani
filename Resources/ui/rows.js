@@ -37,6 +37,14 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		checkbox._id = data[i].ID;
 		checkboxes.push(checkbox);
 		
+		var fruit = Ti.UI.createImageView($$.rowImage);
+		fruit.image = data[i].image;
+		
+		var forDads = Ti.UI.createLabel($$.tipFor);
+		var forMums = Ti.UI.createLabel($$.tipFor);
+		forDads.text = L('for_dads', 'Padres');
+		forMums.text = L('for_dads', 'Madres');
+		
 		if (Ti.Platform.osname === 'android') {
 			
 			var row = Ti.UI.createTableViewRow($$.row);
@@ -88,10 +96,20 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			
 			content.add(title);
 			content.add(intro);
-			if (data[i].category != 'tip') {
-				content.add(image);
-			} else {
+			
+			if (data[i].category == 'tip') {
 				content.add(checkbox);
+				if (data[i].post_type == 'papa') {
+					content.add(forDads);
+					content.backgroundColor = '#EEEEFF';
+				} else {
+					content.add(forMums);
+					content.backgroundColor = '#FFEEEE';
+				}
+			} else if (data[i].category == 'fruit') {
+				content.add(fruit);
+			} else {
+				content.add(image);
 			}
 			
 			row.add(nextImage);
@@ -121,10 +139,16 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			
 			miniRow.add(title);
 			miniRow.add(intro);
-			if (data[i].category != 'tip') {
-				miniRow.add(image);
+			
+			if (data[i].category == 'tip') {
+				content.add(checkbox);
+				if (data[i].post_type == 'papa') {
+					content.add(forDads);
+				}
+			} else if (data[i].category == 'fruit') {
+				content.add(fruit);
 			} else {
-				miniRow.add(checkbox);
+				content.add(image);
 			}
 			
 			if (data[i].header) {
