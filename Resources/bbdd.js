@@ -7,7 +7,7 @@ module.exports = function(f_callback, page, onlyTips) {
 		var prop = 'bbdd_2_' + page;
 	}
 	
-	Ti.App.Properties.removeProperty(prop); // to dev
+	//Ti.App.Properties.removeProperty(prop); // to dev
 	
 	if (Ti.App.Properties.getString(prop, null)) {
 		
