@@ -114,7 +114,7 @@ module.exports = function() {
 		updating = true;
 		tableView.appendRow(loadingRow);
 		page += 1;
-		getData(putData2, page);
+		getData(putData2, page, true);
 		
 	}
 	
@@ -153,13 +153,16 @@ module.exports = function() {
 		
 		lastRow += data.length;
 		
-		var row = require(Mods.row);
+		//var getRow = require(Mods.row);
 		
-		for (i in data) {
+		var getRows = require(Mods.rows);
+		getRows(fullData, data, tableView, tableViewData, win);
+		
+		/*for (i in data) {
 			
-			row(fullData, data, i, tableView);
+			getRow(fullData, data, i, tableView, tableViewData);
 			
-		}
+		}*/
 		
 		if (tableViewData.length > 0) { // Sólo en iOS
 			
@@ -175,11 +178,6 @@ module.exports = function() {
 				
 			}
 			
-		}
-		
-		function adjustHeight(numRows) { // Sólo iOS
-			miniTableView.height = miniRow.height * numRows - 1;
-			miniTableViewShadow.height = miniRow.height * numRows - 1;
 		}
 		
 		win.add(tableView);

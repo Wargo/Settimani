@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 	
-module.exports = function(fullData, data, i, tableView) {
+module.exports = function(fullData, data, i, tableView, tableViewData) {
 	
 	fullData.push(data[i]);
 			
@@ -165,6 +165,11 @@ module.exports = function(fullData, data, i, tableView) {
 	
 	if (typeof numRows != 'undefined') {
 		adjustHeight(numRows);
+	}
+
+	function adjustHeight(numRows) { // Sólo iOS
+		miniTableView.height = miniRow.height * numRows - 1;
+		miniTableViewShadow.height = miniRow.height * numRows - 1;
 	}
 	
 }

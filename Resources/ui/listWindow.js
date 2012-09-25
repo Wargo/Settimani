@@ -152,13 +152,16 @@ module.exports = function() {
 		
 		lastRow += data.length;
 		
-		var row = require(Mods.row);
+		//var getRow = require(Mods.row);
 		
-		for (i in data) {
+		var getRows = require(Mods.rows);
+		getRows(fullData, data, tableView, tableViewData, win);
+		
+		/*for (i in data) {
 			
-			row(fullData, data, i, tableView);
+			getRow(fullData, data, i, tableView, tableViewData);
 			
-		}
+		}*/
 		
 		if (tableViewData.length > 0) { // Sólo en iOS
 			
@@ -176,49 +179,9 @@ module.exports = function() {
 			
 		}
 		
-		function adjustHeight(numRows) { // Sólo iOS
-			miniTableView.height = miniRow.height * numRows - 1;
-			miniTableViewShadow.height = miniRow.height * numRows - 1;
-		}
-		
 		win.add(tableView);
 		
 		loader.hide();
-		
-	}
-	
-	var article = require(Mods.articleWindow);
-		
-	function loadArticle(e, data) {
-		
-		e = parseInt(e);
-		
-		var auxData = [];
-		
-		if (data[e].header) {
-			auxE = 0;
-			auxData.push(data[e]);
-			auxData.push(data[e + 1]);
-			auxData.push(data[e + 2]);
-		} else if (data[e].last) {
-			auxE = 2;
-			auxData.push(data[e - 2]);
-			auxData.push(data[e - 1]);
-			auxData.push(data[e]);
-		} else {
-			auxE = 1;
-			auxData.push(data[e - 1]);
-			auxData.push(data[e]);
-			auxData.push(data[e + 1]);
-		}
-		
-		var articleWin = article(auxData, auxE);
-		
-		if (Ti.Platform.osname === 'android') {
-			articleWin.open();
-		} else {
-			win._nav.open(articleWin);
-		}
 		
 	}
 	
