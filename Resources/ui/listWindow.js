@@ -23,6 +23,35 @@ module.exports = function() {
 	
 	loader.show();
 	
+	var todayButton = Ti.UI.createButtonBar($$.headerButton);
+	todayButton.labels = [L('today', 'Hoy')];
+	
+	todayButton.addEventListener('click', function() {
+		var today = new Date();
+		var date = new Date(Ti.App.Properties.getDouble('date'));
+		var diff = date.getTime() - today.getTime();
+		var week = 40 - Math.ceil(diff/(1000 * 60 * 60 * 24 * 7));
+		
+		alert((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+		
+		if (week > 0) {
+			tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
+		}
+		
+		/*
+		if (getRow(week, data)) {
+			if (Ti.Platform.osname == 'android') {
+				tableView.scrollToIndex(getRow(week, data));
+			} else {
+				tableView.scrollToIndex(getRow(week, data), {
+					animated:true,
+					position:Ti.UI.iPhone.TableViewScrollPosition.TOP
+				});
+			}
+		}
+		*/
+	});
+	
 	if (Ti.Platform.osname === 'android') {
 		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
@@ -32,16 +61,10 @@ module.exports = function() {
 		header.add(title);
 		win.add(header);
 		
-		var todayButton = Ti.UI.createButton($$.headerButton);
-		todayButton.title = L('today', 'Hoy');
-		
 		header.add(todayButton);
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
 		win.title = L('main_title', 'Lagravidanza.net');
-		
-		var todayButton = Ti.UI.createButtonBar($$.headerButton);
-		todayButton.labels = [L('today', 'Hoy')];
 		
 		win.rightNavButton = todayButton;
 	}
@@ -178,5 +201,25 @@ module.exports = function() {
 	}
 	
 	return win;
+	
+	function getRow(num, data) {
+		var cont = 0;
+		var aux = 0;
+		for (i in data) {
+			if (data[i].header) {
+				aux ++;
+				if (Ti.Platform.osname == 'android') {
+					cont ++; // Para que cuente los headers
+				}
+			}
+			if (aux == num) {
+				if (Ti.Platform.osname == 'android') {
+					cont = cont - 1; // Para que muestre el header
+				}
+				return cont;
+			}
+			cont ++;
+		}
+	}
 	
 }
