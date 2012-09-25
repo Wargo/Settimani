@@ -141,14 +141,18 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			miniRow.add(intro);
 			
 			if (data[i].category == 'tip') {
-				content.add(checkbox);
+				miniRow.add(checkbox);
 				if (data[i].post_type == 'papa') {
-					content.add(forDads);
+					miniRow.add(forDads);
+					miniRow.backgroundColor = '#EEEEFF';
+				} else {
+					miniRow.add(forMums);
+					miniRow.backgroundColor = '#FFEEEE';
 				}
 			} else if (data[i].category == 'fruit') {
-				content.add(fruit);
+				miniRow.add(fruit);
 			} else {
-				content.add(image);
+				miniRow.add(image);
 			}
 			
 			if (data[i].header) {
