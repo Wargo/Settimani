@@ -236,10 +236,20 @@ module.exports = function(hideImage) {
 				return
 			}
 			Ti.App.Properties.removeProperty('date');
+			
+			var properties = Ti.App.Properties.listProperties;
+			
+			for (i in properties) {
+				if (properties[i].substr(0,4) === 'bbdd' || properties[i].substr(0,4) === 'tip_') {
+					Ti.App.Properties.removeProperty(properties[i]);
+				}
+			}
+			/*
 			for (i = 0; i <= 15; i ++) {
 				Ti.App.Properties.removeProperty('bbdd_1_' + i);
 				Ti.App.Properties.removeProperty('bbdd_2_' + i);
 			}
+			*/
 			Ti.UI.createAlertDialog({
 				title:L('deletedData', 'Datos borrados'),
 				message:L('msgDeletedData', 'Los datos han sido borrados correctamente'),
