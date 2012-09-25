@@ -237,19 +237,17 @@ module.exports = function(hideImage) {
 			}
 			Ti.App.Properties.removeProperty('date');
 			
-			var properties = Ti.App.Properties.listProperties;
+			var properties = Ti.App.Properties.listProperties();
+			
 			
 			for (i in properties) {
 				if (properties[i].substr(0,4) === 'bbdd' || properties[i].substr(0,4) === 'tip_') {
 					Ti.App.Properties.removeProperty(properties[i]);
 				}
 			}
-			/*
-			for (i = 0; i <= 15; i ++) {
-				Ti.App.Properties.removeProperty('bbdd_1_' + i);
-				Ti.App.Properties.removeProperty('bbdd_2_' + i);
-			}
-			*/
+			
+			setCheckboxes();
+
 			Ti.UI.createAlertDialog({
 				title:L('deletedData', 'Datos borrados'),
 				message:L('msgDeletedData', 'Los datos han sido borrados correctamente'),
@@ -340,5 +338,22 @@ module.exports = function(hideImage) {
 	win.add(mainView);
 	
 	return win;
+	
+	function setCheckboxes() {
+		for (i in Ti.App.checkboxes1) {
+			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes1[i]._id, false)) {
+				Ti.App.checkboxes1[i].backgroundImage = '/ui/images/checked.png';
+			} else {
+				Ti.App.checkboxes1[i].backgroundImage = '/ui/images/unchecked.png';
+			}
+		}
+		for (i in Ti.App.checkboxes2) {
+			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes2[i]._id, false)) {
+				Ti.App.checkboxes2[i].backgroundImage = '/ui/images/checked.png';
+			} else {
+				Ti.App.checkboxes2[i].backgroundImage = '/ui/images/unchecked.png';
+			}
+		}
+	}
 	
 }

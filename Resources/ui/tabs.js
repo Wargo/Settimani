@@ -60,8 +60,6 @@ module.exports = function(selected) {
 	view._tipsButton = tipsButton;
 	view._configButton = configButton;
 	
-	return view;
-	
 	function createButton(title, image) {
 		var button = Ti.UI.createView($$.tabButton);
 		
@@ -106,7 +104,6 @@ module.exports = function(selected) {
 		}
 	}
 	
-	
 	function setCheckboxes() {
 		for (i in Ti.App.checkboxes1) {
 			if (Ti.App.Properties.getBool('tip_' + Ti.App.checkboxes1[i]._id, false)) {
@@ -123,5 +120,7 @@ module.exports = function(selected) {
 			}
 		}
 	}
+	
+	return view;
 	
 }
