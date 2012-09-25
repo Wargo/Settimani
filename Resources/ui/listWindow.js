@@ -32,8 +32,6 @@ module.exports = function() {
 		var diff = date.getTime() - today.getTime();
 		var week = 40 - Math.ceil(diff/(1000 * 60 * 60 * 24 * 7));
 		
-		alert((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-		
 		if (week > 0) {
 			tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
 		}
