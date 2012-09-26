@@ -223,8 +223,8 @@ module.exports = function(hideImage) {
 	
 	deleteDataButton.addEventListener('click', function() {
 		var confirm = Ti.UI.createAlertDialog({
-			title:L('deletedData', 'Datos borrados'),
-			message:L('msgDeletedData', 'Los datos han sido borrados correctamente'),
+			title:L('deleteData', '¿Borrar datos?'),
+			message:L('msgDeleteData', '¿Seguro que deseas borrar todos los datos guardados en el dispositivo?'),
 			buttonNames:[L('ok', 'Ok'), L('cancel', 'Cancelar')],
 			cancel:1
 		});
@@ -238,7 +238,6 @@ module.exports = function(hideImage) {
 			Ti.App.Properties.removeProperty('date');
 			
 			var properties = Ti.App.Properties.listProperties();
-			
 			
 			for (i in properties) {
 				if (properties[i].substr(0,4) === 'bbdd' || properties[i].substr(0,4) === 'tip_') {

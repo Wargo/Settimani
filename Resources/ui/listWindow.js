@@ -23,8 +23,13 @@ module.exports = function() {
 	
 	loader.show();
 	
-	var todayButton = Ti.UI.createButtonBar($$.headerButton);
-	todayButton.labels = [L('today', 'Hoy')];
+	if (Ti.Platform.osname != 'android') {
+		var todayButton = Ti.UI.createButtonBar($$.headerButton);
+		todayButton.labels = [L('today', 'Hoy')];
+	} else {
+		var todayButton = Ti.UI.createButton($$.headerButton);
+		todayButton.title = L('today', 'Hoy');
+	}
 	
 	todayButton.addEventListener('click', function() {
 		var today = new Date();
@@ -33,21 +38,23 @@ module.exports = function() {
 		var week = 40 - Math.ceil(diff/(1000 * 60 * 60 * 24 * 7));
 		
 		if (week > 0) {
-			tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
-		}
-		
-		/*
-		if (getRow(week, data)) {
-			if (Ti.Platform.osname == 'android') {
-				tableView.scrollToIndex(getRow(week, data));
+			if (Ti.Platform.osname != 'android') {
+				tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
 			} else {
-				tableView.scrollToIndex(getRow(week, data), {
-					animated:true,
-					position:Ti.UI.iPhone.TableViewScrollPosition.TOP
-				});
+				var aux = 0;
+				var cont = 0;
+				for(var i = 0; i < tableView.data.length; i++) {
+					if (i < week) {
+						for(var j = 0; j < tableView.data[i].rowCount; j++) {
+							cont ++;
+						}
+					}
+				}
+				alert(cont);
+				tableView.scrollToIndex(cont + 2);
 			}
 		}
-		*/
+		
 	});
 	
 	if (Ti.Platform.osname === 'android') {
@@ -81,7 +88,7 @@ module.exports = function() {
 		
 		if (Ti.Platform.osname === 'android') {
 			
-			if (e.firstVisibleItem + e.visibleItemCount == e.totalItemCount && e.totalItemCount > 0 && !updating) {
+			if (e.firstVisibleItem + e.visibleItemCount == e.totalItemCount && e.totalItemCount > 0 && updating === false) {
 				append();
 			}
 			
@@ -131,12 +138,13 @@ module.exports = function() {
 	loadingMore.show();
 	
 	function append() {
-		
-		updating = true;
-		tableView.appendRow(loadingRow);
-		page += 1;
-		getData(putData2, page);
-		
+		if (updating === false) {
+			loader.show();
+			updating = true;
+			tableView.appendRow(loadingRow);
+			page += 1;
+			getData(putData2, page);
+		}
 	}
 	
 	function putData2(data, error) {
@@ -155,7 +163,8 @@ module.exports = function() {
 		if (data) {
 			setTimeout(function() {
 				updating = false;
-			}, 500);
+				loader.hide();
+			}, 5000);
 		}
 		
 		putData(data, error);
@@ -199,25 +208,5 @@ module.exports = function() {
 	}
 	
 	return win;
-	
-	function getRow(num, data) {
-		var cont = 0;
-		var aux = 0;
-		for (i in data) {
-			if (data[i].header) {
-				aux ++;
-				if (Ti.Platform.osname == 'android') {
-					cont ++; // Para que cuente los headers
-				}
-			}
-			if (aux == num) {
-				if (Ti.Platform.osname == 'android') {
-					cont = cont - 1; // Para que muestre el header
-				}
-				return cont;
-			}
-			cont ++;
-		}
-	}
 	
 }

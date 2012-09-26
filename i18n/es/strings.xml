@@ -12,4 +12,8 @@
 	<string name="loading">Cargando...</string>
 	<string name="weeks">Semanas</string>
 	<string name="config">Configuración</string>
+	<string name="msgDeleteData">¿Seguro que deseas borrar todos los datos guardados en el dispositivo?</string>
+	<string name="deleteData">¿Borrar datos?</string>
+	<string name="msgDeletedData">Los datos han sido borrados correctamente</string>
+	<string name="deletedData">Datos borrados</string>
 </resources>
