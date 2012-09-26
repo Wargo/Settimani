@@ -210,7 +210,7 @@ module.exports = function(hideImage) {
 	 */
 	
 	var deleteDataButton = Ti.UI.createButton($$.button);
-	deleteDataButton.title = L('deleteButton', 'Borrar contenido local');
+	deleteDataButton.title = L('delete_button', 'Borrar contenido local');
 	deleteDataButton.backgroundColor = '#CC0000';
 	deleteDataButton.width = '250 dp';
 	if (Ti.Platform.osname === 'android') {
@@ -223,8 +223,8 @@ module.exports = function(hideImage) {
 	
 	deleteDataButton.addEventListener('click', function() {
 		var confirm = Ti.UI.createAlertDialog({
-			title:L('deleteData', '¿Borrar datos?'),
-			message:L('msgDeleteData', '¿Seguro que deseas borrar todos los datos guardados en el dispositivo?'),
+			title:L('delete_data', '¿Borrar datos?'),
+			message:L('msg_delete_data', '¿Seguro que deseas borrar todos los datos guardados en el dispositivo?'),
 			buttonNames:[L('ok', 'Ok'), L('cancel', 'Cancelar')],
 			cancel:1
 		});
@@ -248,8 +248,8 @@ module.exports = function(hideImage) {
 			setCheckboxes();
 
 			Ti.UI.createAlertDialog({
-				title:L('deletedData', 'Datos borrados'),
-				message:L('msgDeletedData', 'Los datos han sido borrados correctamente'),
+				title:L('deleted_data', 'Datos borrados'),
+				message:L('msg_deleted_data', 'Los datos han sido borrados correctamente'),
 				ok:L('ok', 'Ok')
 			}).show();
 			Ti.App.win1.show();
