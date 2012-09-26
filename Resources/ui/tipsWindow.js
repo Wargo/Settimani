@@ -23,25 +23,52 @@ module.exports = function() {
 	
 	loader.show();
 	
+	if (Ti.Platform.osname != 'android') {
+		var todayButton = Ti.UI.createButtonBar($$.headerButton);
+		todayButton.labels = [L('today', 'Hoy')];
+	} else {
+		var todayButton = Ti.UI.createButton($$.headerButton);
+		todayButton.title = L('today', 'Hoy');
+	}
+	
+	todayButton.addEventListener('click', function() {
+		var today = new Date();
+		var date = new Date(Ti.App.Properties.getDouble('date'));
+		var diff = date.getTime() - today.getTime();
+		var week = 40 - Math.ceil(diff/(1000 * 60 * 60 * 24 * 7));
+		
+		if (week > 0) {
+			if (Ti.Platform.osname != 'android') {
+				tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
+			} else {
+				var aux = 0;
+				var cont = 0;
+				for(var i = 0; i < tableView.data.length; i++) {
+					if (i < week) {
+						for(var j = 0; j < tableView.data[i].rowCount; j++) {
+							cont ++;
+						}
+					}
+				}
+				tableView.scrollToIndex(cont + 2);
+			}
+		}
+		
+	});
+	
 	if (Ti.Platform.osname === 'android') {
 		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
 		var title = Ti.UI.createLabel($$.headerTitle);
-		title.text = L('main_title', 'Lagravidanza.net');
+		title.text = L('main_title', 'Consejos');
 		
 		header.add(title);
 		win.add(header);
 		
-		var todayButton = Ti.UI.createButton($$.headerButton);
-		todayButton.title = L('today', 'Hoy');
-		
 		header.add(todayButton);
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
-		win.title = L('main_title', 'Lagravidanza.net');
-		
-		var todayButton = Ti.UI.createButtonBar($$.headerButton);
-		todayButton.labels = [L('today', 'Hoy')];
+		win.title = L('main_title', 'Consejos');
 		
 		win.rightNavButton = todayButton;
 	}

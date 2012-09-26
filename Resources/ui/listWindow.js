@@ -50,7 +50,6 @@ module.exports = function() {
 						}
 					}
 				}
-				alert(cont);
 				tableView.scrollToIndex(cont + 2);
 			}
 		}
@@ -164,7 +163,7 @@ module.exports = function() {
 			setTimeout(function() {
 				updating = false;
 				loader.hide();
-			}, 5000);
+			}, 3000);
 		}
 		
 		putData(data, error);
