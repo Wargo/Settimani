@@ -12,10 +12,11 @@ if (Ti.Platform.osname != 'android') {
 	var getTabs = require(Mods.tabs);
 	
 	var listWin = require(Mods.listWindow);
-	Ti.App.win1 = new listWin();
+	Ti.App.win1 = new listWin('all');
 	
-	var tipWin = require(Mods.tipsWindow);
-	Ti.App.win2 = new tipWin();
+	//var tipWin = require(Mods.tipsWindow);
+	var tipWin = require(Mods.listWindow);
+	Ti.App.win2 = new tipWin('tips');
 	
 	var confWin = require(Mods.configWindow);
 	Ti.App.win3 = new confWin(true);

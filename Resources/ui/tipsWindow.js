@@ -43,9 +43,9 @@ module.exports = function() {
 			} else {
 				var aux = 0;
 				var cont = 0;
-				for(var i = 0; i < tableView.data.length; i++) {
+				for (var i = 0; i < tableView.data.length; i++) {
 					if (i < week) {
-						for(var j = 0; j < tableView.data[i].rowCount; j++) {
+						for (var j = 0; j < tableView.data[i].rowCount; j++) {
 							cont ++;
 						}
 					}
@@ -176,7 +176,6 @@ module.exports = function() {
 	function putData(data, error) {
 		
 		if (data === null) {
-			//getData(putData);
 			return false;
 		}
 		

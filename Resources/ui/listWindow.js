@@ -7,7 +7,7 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
-module.exports = function() {
+module.exports = function(type) {
 	
 	var win = Ti.UI.createWindow({
 		backgroundColor:'#F2F2F2',
@@ -43,9 +43,9 @@ module.exports = function() {
 			} else {
 				var aux = 0;
 				var cont = 0;
-				for(var i = 0; i < tableView.data.length; i++) {
+				for (var i = 0; i < tableView.data.length; i++) {
 					if (i < week) {
-						for(var j = 0; j < tableView.data[i].rowCount; j++) {
+						for (var j = 0; j < tableView.data[i].rowCount; j++) {
 							cont ++;
 						}
 					}
@@ -56,11 +56,17 @@ module.exports = function() {
 		
 	});
 	
+	if (type == 'all') {
+		var titleWin = L('main_title', 'Lagravidanza.net');
+	} else {
+		var titleWin = L('tab_title', 'Consejos');
+	}
+	
 	if (Ti.Platform.osname === 'android') {
 		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
 		var title = Ti.UI.createLabel($$.headerTitle);
-		title.text = L('main_title', 'Lagravidanza.net');
+		title.text = titleWin;
 		
 		header.add(title);
 		win.add(header);
@@ -68,7 +74,7 @@ module.exports = function() {
 		header.add(todayButton);
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
-		win.title = L('main_title', 'Lagravidanza.net');
+		win.title = title;
 		
 		win.rightNavButton = todayButton;
 	}
@@ -79,7 +85,12 @@ module.exports = function() {
 	var lastRow = 0;
 	
 	var getData = require(Mods.bbdd);
-	getData(putData, page);
+	if (type == 'all') {
+		getData(putData, page);
+	} else {
+		getData(putData, page, true);
+	}
+	
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
@@ -144,7 +155,11 @@ module.exports = function() {
 			updating = true;
 			tableView.appendRow(loadingRow);
 			page += 1;
-			getData(putData2, page);
+			if (type == 'all') {
+				getData(putData, page);
+			} else {
+				getData(putData, page, true);
+			}
 		}
 	}
 	
