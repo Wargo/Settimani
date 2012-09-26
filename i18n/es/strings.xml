@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<string name="main_title">Elembarazo.net</string>
+	<string name="tab_title">Consejos</string>
 	<string name="fill_preg_date">Introduce tu fecha de parto</string>
 	<string name="day">Día</string>
 	<string name="month">Mes</string>

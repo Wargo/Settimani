@@ -60,7 +60,7 @@ module.exports = function() {
 		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
 		var title = Ti.UI.createLabel($$.headerTitle);
-		title.text = L('main_title', 'Consejos');
+		title.text = L('tab_title', 'Consejos');
 		
 		header.add(title);
 		win.add(header);
@@ -68,7 +68,7 @@ module.exports = function() {
 		header.add(todayButton);
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
-		win.title = L('main_title', 'Consejos');
+		win.title = L('tab_title', 'Consejos');
 		
 		win.rightNavButton = todayButton;
 	}
