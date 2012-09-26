@@ -83,6 +83,7 @@ module.exports = function() {
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
+	/*
 	tableView.addEventListener('scroll', function(e) {
 		
 		if (Ti.Platform.osname === 'android') {
@@ -114,6 +115,7 @@ module.exports = function() {
 		}
 		
 	});
+	*/
 		
 	var loadingRow = Ti.UI.createTableViewRow($$.row);
 	loadingRow.height = '40 dp';
