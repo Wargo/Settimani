@@ -74,7 +74,7 @@ module.exports = function(type) {
 		header.add(todayButton);
 	} else {
 		win.barImage = '/ui/images/bg_header.png';
-		win.title = title;
+		win.title = titleWin;
 		
 		win.rightNavButton = todayButton;
 	}
