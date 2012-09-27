@@ -41,16 +41,24 @@ module.exports = function(type) {
 			if (Ti.Platform.osname != 'android') {
 				tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
 			} else {
-				var aux = 0;
 				var cont = 0;
 				for (var i = 0; i < tableView.data.length; i++) {
-					if (i < week) {
+					
+					if (type === 'tips') {
+						difference = 5;
+					} else {
+						difference = 0;
+					}
+					
+					if (i < week - difference) {
 						for (var j = 0; j < tableView.data[i].rowCount; j++) {
 							cont ++;
 						}
+						cont ++; // por el header
 					}
 				}
-				tableView.scrollToIndex(cont + 2);
+				
+				tableView.scrollToIndex(cont);
 			}
 		}
 		

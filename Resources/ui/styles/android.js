@@ -62,7 +62,7 @@ module.exports = {
 		borderRadius:5,
 		borderColor:'#CCC',
 		borderWidth:1,
-		backgroundColor:'#33aa46',
+		backgroundColor:'#33AA46',
 		backgroundDisabledColor:'#DDD',
 		color:'#FFF',
 		font:{fontSize:'20 dp', fontWeight:'bold'}
