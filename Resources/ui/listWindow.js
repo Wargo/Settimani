@@ -37,18 +37,18 @@ module.exports = function(type) {
 		var diff = date.getTime() - today.getTime();
 		var week = 40 - Math.ceil(diff/(1000 * 60 * 60 * 24 * 7));
 		
+		if (type === 'tips') {
+			difference = 5;
+		} else {
+			difference = 0;
+		}
+		
 		if (week > 0) {
 			if (Ti.Platform.osname != 'android') {
-				tableView.scrollToIndex(week, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
+				tableView.scrollToIndex(week - difference, {position:Ti.UI.iPhone.TableViewScrollPosition.TOP});
 			} else {
 				var cont = 0;
 				for (var i = 0; i < tableView.data.length; i++) {
-					
-					if (type === 'tips') {
-						difference = 5;
-					} else {
-						difference = 0;
-					}
 					
 					if (i < week - difference) {
 						for (var j = 0; j < tableView.data[i].rowCount; j++) {
@@ -57,7 +57,6 @@ module.exports = function(type) {
 						cont ++; // por el header
 					}
 				}
-				
 				tableView.scrollToIndex(cont);
 			}
 		}
