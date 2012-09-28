@@ -34,9 +34,12 @@ module.exports = function(src) {
 	
 	var image = Ti.UI.createImageView({
 		image:src.image,
-		//width:'100%',
 		height:'100%'
 	});
+	
+	if (Ti.Platform.osname != 'android') {
+		image.width = '100%';
+	}
 	
 	scrollView.add(image);
 	
