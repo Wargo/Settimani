@@ -153,7 +153,7 @@ module.exports = function(hideImage) {
 		win.add(popup);
 		
 		var popupText = Ti.UI.createLabel({
-			text:L('calculate_explain', 'Calcula la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.'),
+			text:L('calc_explain', 'Dinos la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.'),
 			color:'#FFF',
 			left:'40 dp',
 			right:'40 dp',

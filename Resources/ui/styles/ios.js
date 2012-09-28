@@ -121,8 +121,7 @@ module.exports = {
 	
 	rowImage: {
 		width:50,
-		left:0,
-		top:25
+		left:0
 	},
 	
 	nextImage: {
