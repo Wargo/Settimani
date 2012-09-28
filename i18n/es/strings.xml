@@ -11,7 +11,7 @@
 	<string name="year">Año</string>
 	<string name="today">Hoy</string>
 	<string name="calc_text">Si no conoces tu fecha de parto calcúlala aquí</string>
-	<string name="calc_explain">Calcula la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.</string>
+	<string name="calc_explain">Dinos la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.</string>
 	<string name="calculate">Calcular</string>
 	<string name="loading">Descargando contenido...</string>
 	<string name="weeks">Semanas</string>
@@ -22,5 +22,5 @@
 	<string name="msg_deleted_data">Los datos han sido borrados correctamente</string>
 	<string name="deleted_data">Datos borrados</string>
 	<string name="for_dads">Padres</string>
-	<string name="for_mums">Madres</string>
+	<string name="for_moms">Madres</string>
 </resources>

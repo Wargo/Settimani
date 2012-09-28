@@ -153,7 +153,7 @@ module.exports = {
 	rowImage: {
 		width:'49 dp',
 		left:'1 dp',
-		top:'25 dp'
+		top:'15 dp'
 	},
 	
 	nextImage: {

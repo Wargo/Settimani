@@ -26,7 +26,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		intro.text = data[i].intro;
 		
 		var image = Ti.UI.createImageView($$.rowImage);
-		image.image = '/ui/images/' + data[i].category + '.gif';
+		image.image = '/ui/images/' + data[i].category + '.png';
 		
 		var nextImage = Ti.UI.createImageView($$.nextImage);
 		
@@ -45,9 +45,9 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		fruit.image = data[i].image;
 		
 		var forDads = Ti.UI.createLabel($$.tipFor);
-		var forMums = Ti.UI.createLabel($$.tipFor);
+		var forMoms = Ti.UI.createLabel($$.tipFor);
 		forDads.text = L('for_dads', 'Padres');
-		forMums.text = L('for_dads', 'Madres');
+		forMoms.text = L('for_moms', 'Madres');
 		
 		if (Ti.Platform.osname === 'android') {
 			
@@ -107,7 +107,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 					content.add(forDads);
 					content.backgroundColor = '#EEEEFF';
 				} else {
-					content.add(forMums);
+					content.add(forMoms);
 					content.backgroundColor = '#FFEEEE';
 				}
 			} else if (data[i].category == 'fruit') {
@@ -150,7 +150,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 					miniRow.add(forDads);
 					miniRow.backgroundColor = '#EEEEFF';
 				} else {
-					miniRow.add(forMums);
+					miniRow.add(forMoms);
 					miniRow.backgroundColor = '#FFEEEE';
 				}
 			} else if (data[i].category == 'fruit') {
