@@ -15,26 +15,31 @@ module.exports = function(src) {
 		
 		var win = Ti.UI.createWindow({
 			backgroundColor:'#000',
+			opacity:0
+		});
+		
+		win.addEventListener('singletap', function() {
+			win.close({opacity:0});
 		});
 		
 	}
 	
 	var scrollView = Ti.UI.createScrollView({
-		contentHeight:'auto',
-		contentWidth:'auto',
-		showHorizontalScrollIndicator:false,
-		showVerticalScrollIndicator:false
+		maxZoomScale: 10,
+	    minZoomScale: 1,
+	    zoomScale: 1
 	});
 	
 	win.add(scrollView);
 	
 	var image = Ti.UI.createImageView({
 		image:src.image,
-		width:'100%'
+		width:'100%',
+		height:'100%'
 	});
 	
 	scrollView.add(image);
 	
-	win.open();
+	win.open({opacity:1});
 	
 }

@@ -179,7 +179,8 @@ module.exports = {
 		top:10,
 		left:20,
 		right:20,
-		width:240
+		width:240,
+		height:240
 	},
 	
 	articleIntro: {
