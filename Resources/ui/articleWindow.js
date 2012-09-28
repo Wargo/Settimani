@@ -35,18 +35,6 @@ module.exports = function(data, x, headerText) {
 	});
 	win.add(loader);
 	
-	/*
-	if (current.header) {
-		var headerText = current.header;
-	} else {
-		if (data[x - 1].header) {
-			var headerText = data[x - 1].header;
-		} else {
-			var headerText = data[x - 2].header;
-		}
-	}
-	*/
-	
 	if (Ti.Platform.osname === 'android') {
 		win.orientationModes = [Ti.UI.PORTRAIT];
 		var header = Ti.UI.createView($$.header);
@@ -164,6 +152,11 @@ module.exports = function(data, x, headerText) {
 				}
 			});
 			
+			image.addEventListener('singletap', function(e) {
+				var amplify = require(Mods.amplify);
+				amplify(e.source);
+			});
+			
 			scrollView.add(nextImage);
 			scrollView.add(prevImage);
 			scrollView.add(content);
@@ -182,17 +175,6 @@ module.exports = function(data, x, headerText) {
 			
 			scrollableView.addView(scrollView);
 			
-			/*
-			if (i == x) {
-				setTimeout(function(){
-					scrollableView.currentPage = x;
-					win.add(scrollableView);
-				}, 100);
-			} else if (i == parseInt(x) + 1) {
-				break;
-			}
-			*/
-			
 		}
 		
 		loader.hide();
@@ -200,29 +182,6 @@ module.exports = function(data, x, headerText) {
 		scrollableView.currentPage = x;
 		win.add(scrollableView);
 	}
-	
-	/*
-	scrollableView.addEventListener('scroll', function(e) {
-		if (data[scrollableView.currentPage].header) {
-			if (Ti.Platform.osname === 'android') {
-				titleWin.text = data[scrollableView.currentPage].header;
-			} else {
-				win.title = data[scrollableView.currentPage].header;
-			}
-		} else {
-			if (data[scrollableView.currentPage - 1].header) {
-				var headerText = data[scrollableView.currentPage - 1].header;
-			} else {
-				var headerText = data[scrollableView.currentPage - 2].header;
-			}
-			if (Ti.Platform.osname === 'android') {
-				titleWin.text = headerText;
-			} else {
-				win.title = headerText;
-			}
-		}
-	});
-	*/
 	
 	setTimeout(function() {
 		loader.show();

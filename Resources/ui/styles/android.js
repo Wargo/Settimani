@@ -3,7 +3,7 @@ module.exports = {
 	
 	header: {
 		backgroundImage:'/ui/images/bg_header.png', // TODO no se repite
-		height:'40 dp',
+		height:'50 dp',
 		top:0
 	},
 	
@@ -16,7 +16,7 @@ module.exports = {
 	
 	headerButton: {
 		right:'10 dp',
-		height:'25 dp',
+		height:'35 dp',
 		width:'45 dp',
 		borderRadius:5,
 		borderColor:'#1A6A8A',
@@ -36,7 +36,6 @@ module.exports = {
 		borderRadius:5,
 		right:'10 dp',left:'10 dp',top:'10 dp',
 		height:'130 dp',
-		//top:'250 dp'
 		top:'20 dp'
 	}, 
 	
@@ -69,7 +68,6 @@ module.exports = {
 	},
 	
 	calcText: {
-		//top:'480 dp',
 		top:'20 dp',
 		right:'100 dp',
 		text:L('calcText', 'Si no conoces tu fecha de parto calcúlala aquí'),
@@ -81,7 +79,6 @@ module.exports = {
 	
 	calcButton: {
 		right:'10 dp',
-		//top:'480 dp',
 		top:'20 dp',
 		width:'80 dp',
 		height:'40 dp',
@@ -92,7 +89,7 @@ module.exports = {
 	},
 	
 	tableView: {
-		top:'40 dp',
+		top:'50 dp',
 		bottom:'65 dp',
 		separatorColor:'transparent'
 	},

@@ -1,15 +1,31 @@
 
 module.exports = {
 	
+	/*
+	 * Windows
+	 */
 	configWindow: 'ui/configWindow',
 	listWindow: 'ui/listWindow',
 	articleWindow: 'ui/articleWindow',
 	tipsWindow: 'ui/tipsWindow',
-	rows: 'ui/rows',
+	
+	/*
+	 * styles
+	 */
 	styles_android: 'ui/styles/android',
 	styles_ios: 'ui/styles/ios',
+	
+	/*
+	 * elements
+	 */
+	rows: 'ui/rows',
 	picker: 'ui/picker',
-	bbdd: 'bbdd',
-	tabs: 'ui/tabs'
+	amplify: 'ui/amplify',
+	tabs: 'ui/tabs',
+	
+	/*
+	 * connections
+	 */
+	bbdd: 'bbdd'
 	
 }
