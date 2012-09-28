@@ -34,7 +34,7 @@ module.exports = function(src) {
 	
 	var image = Ti.UI.createImageView({
 		image:src.image,
-		width:'100%',
+		//width:'100%',
 		height:'100%'
 	});
 	
