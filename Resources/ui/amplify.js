@@ -4,7 +4,7 @@ module.exports = function(src) {
 	if (Ti.Platform.osname === 'android') {
 		
 		var win = Ti.UI.createWindow({
-			backgroundImage:'ui/images/bg_list.png',
+			backgroundColor:'#000',
 			exitOnClose:false,
 			fullscreen:true,
 			navBarHidden:true,
@@ -14,7 +14,7 @@ module.exports = function(src) {
 	} else {
 		
 		var win = Ti.UI.createWindow({
-			backgroundImage:'ui/images/bg_list.png'
+			backgroundColor:'#000',
 		});
 		
 	}
@@ -29,13 +29,11 @@ module.exports = function(src) {
 	win.add(scrollView);
 	
 	var image = Ti.UI.createImageView({
-		image:src,
+		image:src.image,
 		width:'100%'
 	});
 	
 	scrollView.add(image);
-	
-	scrollView.add(Ti.UI.createLabel({text:'aaaaaa', color:'#FFF', top:0}));
 	
 	win.open();
 	
