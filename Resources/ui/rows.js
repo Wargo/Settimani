@@ -13,10 +13,6 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
 	for (i in data) {
 		
-		if (i > 10) {
-			break;
-		}
-		
 		fullData.push(data[i]);
 				
 		var title = Ti.UI.createLabel($$.rowTitle);
