@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+	<string name="bbdd_url">http://www.semanasdembarazo.com/appMovil/weeks.php</string>
 	<string name="main_title">Elembarazo.net</string>
 	<string name="tab_title">Consejos</string>
 	<string name="fill_preg_date">Introduce tu fecha de parto</string>
@@ -15,6 +16,7 @@
 	<string name="calculate">Calcular</string>
 	<string name="loading">Descargando contenido...</string>
 	<string name="weeks">Semanas</string>
+	<string name="tips">Consejos</string>
 	<string name="config">Configuración</string>
 	<string name="delete_button">Borrar contenido local</string>
 	<string name="msg_delete_data">¿Seguro que deseas borrar todos los datos guardados en el dispositivo?</string>
@@ -23,4 +25,6 @@
 	<string name="deleted_data">Datos borrados</string>
 	<string name="for_dads">Padres</string>
 	<string name="for_moms">Madres</string>
+	<string name="calcText">Si no conoces tu fecha de parto calcúlala aquí</string>
+	<string name="delete_text">A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto</string>
 </resources>

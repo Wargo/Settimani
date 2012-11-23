@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+	<string name="bbdd_url">http://api.lagravidanza.net/posts/index.json</string>
 	<string name="main_title">Lagravidanza.net</string>
 	<string name="tab_title">Consigli</string>
 	<string name="fill_preg_date">Inserisci la data del parto</string>
@@ -15,6 +16,7 @@
 	<string name="calculate">Calcola</string>
 	<string name="loading">Scaricamento dati...</string>
 	<string name="weeks">Settimane</string>
+	<string name="tips">********Consejos*********</string>
 	<string name="config">Configurazione</string>
 	<string name="delete_button">Elimina local data</string>
 	<string name="msg_delete_data">Sicura di voler eliminare i dati salvati?</string>
@@ -23,4 +25,6 @@
 	<string name="deleted_data">Dati eliminati</string>
 	<string name="for_dads">Papà</string>
 	<string name="for_moms">Mamme</string>
+	<string name="calcText">******Si no conoces tu fecha de parto calcúlala aquí******</string>
+	<string name="delete_text">**********A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto***********</string>
 </resources>
