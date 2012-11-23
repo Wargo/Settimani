@@ -118,7 +118,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			tableView.appendRow(row);
 			
 		} else {
-		
+			
 			var miniRow = Ti.UI.createTableViewRow($$.miniRow);
 			miniRow.data = data[i];
 			miniRow._i = i;
@@ -155,6 +155,8 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 				miniRow.add(image);
 			}
 			
+			data[i].header = 'no tiene header'
+			
 			if (data[i].header) {
 				
 				var row = Ti.UI.createTableViewRow($$.row);
@@ -185,17 +187,21 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 				auxSection.add(row);
 				
 			}
-			
+
+			if (typeof numRows == 'undefined') {
+				var numRows = 0;
+			}
 			nextImage.top = nextImage.top + miniRow.height * numRows;
 			row.add(nextImage);
+	
 			
 			numRows ++;
-			
 			miniTableView.appendRow(miniRow);
 			
 		}
 		
 	}
+	
 	
 	if (typeof numRows != 'undefined') {
 		adjustHeight(numRows);
@@ -246,7 +252,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		}
 		
 	}
-	
+
 	return checkboxes;
 	
 }

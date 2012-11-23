@@ -204,10 +204,8 @@ module.exports = function(type) {
 		}
 		
 		lastRow += data.length;
-		
 		var getRows = require(Mods.rows);
 		Ti.App.checkboxes1 = getRows(fullData, data, tableView, tableViewData, win);
-		
 		if (tableViewData.length > 0) { // Sólo en iOS
 			
 			tableView.data = tableViewData;

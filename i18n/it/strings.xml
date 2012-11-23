@@ -7,6 +7,7 @@
 	<string name="go">Vai</string>
 	<string name="ok">Ok</string>
 	<string name="cancel">Annulla</string>
+	<string name="accept">Accettare</string>
 	<string name="day">Giorno</string>
 	<string name="month">Mese</string>
 	<string name="year">Anno</string>
@@ -16,7 +17,7 @@
 	<string name="calculate">Calcola</string>
 	<string name="loading">Scaricamento dati...</string>
 	<string name="weeks">Settimane</string>
-	<string name="tips">********Consejos*********</string>
+	<string name="tips">Consigli</string>
 	<string name="config">Configurazione</string>
 	<string name="delete_button">Elimina local data</string>
 	<string name="msg_delete_data">Sicura di voler eliminare i dati salvati?</string>

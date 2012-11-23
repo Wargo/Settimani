@@ -9,7 +9,7 @@ module.exports = function(f_callback, page, onlyTips) {
 	
 	//Ti.App.Properties.removeProperty(prop); // to dev
 	
-	if (Ti.App.Properties.getString(prop, null)) {
+	if (false && Ti.App.Properties.getString(prop, null)) {
 		
 		var result = JSON.parse(Ti.App.Properties.getString(prop));
 		
@@ -27,7 +27,6 @@ module.exports = function(f_callback, page, onlyTips) {
 				Ti.API.info(this.responseText);
 				
 				var result = JSON.parse(this.responseText);
-				
 				if (result.status === 'ok') {
 					Ti.App.Properties.setString(prop, this.responseText);
 					f_callback(result.data);
