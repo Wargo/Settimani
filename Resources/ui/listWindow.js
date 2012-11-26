@@ -17,7 +17,8 @@ module.exports = function(type) {
 	var loader = Ti.UI.createActivityIndicator({
 		style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
 		message:L('loading', 'Descargando contenido'),
-		color:'#999'
+		color:'#999',
+		cancelable:true
 	});
 	win.add(loader);
 	
@@ -198,8 +199,36 @@ module.exports = function(type) {
 	var fullData = [];
 	
 	function putData(data, error) {
+
+		if (data.length === 0) {
+			if (tableView.data.length < 1) {
+				var noDataRow = Ti.UI.createTableViewRow({
+					style:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE,
+					height:'200dp'
+				});
+				var noDataView = Ti.UI.createView({
+					borderColor:'#999',
+					borderRadiud:5,
+					borderWidth:1,
+					left:'10dp',
+					right:'10dp',
+					top:'80dp',
+					bottom:'10dp',
+					backgroundColor:'#FFF'
+				});
+				noDataView.add(Ti.UI.createLabel({
+					text:L('soon', 'Próximamente')
+				}));
+				noDataRow.add(noDataView);
+				tableView.appendRow(noDataRow);
+				win.add(tableView);
+			}
+			loader.hide();
+			return false;
+		}
 		
 		if (data === null) {
+			loader.hide();
 			return false;
 		}
 		
