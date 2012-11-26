@@ -11,6 +11,8 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
 	var checkboxes = [];
 	
+	var arrayRows = [];
+	
 	for (i in data) {
 		
 		fullData.push(data[i]);
@@ -117,7 +119,9 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			row.add(nextImage);
 			row.add(content);
 			
-			tableView.appendRow(row);
+			//tableView.appendRow(row); // Lo hago de forma general
+			
+			arrayRows.push(row);
 			
 		} else {
 			
@@ -156,8 +160,6 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			} else {
 				miniRow.add(image);
 			}
-			
-			//data[i].header = 'no tiene header';
 			
 			if (data[i].header) {
 				
@@ -205,8 +207,10 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	}
 	
 	
-	if (typeof numRows != 'undefined') {
+	if (typeof numRows != 'undefined') { // ios
 		adjustHeight(numRows);
+	} else { // android
+		tableView.appendRow(arrayRows);
 	}
 	
 	function adjustHeight(numRows) { // Sólo iOS
