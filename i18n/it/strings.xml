@@ -26,6 +26,6 @@
 	<string name="deleted_data">Dati eliminati</string>
 	<string name="for_dads">Papà</string>
 	<string name="for_moms">Mamme</string>
-	<string name="calcText">******Si no conoces tu fecha de parto calcúlala aquí******</string>
-	<string name="delete_text">**********A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto***********</string>
+	<string name="calcText">Se non conosci la tua data del parto, calcolala qui</string>
+	<string name="delete_text">Con questo pulsante cancellerai i dati di tutti gli articoli scaricati, i consigli e la data del parto</string>
 </resources>
