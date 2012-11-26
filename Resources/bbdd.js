@@ -1,15 +1,15 @@
 
 module.exports = function(f_callback, page, onlyTips) {
-	
+
 	if (onlyTips) {
-		var prop = 'bbdd_1_' + page;
+		var prop = 'bbdd_1_' + Ti.Platform.locale + '_' + page;
 	} else {
-		var prop = 'bbdd_2_' + page;
+		var prop = 'bbdd_2_' + Ti.Platform.locale + '_' + page;
 	}
 	
 	//Ti.App.Properties.removeProperty(prop); // to dev
 	
-	if (false && Ti.App.Properties.getString(prop, null)) {
+	if (Ti.App.Properties.getString(prop, null)) {
 		
 		var result = JSON.parse(Ti.App.Properties.getString(prop));
 		
