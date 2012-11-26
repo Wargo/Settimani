@@ -47,6 +47,8 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		
 		if (Ti.Platform.osname === 'android') {
 			
+			data[i].header = 'no tiene header';
+			
 			var row = Ti.UI.createTableViewRow($$.row);
 			row.data = data[i];
 			
@@ -155,7 +157,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 				miniRow.add(image);
 			}
 			
-			data[i].header = 'no tiene header'
+			data[i].header = 'no tiene header';
 			
 			if (data[i].header) {
 				
