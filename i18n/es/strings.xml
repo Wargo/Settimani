@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+	<string name="app_name">El Embarazo</string>
 	<string name="bbdd_url">http://www.semanasdembarazo.com/appMovil/weeks.php</string>
 	<string name="main_title">Elembarazo.net</string>
 	<string name="tab_title">Consejos</string>

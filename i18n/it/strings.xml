@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+	<string name="app_name">LaGravidanza</string>
 	<string name="bbdd_url">http://api.lagravidanza.net/posts/index.json</string>
 	<string name="main_title">Lagravidanza.net</string>
 	<string name="tab_title">Consigli</string>
