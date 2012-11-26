@@ -207,8 +207,8 @@ module.exports = function(type) {
 					height:'200dp'
 				});
 				var noDataView = Ti.UI.createView({
-					borderColor:'#999',
-					borderRadiud:5,
+					borderColor:'#AAA',
+					borderRadius:10,
 					borderWidth:1,
 					left:'10dp',
 					right:'10dp',
