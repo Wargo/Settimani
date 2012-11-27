@@ -22,8 +22,6 @@ module.exports = function(type) {
 	});
 	win.add(loader);
 	
-	loader.show();
-	
 	if (Ti.Platform.osname != 'android') {
 		var todayButton = Ti.UI.createButtonBar($$.headerButton);
 		todayButton.labels = [L('today', 'Hoy')];
@@ -93,13 +91,14 @@ module.exports = function(type) {
 	var lastRow = 0;
 	
 	var getData = require(Mods.bbdd);
-	setTimeout(function() {
+	win.addEventListener('open', function() {
 		if (type == 'all') {
 			getData(putData, page);
 		} else {
 			getData(putData, page, true);
 		}
-	}, 1000);
+		loader.show();
+	});
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
