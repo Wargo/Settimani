@@ -276,10 +276,8 @@ module.exports = function(type) {
 		    borderColor: "#000000", // optional - Border color
 		    textColor: "#000000", // optional - Text color
 		    urlColor: "#00FF00", // optional - URL color
-		    linkColor: "#0000FF" //optional -  Link text color
-		    //primaryTextColor: "blue", // deprecated -- now maps to textColor
-		    //secondaryTextColor: "green" // deprecated -- now maps to linkColor
-		    
+		    linkColor: "#0000FF", //optional -  Link text color
+		    zIndex:999
 		});
 		
 		
@@ -291,9 +289,9 @@ module.exports = function(type) {
 		});
 		
 		//setTimeout(function() {
-		todayButton.addEventListener('click', function() {
-			adMobView.requestAd();
-		});
+		//todayButton.addEventListener('click', function() {
+			//adMobView.requestAd();
+		//});
 		//}, 5000);
 		
 		//listener for adNotReceived
@@ -301,6 +299,7 @@ module.exports = function(type) {
 		    //alert("ad not received");
 			Ti.API.info("ad not received");
 			tableView.bottom = '65dp';
+			adMobView.requestAd();
 		});
 		
 		win.add(adMobView);
@@ -314,9 +313,10 @@ module.exports = function(type) {
 		    //adBackgroundColor: 'black',
 		    testing: false,
 		    //dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
-		    //gender: 'male',
+		    gender: 'female',
 		    //location: COORDS,
-		    keywords: ''
+		    //keywords: '',
+		    zIndex:999
 		});
 		ad.addEventListener('didReceiveAd', function() {
 		    //alert('Did receive ad!');
