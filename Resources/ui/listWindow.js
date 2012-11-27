@@ -33,6 +33,7 @@ module.exports = function(type) {
 	}
 	
 	todayButton.addEventListener('click', function() {
+		return;
 		var today = new Date();
 		var date = new Date(Ti.App.Properties.getDouble('date'));
 		var diff = date.getTime() - today.getTime();
@@ -93,12 +94,13 @@ module.exports = function(type) {
 	var lastRow = 0;
 	
 	var getData = require(Mods.bbdd);
-	if (type == 'all') {
-		getData(putData, page);
-	} else {
-		getData(putData, page, true);
-	}
-	
+	setTimeout(function() {
+		if (type == 'all') {
+			getData(putData, page);
+		} else {
+			getData(putData, page, true);
+		}
+	}, 1000);
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
@@ -262,12 +264,12 @@ module.exports = function(type) {
 	
 	// then create an adMob view
 	var adMobView = Admob.createView({
-	    publisherId:"UA-36611802-1",
+	    publisherId:"a150b48b3d51124",
 	    testing:false, // default is false
 	    //top: 10, //optional
 	    //left: 0, // optional
 	    //right: 0, // optional
-	    bottom: 0, // optional
+	    bottom: '65dp', // optional
 	    adBackgroundColor:"FF8855", // optional
 	    backgroundColorTop: "738000", //optional - Gradient background color at top
 	    borderColor: "#000000", // optional - Border color
@@ -281,16 +283,26 @@ module.exports = function(type) {
 	
 	
 	//listener for adReceived
-	adMobView.addEventListener(Admob.AD_RECEIVED,function(){
+	adMobView.addEventListener(Admob.AD_RECEIVED, function(){
 	   // alert("ad received");
 	   Ti.API.info("ad received");
+	   tableView.bottom = '120dp';
 	});
 	
-	//listener for adNotReceived
-	adMobView.addEventListener(Admob.AD_NOT_RECEIVED,function(){
-	    //alert("ad not received");
-	     Ti.API.info("ad not received");
+	//setTimeout(function() {
+	todayButton.addEventListener('click', function() {
+		adMobView.requestAd();
 	});
+	//}, 5000);
+	
+	//listener for adNotReceived
+	adMobView.addEventListener(Admob.AD_NOT_RECEIVED, function(){
+	    //alert("ad not received");
+		Ti.API.info("ad not received");
+		tableView.bottom = '65dp';
+	});
+	
+	win.add(adMobView);
 	
 	return win;
 	
