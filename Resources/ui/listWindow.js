@@ -33,7 +33,6 @@ module.exports = function(type) {
 	}
 	
 	todayButton.addEventListener('click', function() {
-		return;
 		var today = new Date();
 		var date = new Date(Ti.App.Properties.getDouble('date'));
 		var diff = date.getTime() - today.getTime();
@@ -290,9 +289,9 @@ module.exports = function(type) {
 	});
 	
 	//setTimeout(function() {
-	todayButton.addEventListener('click', function() {
-		adMobView.requestAd();
-	});
+	//todayButton.addEventListener('click', function() {
+		//adMobView.requestAd();
+	//});
 	//}, 5000);
 	
 	//listener for adNotReceived
@@ -300,6 +299,11 @@ module.exports = function(type) {
 	    //alert("ad not received");
 		Ti.API.info("ad not received");
 		tableView.bottom = '65dp';
+		//try {
+			adMobView.requestAd();
+		//} catch (ex) {
+			
+		//}
 	});
 	
 	win.add(adMobView);
