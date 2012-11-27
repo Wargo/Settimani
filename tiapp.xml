@@ -44,7 +44,7 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <tool-api-level>8</tool-api-level>
+        <tool-api-level>14</tool-api-level>
         <manifest android:installLocation="preferExternal">
             <uses-sdk android:minSdkVersion="7"/>
         </manifest>
@@ -60,5 +60,6 @@
     <modules>
         <module platform="iphone" version="0.3">ti.viewshadow</module>
         <module platform="commonjs" version="2.0.5">ti.cloud</module>
+        <module platform="android">ti.admob</module>
     </modules>
 </ti:app>
