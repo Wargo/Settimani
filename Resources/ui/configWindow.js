@@ -14,8 +14,10 @@ module.exports = function(hideImage) {
 		backgroundImage:'ui/images/bg_list.png'
 	});
 	
-	var mainView = Ti.UI.createView({
-		layout:'vertical'
+	var mainView = Ti.UI.createScrollView({
+		layout:'vertical',
+		contentHeight:'auto',
+		showVerticalScrollIndicator:true
 	});
 	
 	var header = Ti.UI.createView($$.header);
