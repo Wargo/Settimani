@@ -14,7 +14,7 @@
         <target device="blackberry">false</target>
     </deployment-targets>
     <sdk-version>2.1.4.GA</sdk-version>
-    <id>net.artvisual.elembarazo</id>
+    <id>net.artvisual.settimani</id>
     <name>El Embarazo</name>
     <version>1.1.2</version>
     <publisher>Artvisual</publisher>
