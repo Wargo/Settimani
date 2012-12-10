@@ -9,7 +9,7 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 	
 	//Ti.App.Properties.removeProperty(prop); // to dev
 	
-	if (Ti.App.Properties.getString(prop, null)) {
+	if (false && Ti.App.Properties.getString(prop, null)) {
 		
 		loader.message = L('generating');
 		

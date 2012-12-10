@@ -207,12 +207,14 @@ module.exports = function(type) {
 				ok:'Ok'
 			}).show();
 			
-			var reload = Ti.UI.createButton({
-				title:L('reload'),
-				backgroundImage:'none',
-				width:'135dp',
-				color:'#999'
+			var reload = Ti.UI.createView({
+				width:'100dp'
 			});
+			reload.add(Ti.UI.createLabel({
+				text:L('reload'),
+				right:0,
+				font:{fontSize:'18dp'}
+			}));
 			reload.add(Ti.UI.createImageView({
 				image:'/ui/images/reload.png',
 				left:0,
