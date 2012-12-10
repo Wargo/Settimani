@@ -198,7 +198,6 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			nextImage.top = nextImage.top + miniRow.height * numRows;
 			row.add(nextImage);
 	
-			
 			numRows ++;
 			miniTableView.appendRow(miniRow);
 			
