@@ -214,7 +214,7 @@ module.exports = function(type) {
 				color:'#999'
 			});
 			reload.add(Ti.UI.createImageView({
-				image:'ui/images/reload.png',
+				image:'/ui/images/reload.png',
 				left:0,
 				width:'20dp'
 			}));
