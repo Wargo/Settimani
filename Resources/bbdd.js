@@ -1,5 +1,5 @@
 
-module.exports = function(f_callback, page, onlyTips) {
+module.exports = function(f_callback, page, onlyTips, loader) {
 
 	if (onlyTips) {
 		var prop = 'bbdd_1_' + Ti.Platform.locale + '_' + page;
@@ -10,6 +10,8 @@ module.exports = function(f_callback, page, onlyTips) {
 	//Ti.App.Properties.removeProperty(prop); // to dev
 	
 	if (Ti.App.Properties.getString(prop, null)) {
+		
+		loader.message = 'Generando contenido';
 		
 		var result = JSON.parse(Ti.App.Properties.getString(prop));
 		
@@ -24,6 +26,8 @@ module.exports = function(f_callback, page, onlyTips) {
 		var client = Ti.Network.createHTTPClient({
 			timeout:1500,
 			onload:function() {
+				loader.message = L('loading');
+				
 				Ti.API.info(this.responseText);
 				
 				var result = JSON.parse(this.responseText);
@@ -31,11 +35,11 @@ module.exports = function(f_callback, page, onlyTips) {
 					Ti.App.Properties.setString(prop, this.responseText);
 					f_callback(result.data);
 				} else {
-					f_callback(null, 'error de datos')
+					f_callback(null, L('errorContent'));
 				}
 			},
 			onerror:function(e) {
-				f_callback(null, 'error de conexión')
+				f_callback(null, L('errorConnection'))
 			}
 		});
 		
