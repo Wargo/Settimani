@@ -31,7 +31,7 @@
 	<string name="calcText">Si no conoces tu fecha de parto calcúlala aquí</string>
 	<string name="delete_text">A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto</string>
 	<string name="keywords">madre, embarazada, bebe, padre, niño, embarazo, semanas, parto, calculadora</string>
-	<string name="errorContent">Ha ocurrido un error en la carga de contenido, reinténtelo más tarde</string>
+	<string name="errorContent">Ha ocurrido un error en la carga del contenido, reinténtelo más tarde</string>
 	<string name="errorConnection">Ha ocurrido un error con la conexión, reinténtelo más tarde</string>
 	<string name="errorTitle">Error</string>
 	<string name="connecting">Conectando...</string>

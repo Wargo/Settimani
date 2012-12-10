@@ -210,12 +210,13 @@ module.exports = function(type) {
 			var reload = Ti.UI.createButton({
 				title:L('reload'),
 				backgroundImage:'none',
-				width:'150dp',
+				width:'135dp',
 				color:'#999'
 			});
 			reload.add(Ti.UI.createImageView({
 				image:'ui/images/reload.png',
-				left:0
+				left:0,
+				width:'20dp'
 			}));
 			
 			loader.hide();

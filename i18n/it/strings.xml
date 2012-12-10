@@ -31,4 +31,10 @@
 	<string name="calcText">Se non conosci la tua data del parto, calcolala qui</string>
 	<string name="delete_text">Con questo pulsante cancellerai i dati di tutti gli articoli scaricati, i consigli e la data del parto</string>
 	<string name="keywords">gravidanza, bambino, calcolatore, incinta, figlio, madre, padre</string>
+	<string name="errorContent">Errore nel caricamento del contenuto, riprova più tardi</string>
+	<string name="errorConnection">Errore di connessione, riprova più tardi</string>
+	<string name="errorTitle">Errore</string>
+	<string name="connecting">Connecting...</string>
+	<string name="generating">Creazione del contenuto</string>
+	<string name="reload">Ricaricare</string>
 </resources>

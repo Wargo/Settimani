@@ -11,7 +11,7 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 	
 	if (Ti.App.Properties.getString(prop, null)) {
 		
-		loader.message = 'Generando contenido';
+		loader.message = L('generating');
 		
 		var result = JSON.parse(Ti.App.Properties.getString(prop));
 		
