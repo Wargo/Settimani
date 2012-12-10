@@ -7,6 +7,8 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
+var Admob = require('ti.admob');
+
 module.exports = function(data, x, headerText) {
 	
 	var current = data[x];
@@ -96,11 +98,11 @@ module.exports = function(data, x, headerText) {
 	}
 	
 	var scrollableView = Ti.UI.createScrollableView({
-		cacheSize:1
+		cacheSize:3
 	});
 	
 	if (Ti.Platform.osname === 'android') {
-		scrollableView.top = '40 dp';
+		scrollableView.top = '50 dp';
 	}
 	
 	function createViews(data) {
@@ -173,7 +175,94 @@ module.exports = function(data, x, headerText) {
 				});
 			}
 			
-			scrollableView.addView(scrollView);
+			var eachView = Ti.UI.createView();
+			
+			eachView.add(scrollView);
+			
+			scrollableView.addView(eachView);
+			
+			/*
+			 * admob
+			 */
+			if (Ti.Platform.osname === 'android') {
+	
+				// then create an adMob view
+				var adMobView = Admob.createView({
+					publisherId:"a150b48b3d51124",
+					testing:false, // default is false
+					//top: 10, //optional
+					//left: 0, // optional
+					//right: 0, // optional
+					bottom: '0dp', // optional
+					adBackgroundColor:"FF8855", // optional
+					backgroundColorTop: "738000", //optional - Gradient background color at top
+					borderColor: "#000000", // optional - Border color
+					textColor: "#000000", // optional - Text color
+					urlColor: "#00FF00", // optional - URL color
+					linkColor: "#0000FF", //optional -  Link text color
+					keywords: 'madre, embarazada, bebe, padre, niño, embarazo, semanas, parto',
+					gender: 'female',
+					zIndex:999,
+					_scrollView:scrollView
+				});
+				
+				
+				//listener for adReceived
+				adMobView.addEventListener(Admob.AD_RECEIVED, function(e){
+				   // alert("ad received");
+					Ti.API.info("ad received");
+					e.source._scrollView.bottom = '50dp';
+				});
+				
+				//listener for adNotReceived
+				adMobView.addEventListener(Admob.AD_NOT_RECEIVED, function(e){
+				    //alert("ad not received");
+					Ti.API.info("ad not received");
+					e.source._scrollView.bottom = '0dp';
+					adMobView.requestAd();
+				});
+				
+				eachView.add(adMobView);
+				
+			} else { // iOS
+				
+				var ad = Admob.createView({
+					bottom: 0, left: 0,
+					width: 320, height: 50,
+					publisherId: 'a150b49ef173c47', // You can get your own at http: //www.admob.com/
+					//adBackgroundColor: 'black',
+					testing: false,
+					//dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
+					gender: 'female',
+					//location: COORDS,
+					keywords: 'madre, embarazada, bebe, padre, niño, embarazo, semanas, parto',
+					zIndex:999,
+					_scrollView:scrollView
+				});
+				ad.addEventListener('didReceiveAd', function(e) {
+					//alert('Did receive ad!');
+					e.source._scrollView.animate({bottom: 50});
+				});
+				ad.addEventListener('didFailToReceiveAd', function(e) {
+				    //alert('Failed to receive ad!');
+				    e.source._scrollView.animate({bottom: 0});
+				});
+				ad.addEventListener('willPresentScreen', function() {
+				    //alert('Presenting screen!');
+				});
+				ad.addEventListener('willDismissScreen', function() {
+				    //alert('Dismissing screen!');
+				});
+				ad.addEventListener('didDismissScreen', function() {
+				    //alert('Dismissed screen!');
+				});
+				ad.addEventListener('willLeaveApplication', function() {
+				    //alert('Leaving the app!');
+				});
+				
+				eachView.add(ad);
+				
+			}
 			
 		}
 		

@@ -276,6 +276,8 @@ module.exports = function(type) {
 		    textColor: "#000000", // optional - Text color
 		    urlColor: "#00FF00", // optional - URL color
 		    linkColor: "#0000FF", //optional -  Link text color
+			keywords: 'madre, embarazada, bebe, padre, niño, embarazo, semanas, parto',
+			gender: 'female',
 		    zIndex:999
 		});
 		
@@ -314,7 +316,7 @@ module.exports = function(type) {
 		    //dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
 		    gender: 'female',
 		    //location: COORDS,
-		    //keywords: '',
+			keywords: 'madre, embarazada, bebe, padre, niño, embarazo, semanas, parto',
 		    zIndex:999
 		});
 		ad.addEventListener('didReceiveAd', function() {
