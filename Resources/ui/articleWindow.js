@@ -200,7 +200,7 @@ module.exports = function(data, x, headerText) {
 					textColor: "#000000", // optional - Text color
 					urlColor: "#00FF00", // optional - URL color
 					linkColor: "#0000FF", //optional -  Link text color
-					keywords: 'madre, embarazada, bebe, padre, niño, embarazo, semanas, parto',
+					keywords: L('keywords'),
 					gender: 'female',
 					zIndex:999,
 					_scrollView:scrollView
@@ -235,7 +235,7 @@ module.exports = function(data, x, headerText) {
 					//dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
 					gender: 'female',
 					//location: COORDS,
-					keywords: 'madre, embarazada, bebe, padre, niño, embarazo, semanas, parto',
+					keywords: L('keywords'),
 					zIndex:999,
 					_scrollView:scrollView
 				});

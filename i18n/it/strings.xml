@@ -30,4 +30,5 @@
 	<string name="for_moms">Mamme</string>
 	<string name="calcText">Se non conosci la tua data del parto, calcolala qui</string>
 	<string name="delete_text">Con questo pulsante cancellerai i dati di tutti gli articoli scaricati, i consigli e la data del parto</string>
+	<string name="keywords">gravidanza, bambino, calcolatore, incinta, figlio, madre, padre</string>
 </resources>
