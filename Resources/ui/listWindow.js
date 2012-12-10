@@ -16,7 +16,7 @@ module.exports = function(type) {
 	
 	var loader = Ti.UI.createActivityIndicator({
 		style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
-		message:L('loading', 'Descargando contenido'),
+		message:L('connecting'),
 		color:'#999',
 		cancelable:true
 	});
@@ -93,9 +93,9 @@ module.exports = function(type) {
 	var getData = require(Mods.bbdd);
 	win.addEventListener('open', function() {
 		if (type == 'all') {
-			getData(putData, page);
+			getData(putData, page, false, loader);
 		} else {
-			getData(putData, page, true);
+			getData(putData, page, true, loader);
 		}
 		loader.show();
 	});
@@ -164,9 +164,9 @@ module.exports = function(type) {
 			tableView.appendRow(loadingRow);
 			page += 1;
 			if (type == 'all') {
-				getData(putData, page);
+				getData(putData, page, false, loader);
 			} else {
-				getData(putData, page, true);
+				getData(putData, page, true, loader);
 			}
 		}
 	}
@@ -199,6 +199,38 @@ module.exports = function(type) {
 	var fullData = [];
 	
 	function putData(data, error) {
+		
+		if (error) {
+			Ti.UI.createAlertDialog({
+				title:L('errorTitle'),
+				message:error,
+				ok:'Ok'
+			}).show();
+			
+			var reload = Ti.UI.createButton({
+				title:L('reload'),
+				backgroundImage:'none',
+				width:'150dp',
+				color:'#999'
+			});
+			reload.add(Ti.UI.createImageView({
+				image:'ui/images/reload.png',
+				left:0
+			}));
+			
+			loader.hide();
+			win.add(reload);
+			
+			reload.addEventListener('click', function() {
+				getData(putData, 1, false, loader);
+				win.remove(reload);
+				loader.show();
+			});
+			
+			return;
+		}
+		
+		loader.message = L('generating');
 
 		if (data.length === 0) {
 			if (tableView.data.length < 1) {
