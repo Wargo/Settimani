@@ -70,7 +70,7 @@ if (Ti.Platform.osname != 'android') {
 	/*
 	 * Clear Cache
 	 */
-	var version = 1;
+	var version = 2;
 	
 	var haveToClear = Ti.App.Properties.getInt('clearCache', version);
 	
