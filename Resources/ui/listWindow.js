@@ -93,9 +93,9 @@ module.exports = function(type) {
 	var getData = require(Mods.bbdd);
 	win.addEventListener('open', function() {
 		if (type == 'all') {
-			getData(putData, page, false, loader);
+			getData(putData, page, 0, loader);
 		} else {
-			getData(putData, page, true, loader);
+			getData(putData, page, 1, loader);
 		}
 		loader.show();
 	});

@@ -67,4 +67,22 @@ if (Ti.Platform.osname != 'android') {
 		}, 10);
 	}
 	
+	/*
+	 * Clear Cache
+	 */
+	var version = 1;
+	
+	var haveToClear = Ti.App.Properties.getInt('clearCache', version);
+	
+	if (haveToClear <= version) {
+		
+		Ti.App.Properties.removeProperty('bbdd_1_' + Ti.Platform.locale + '_1');
+		Ti.App.Properties.removeProperty('bbdd_2_' + Ti.Platform.locale + '_1');
+
+		Ti.API.error('Caché limpiada');
+		
+		Ti.App.Properties.setInt('clearCache', version + 1);
+
+	}
+	
 })();
