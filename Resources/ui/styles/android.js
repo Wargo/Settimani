@@ -17,7 +17,7 @@ module.exports = {
 	headerButton: {
 		right:'10 dp',
 		height:'35 dp',
-		width:'45 dp',
+		width:'55 dp',
 		borderRadius:5,
 		borderColor:'#1A6A8A',
 		borderWidth:1,
