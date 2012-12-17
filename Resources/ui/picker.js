@@ -22,6 +22,8 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 			}
 		});
 		
+		return;
+		
 	} else {
 		
 		var view = Ti.UI.createView({
@@ -70,9 +72,9 @@ module.exports = function(current, from, to, f_callback, f_cancel) {
 		done.addEventListener('click', function() {
 			f_callback(currentValue, view);
 		});
-
+		
+		return view;
+		
 	}
-	
-	return view;
 	
 }

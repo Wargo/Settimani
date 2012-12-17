@@ -63,7 +63,7 @@ module.exports = function(type) {
 	});
 	
 	if (type == 'all') {
-		var titleWin = L('main_title', 'Lagravidanza.net');
+		var titleWin = L('main_title');
 	} else {
 		var titleWin = L('tab_title', 'Consejos');
 	}
