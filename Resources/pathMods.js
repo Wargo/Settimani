@@ -8,6 +8,7 @@ module.exports = {
 	listWindow: 'ui/listWindow',
 	articleWindow: 'ui/articleWindow',
 	tipsWindow: 'ui/tipsWindow',
+	web:'ui/web',
 	
 	/*
 	 * styles

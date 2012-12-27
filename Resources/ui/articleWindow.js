@@ -8,6 +8,7 @@ if (Ti.Platform.osname === 'android') {
 }
 
 var Admob = require('ti.admob');
+var MyWeb = require(Mods.web);
 
 module.exports = function(data, x, headerText) {
 	
@@ -125,6 +126,55 @@ module.exports = function(data, x, headerText) {
 			var description = Ti.UI.createLabel($$.articleDescription);
 			description.text = current.description;
 			
+			current.urls = [
+				{title:'Enlace a Google', url:'http://www.google.es'},
+				{title:'Enlace a Google', url:'http://www.google.es'},
+				{title:'Enlace a Google', url:'http://www.google.es'},
+				{title:'Enlace a Google', url:'http://www.google.es'},
+			];
+			
+			if (current.urls) {
+				
+				var urls = Ti.UI.createView({
+					layout:'vertical',
+					height:Ti.UI.SIZE
+				});
+				
+				for (i in current.urls) {
+					
+					var url = Ti.UI.createView({
+						top:'10dp',
+						height:'40dp',
+						left:'10dp',
+						right:'10dp',
+						borderWidth:1,
+						borderColor:'#8EC7E8',
+						_url:current.urls[i].url,
+						_title:current.urls[i].title
+					});
+					url.add(Ti.UI.createView({
+						height:'2dp',
+						backgroundColor:'#8EC7E8',
+						bottom:0,
+						touchEnabled:false
+					}));
+					url.add(Ti.UI.createLabel({
+						text:current.urls[i].title,
+						touchEnabled:false,
+						left:'10dp',
+						color:'#8EC7E8'
+					}));
+					
+					url.addEventListener('singletap', function(e) {
+						MyWeb(e.source._url, e.source._title).open({top:0});
+					});
+					
+					urls.add(url);
+					
+				}
+				
+			}
+			
 			var whiteView = Ti.UI.createView({
 				height:'10 dp'
 			});
@@ -133,6 +183,9 @@ module.exports = function(data, x, headerText) {
 			content.add(intro);
 			content.add(image);
 			content.add(description);
+			if (current.urls) {
+				content.add(urls);
+			}
 			content.add(whiteView);
 		
 			var scrollView = Ti.UI.createScrollView({
