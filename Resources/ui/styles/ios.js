@@ -120,8 +120,8 @@ module.exports = {
 	},
 	
 	rowImage: {
-		width:50,
-		left:0
+		width:40,
+		left:5
 	},
 	
 	nextImage: {

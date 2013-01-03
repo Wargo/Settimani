@@ -99,7 +99,7 @@ module.exports = function(data, x, headerText) {
 	}
 	
 	var scrollableView = Ti.UI.createScrollableView({
-		cacheSize:3
+		cacheSize:99
 	});
 	
 	if (Ti.Platform.osname === 'android') {

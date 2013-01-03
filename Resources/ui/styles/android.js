@@ -151,8 +151,8 @@ module.exports = {
 	},
 	
 	rowImage: {
-		width:'49 dp',
-		left:'1 dp',
+		width:'45 dp',
+		left:'2 dp',
 		top:'15 dp'
 	},
 	
