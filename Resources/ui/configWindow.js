@@ -20,6 +20,10 @@ module.exports = function(hideImage) {
 		showVerticalScrollIndicator:true
 	});
 	
+	if (hideImage) {
+		mainView.bottom = '65dp';
+	}
+	
 	var header = Ti.UI.createView($$.header);
 	var title = Ti.UI.createLabel($$.headerTitle);
 	title.text = L('config', 'Configuración');
