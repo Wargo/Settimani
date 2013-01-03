@@ -7,6 +7,8 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 }
 
+var Admob = require('ti.admob');
+
 module.exports = function(url, title) {
 	
 	var win = Ti.UI.createWindow($$.win);
@@ -120,6 +122,89 @@ module.exports = function(url, title) {
 	webView.addEventListener('beforeload', function() {
 		loader.show();
 	});
+	
+	/*
+	 * admob
+	 */
+	if (Ti.Platform.osname === 'android') {
+
+		// then create an adMob view
+		var adMobView = Admob.createView({
+			publisherId:"a150b48b3d51124",
+			testing:false, // default is false
+			//top: 10, //optional
+			//left: 0, // optional
+			//right: 0, // optional
+			bottom: '35dp', // optional
+			adBackgroundColor:"FF8855", // optional
+			backgroundColorTop: "738000", //optional - Gradient background color at top
+			borderColor: "#000000", // optional - Border color
+			textColor: "#000000", // optional - Text color
+			urlColor: "#00FF00", // optional - URL color
+			linkColor: "#0000FF", //optional -  Link text color
+			keywords: L('keywords'),
+			gender: 'female',
+			zIndex:999,
+			_scrollView:webView
+		});
+		
+		
+		//listener for adReceived
+		adMobView.addEventListener(Admob.AD_RECEIVED, function(e){
+		   // alert("ad received");
+			Ti.API.info("ad received");
+			e.source._scrollView.bottom = '85dp';
+		});
+		
+		//listener for adNotReceived
+		adMobView.addEventListener(Admob.AD_NOT_RECEIVED, function(e){
+		    //alert("ad not received");
+			Ti.API.info("ad not received");
+			e.source._scrollView.bottom = '35dp';
+			adMobView.requestAd();
+		});
+		
+		win.add(adMobView);
+		
+	} else { // iOS
+		
+		var ad = Admob.createView({
+			bottom: '35dp', left: 0,
+			width: 320, height: 50,
+			publisherId: 'a150b49ef173c47', // You can get your own at http: //www.admob.com/
+			//adBackgroundColor: 'black',
+			testing: false,
+			//dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
+			gender: 'female',
+			//location: COORDS,
+			keywords: L('keywords'),
+			zIndex:999,
+			_scrollView:webView
+		});
+		ad.addEventListener('didReceiveAd', function(e) {
+			//alert('Did receive ad!');
+			e.source._scrollView.animate({bottom: '85dp'});
+		});
+		ad.addEventListener('didFailToReceiveAd', function(e) {
+		    //alert('Failed to receive ad!');
+		    e.source._scrollView.animate({bottom: '35dp'});
+		});
+		ad.addEventListener('willPresentScreen', function() {
+		    //alert('Presenting screen!');
+		});
+		ad.addEventListener('willDismissScreen', function() {
+		    //alert('Dismissing screen!');
+		});
+		ad.addEventListener('didDismissScreen', function() {
+		    //alert('Dismissed screen!');
+		});
+		ad.addEventListener('willLeaveApplication', function() {
+		    //alert('Leaving the app!');
+		});
+		
+		win.add(ad);
+		
+	}
 	
 	return win;
 	

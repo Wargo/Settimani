@@ -30,13 +30,13 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		
 		var checkbox = Ti.UI.createView($$.checkbox);
 		
-		if (Ti.App.Properties.getBool('tip_' + data[i].ID, false)) {
+		if (Ti.App.Properties.getBool('tip_' + data[i].external_id, false)) {
 			checkbox.backgroundImage = '/ui/images/checked.png';
 		} else {
 			checkbox.backgroundImage = '/ui/images/unchecked.png';
 		}
 		
-		checkbox._id = data[i].ID;
+		checkbox._id = data[i].external_id;
 		checkboxes.push(checkbox);
 		
 		var fruit = Ti.UI.createImageView($$.rowImage);
@@ -58,10 +58,10 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 				if (e.source.backgroundImage) {
 					if (e.source.backgroundImage == '/ui/images/unchecked.png') {
 						e.source.backgroundImage = '/ui/images/checked.png';
-						Ti.App.Properties.setBool('tip_' + e.row.data.ID, true);
+						Ti.App.Properties.setBool('tip_' + e.row.data.external_id, true);
 					} else {
 						e.source.backgroundImage = '/ui/images/unchecked.png';
-						Ti.App.Properties.setBool('tip_' + e.row.data.ID, false);
+						Ti.App.Properties.setBool('tip_' + e.row.data.external_id, false);
 					}
 				} else {
 					loadArticle(e.index, fullData);
@@ -100,16 +100,15 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			
 			content.add(title);
 			content.add(intro);
-			
-			if (data[i].category == 'tip') {
+
+			if (data[i].category == 'tips_dad') {
 				content.add(checkbox);
-				if (data[i].post_type == 'papa') {
-					content.add(forDads);
-					content.backgroundColor = '#EEEEFF';
-				} else {
-					content.add(forMoms);
-					content.backgroundColor = '#FFEEEE';
-				}
+				content.add(forDads);
+				content.backgroundColor = '#EEEEFF';
+			} else if (data[i].category == 'tips_mom') {
+				content.add(checkbox);
+				content.add(forMoms);
+				content.backgroundColor = '#FFEEEE';
 			} else if (data[i].category == 'fruit') {
 				content.add(fruit);
 			} else {
@@ -133,10 +132,10 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 				if (e.source.backgroundImage) {
 					if (e.source.backgroundImage == '/ui/images/unchecked.png') {
 						e.source.backgroundImage = '/ui/images/checked.png';
-						Ti.App.Properties.setBool('tip_' + e.row.data.ID, true);
+						Ti.App.Properties.setBool('tip_' + e.row.data.external_id, true);
 					} else {
 						e.source.backgroundImage = '/ui/images/unchecked.png';
-						Ti.App.Properties.setBool('tip_' + e.row.data.ID, false);
+						Ti.App.Properties.setBool('tip_' + e.row.data.external_id, false);
 					}
 				} else {
 					loadArticle(e.row._i, data);
@@ -146,15 +145,14 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			miniRow.add(title);
 			miniRow.add(intro);
 			
-			if (data[i].category == 'tip') {
+			if (data[i].category == 'tips_dad') {
 				miniRow.add(checkbox);
-				if (data[i].post_type == 'papa') {
-					miniRow.add(forDads);
-					miniRow.backgroundColor = '#EEEEFF';
-				} else {
-					miniRow.add(forMoms);
-					miniRow.backgroundColor = '#FFEEEE';
-				}
+				miniRow.add(forDads);
+				miniRow.backgroundColor = '#EEEEFF';
+			} else if(data[i].category == 'tips_mom') {
+				miniRow.add(checkbox);
+				miniRow.add(forMoms);
+				miniRow.backgroundColor = '#FFEEEE';
 			} else if (data[i].category == 'fruit') {
 				miniRow.add(fruit);
 			} else {

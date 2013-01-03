@@ -124,14 +124,7 @@ module.exports = function(data, x, headerText) {
 			image.image = current.image;
 			
 			var description = Ti.UI.createLabel($$.articleDescription);
-			description.text = current.description;
-			
-			current.urls = [
-				{title:'Enlace a Google', url:'http://www.google.es'},
-				{title:'Enlace a Google', url:'http://www.google.es'},
-				{title:'Enlace a Google', url:'http://www.google.es'},
-				{title:'Enlace a Google', url:'http://www.google.es'},
-			];
+			description.text = current.text;
 			
 			if (current.urls) {
 				
@@ -139,6 +132,16 @@ module.exports = function(data, x, headerText) {
 					layout:'vertical',
 					height:Ti.UI.SIZE
 				});
+				
+				urls.add(Ti.UI.createLabel({
+					text:L('more_articles'),
+					color:'#8EC7E8',
+					font:{fontSize:'18dp', fontWeight:'bold'},
+					top:'15dp',
+					left:'5dp',
+					right:'5dp',
+					textAlign:'center'
+				}));
 				
 				for (i in current.urls) {
 					
@@ -162,7 +165,15 @@ module.exports = function(data, x, headerText) {
 						text:current.urls[i].title,
 						touchEnabled:false,
 						left:'10dp',
-						color:'#8EC7E8'
+						color:'#999',
+						right:'40dp',
+						font:{fontSize:'16dp'}
+					}));
+					url.add(Ti.UI.createImageView({
+						touchEnabled:false,
+						image:'/ui/images/fwd.png',
+						width:'10dp',
+						right:'10dp'
 					}));
 					
 					url.addEventListener('singletap', function(e) {
