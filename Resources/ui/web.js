@@ -12,7 +12,15 @@ var Admob = require('ti.admob');
 module.exports = function(url, title) {
 	
 	var win = Ti.UI.createWindow($$.win);
-	win.top = Ti.Platform.displayCaps.platformHeight;
+	if  (Ti.Platform.osname != 'android') {
+		win.top = Ti.Platform.displayCaps.platformHeight;
+	} else {
+		win.backgroundColor = 'white';
+		win.exitOnClose = false;
+		win.fullscreen = true;
+		win.navBarHidden = true;
+		win.modal = true;
+	}
 	
 	var header = Ti.UI.createView($$.header);
 	
@@ -40,18 +48,16 @@ module.exports = function(url, title) {
 		bottom:'35dp'
 	});
 	
-	if (Ti.Platform.osname != 'android') {
-		header.add(close);
-		webView.top = 44;
-	}
-	
-	win.add(header);
-	
-	win.add(webView);
-	
 	var loader = Ti.UI.createActivityIndicator({
 		cancelable:true
 	});
+	
+	if (Ti.Platform.osname != 'android') {
+		header.add(close);
+		webView.top = 44;
+	} else {
+		loader.message = L('connecting');
+	}
 	
 	webView.addEventListener('load', function() {
 		loader.hide();
@@ -74,7 +80,11 @@ module.exports = function(url, title) {
 		bottom:0
 	});
 	
-	win.add(bottomBar);
+	win.addEventListener('open', function() {
+		win.add(header);
+		win.add(webView);
+		win.add(bottomBar);
+	});
 	
 	bottomBar.add(loader);
 	
@@ -161,7 +171,7 @@ module.exports = function(url, title) {
 		    //alert("ad not received");
 			Ti.API.info("ad not received");
 			e.source._scrollView.bottom = '35dp';
-			adMobView.requestAd();
+			//adMobView.requestAd();
 		});
 		
 		win.add(adMobView);

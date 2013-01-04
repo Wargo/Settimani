@@ -142,7 +142,7 @@ module.exports = function(data, x, headerText) {
 					right:'5dp',
 					textAlign:'center'
 				}));
-				
+
 				for (i in current.urls) {
 					
 					var url = Ti.UI.createView({
@@ -177,7 +177,11 @@ module.exports = function(data, x, headerText) {
 					}));
 					
 					url.addEventListener('singletap', function(e) {
-						MyWeb(e.source._url, e.source._title).open({top:0});
+						if (Ti.Platform.osname != 'android') {
+							MyWeb(e.source._url, e.source._title).open({top:0});
+						} else {
+							MyWeb(e.source._url, e.source._title).open();
+						}
 					});
 					
 					urls.add(url);
@@ -283,7 +287,7 @@ module.exports = function(data, x, headerText) {
 				    //alert("ad not received");
 					Ti.API.info("ad not received");
 					e.source._scrollView.bottom = '0dp';
-					adMobView.requestAd();
+					//adMobView.requestAd();
 				});
 				
 				eachView.add(adMobView);
