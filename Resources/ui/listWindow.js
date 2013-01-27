@@ -350,8 +350,6 @@ module.exports = function(type) {
 		
 		var product_id = 'net.artvisual.settimani.all_content';
 		
-		alert(Ti.App.Properties.getBool('buy_' + product_id, false));
-		
 		if (Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
 		
 			var ad = Admob.createView({

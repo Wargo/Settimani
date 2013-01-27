@@ -217,18 +217,20 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
 	var article = require(Mods.articleWindow);
 	
-	var loaderWindow = Ti.UI.createView({
-		backgroundColor:'#9333',
-		zIndex:1000,
-		opacity:0
-	});
-	var l = Ti.UI.createActivityIndicator({
-		message:L('loading_itunes'),
-		color:'#FFF'
-	});
-	l.show();
-	loaderWindow.add(l);
-	win.add(loaderWindow);
+	if (Ti.Platform.osname != 'android') {
+		var loaderWindow = Ti.UI.createView({
+			backgroundColor:'#9333',
+			zIndex:1000,
+			opacity:0
+		});
+		var l = Ti.UI.createActivityIndicator({
+			message:L('loading_itunes'),
+			color:'#FFF'
+		});
+		l.show();
+		loaderWindow.add(l);
+		win.add(loaderWindow);
+	}
 	
 	function loadArticle(e, data) {
 		
