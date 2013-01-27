@@ -12,8 +12,9 @@ var Admob = require('ti.admob');
 module.exports = function(url, title) {
 	
 	var win = Ti.UI.createWindow($$.win);
+	
 	if  (Ti.Platform.osname != 'android') {
-		win.top = Ti.Platform.displayCaps.platformHeight;
+		win.height = win.top = Ti.Platform.displayCaps.platformHeight;
 	} else {
 		win.backgroundColor = 'white';
 		win.exitOnClose = false;

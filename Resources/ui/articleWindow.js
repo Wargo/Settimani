@@ -178,7 +178,10 @@ module.exports = function(data, x, headerText) {
 					
 					url.addEventListener('singletap', function(e) {
 						if (Ti.Platform.osname != 'android') {
-							MyWeb(e.source._url, e.source._title).open({top:0});
+							var webWin = MyWeb(e.source._url, e.source._title);
+							webWin.open();
+							webWin.animate({top:0});
+							
 						} else {
 							MyWeb(e.source._url, e.source._title).open();
 						}
