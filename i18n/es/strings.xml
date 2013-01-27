@@ -38,4 +38,7 @@
 	<string name="generating">Generando contenido</string>
 	<string name="reload">Recargar</string>
 	<string name="more_articles">También te puede interesar...</string>
+	<string name="loading_itunes">Conectando con iTunes...</string>
+	<string name="pay_title">Contendio adicional</string>
+	<string name="pay_text">A partir de esta semana en adelante, el contenido interno de los artículos debe ser descargado como contenido adicional, con sólo la compra de un módulo adicional, se descargará el contenido completo de la aplicación. Además ya no aparecerá más publicidad.</string>
 </resources>

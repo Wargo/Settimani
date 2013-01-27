@@ -217,9 +217,80 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
 	var article = require(Mods.articleWindow);
 	
+	var loaderWindow = Ti.UI.createView({
+		backgroundColor:'#9333',
+		zIndex:1000,
+		opacity:0
+	});
+	var l = Ti.UI.createActivityIndicator({
+		message:L('loading_itunes'),
+		color:'#FFF'
+	});
+	l.show();
+	loaderWindow.add(l);
+	win.add(loaderWindow);
+	
 	function loadArticle(e, data) {
 		
 		e = parseInt(e);
+		
+		var product_id = 'net.artvisual.settimani.all_content';
+		
+		if (e > 90 && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
+			
+			var Storekit = require('ti.storekit');
+		
+			var dialog = Ti.UI.createAlertDialog({
+				title:L('pay_title'),
+				message:L('pay_text'),
+				ok:L('ok')
+			});
+			dialog.show();
+		
+			dialog.addEventListener('click', function() {
+				loaderWindow.opacity = 1;
+				Storekit.requestProducts([product_id], function (evt) {
+					//alert(evt);
+					Ti.API.info(evt);
+					if (!evt.success) {
+						alert('ERROR: We failed to talk to Apple!');
+					}
+					else if (evt.invalid) {
+						alert('ERROR: We requested an invalid product!');
+					}
+					else {
+						success(evt.products[0]);
+					}
+				});
+			});
+			
+			function success(product) {
+
+				Ti.API.info(product);
+				Storekit.purchase(product, function (evt) {
+					switch (evt.state) {
+						case Storekit.FAILED:
+							if (evt.cancelled) {
+								//alert('Purchase cancelled');
+							} else {
+								alert('ERROR: Buying failed! ' + evt.message);
+							}
+							loaderWindow.opacity = 0;
+							break;
+						case Storekit.PURCHASED:
+						case Storekit.RESTORED:
+							//alert('Thanks!');
+							Ti.App.Properties.setBool('buy_' + product.identifier, true);
+							loaderWindow.opacity = 0;
+							break;
+					}
+				});
+
+			}
+			
+			return;
+			
+		}
 		
 		var auxData = [];
 		

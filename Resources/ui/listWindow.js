@@ -348,40 +348,48 @@ module.exports = function(type) {
 		
 	} else { // iOS
 		
-		var ad = Admob.createView({
-		    bottom: 65, left: 0,
-		    width: 320, height: 50,
-		    publisherId: 'a150b49ef173c47', // You can get your own at http: //www.admob.com/
-		    //adBackgroundColor: 'black',
-		    testing: false,
-		    //dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
-		    gender: 'female',
-		    //location: COORDS,
-			keywords: L('keywords'),
-		    zIndex:999
-		});
-		ad.addEventListener('didReceiveAd', function() {
-		    //alert('Did receive ad!');
-		    tableView.animate({bottom: 115});
-		});
-		ad.addEventListener('didFailToReceiveAd', function() {
-		    //alert('Failed to receive ad!');
-		    tableView.animate({bottom: 65});
-		});
-		ad.addEventListener('willPresentScreen', function() {
-		    //alert('Presenting screen!');
-		});
-		ad.addEventListener('willDismissScreen', function() {
-		    //alert('Dismissing screen!');
-		});
-		ad.addEventListener('didDismissScreen', function() {
-		    //alert('Dismissed screen!');
-		});
-		ad.addEventListener('willLeaveApplication', function() {
-		    //alert('Leaving the app!');
-		});
+		var product_id = 'net.artvisual.settimani.all_content';
 		
-		win.add(ad);
+		alert(Ti.App.Properties.getBool('buy_' + product_id, false));
+		
+		if (Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
+		
+			var ad = Admob.createView({
+			    bottom: 65, left: 0,
+			    width: 320, height: 50,
+			    publisherId: 'a150b49ef173c47', // You can get your own at http: //www.admob.com/
+			    //adBackgroundColor: 'black',
+			    testing: false,
+			    //dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
+			    gender: 'female',
+			    //location: COORDS,
+				keywords: L('keywords'),
+			    zIndex:999
+			});
+			ad.addEventListener('didReceiveAd', function() {
+			    //alert('Did receive ad!');
+			    tableView.animate({bottom: 115});
+			});
+			ad.addEventListener('didFailToReceiveAd', function() {
+			    //alert('Failed to receive ad!');
+			    tableView.animate({bottom: 65});
+			});
+			ad.addEventListener('willPresentScreen', function() {
+			    //alert('Presenting screen!');
+			});
+			ad.addEventListener('willDismissScreen', function() {
+			    //alert('Dismissing screen!');
+			});
+			ad.addEventListener('didDismissScreen', function() {
+			    //alert('Dismissed screen!');
+			});
+			ad.addEventListener('willLeaveApplication', function() {
+			    //alert('Leaving the app!');
+			});
+			
+			win.add(ad);
+			
+		}
 		
 	}
 	

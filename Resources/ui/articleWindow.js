@@ -290,41 +290,47 @@ module.exports = function(data, x, headerText) {
 				
 			} else { // iOS
 				
-				var ad = Admob.createView({
-					bottom: 0, left: 0,
-					width: 320, height: 50,
-					publisherId: 'a150b49ef173c47', // You can get your own at http: //www.admob.com/
-					//adBackgroundColor: 'black',
-					testing: false,
-					//dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
-					gender: 'female',
-					//location: COORDS,
-					keywords: L('keywords'),
-					zIndex:999,
-					_scrollView:scrollView
-				});
-				ad.addEventListener('didReceiveAd', function(e) {
-					//alert('Did receive ad!');
-					e.source._scrollView.animate({bottom: 50});
-				});
-				ad.addEventListener('didFailToReceiveAd', function(e) {
-				    //alert('Failed to receive ad!');
-				    e.source._scrollView.animate({bottom: 0});
-				});
-				ad.addEventListener('willPresentScreen', function() {
-				    //alert('Presenting screen!');
-				});
-				ad.addEventListener('willDismissScreen', function() {
-				    //alert('Dismissing screen!');
-				});
-				ad.addEventListener('didDismissScreen', function() {
-				    //alert('Dismissed screen!');
-				});
-				ad.addEventListener('willLeaveApplication', function() {
-				    //alert('Leaving the app!');
-				});
+				var product_id = 'net.artvisual.settimani.all_content';
+		
+				if (Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
 				
-				eachView.add(ad);
+					var ad = Admob.createView({
+						bottom: 0, left: 0,
+						width: 320, height: 50,
+						publisherId: 'a150b49ef173c47', // You can get your own at http: //www.admob.com/
+						//adBackgroundColor: 'black',
+						testing: false,
+						//dateOfBirth: new Date(1985, 10, 1, 12, 1, 1),
+						gender: 'female',
+						//location: COORDS,
+						keywords: L('keywords'),
+						zIndex:999,
+						_scrollView:scrollView
+					});
+					ad.addEventListener('didReceiveAd', function(e) {
+						//alert('Did receive ad!');
+						e.source._scrollView.animate({bottom: 50});
+					});
+					ad.addEventListener('didFailToReceiveAd', function(e) {
+					    //alert('Failed to receive ad!');
+					    e.source._scrollView.animate({bottom: 0});
+					});
+					ad.addEventListener('willPresentScreen', function() {
+					    //alert('Presenting screen!');
+					});
+					ad.addEventListener('willDismissScreen', function() {
+					    //alert('Dismissing screen!');
+					});
+					ad.addEventListener('didDismissScreen', function() {
+					    //alert('Dismissed screen!');
+					});
+					ad.addEventListener('willLeaveApplication', function() {
+					    //alert('Leaving the app!');
+					});
+					
+					eachView.add(ad);
+					
+				}
 				
 			}
 			
