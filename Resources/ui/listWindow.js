@@ -341,7 +341,7 @@ module.exports = function(type) {
 		    //alert("ad not received");
 			Ti.API.info("ad not received");
 			tableView.bottom = '65dp';
-			adMobView.requestAd();
+			//adMobView.requestAd();
 		});
 		
 		win.add(adMobView);
