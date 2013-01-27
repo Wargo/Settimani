@@ -275,7 +275,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 							if (evt.cancelled) {
 								//alert('Purchase cancelled');
 							} else {
-								alert('ERROR: Buying failed! ' + evt.message);
+								alert(evt.message);
 							}
 							loaderWindow.opacity = 0;
 							break;
