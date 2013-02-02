@@ -7,12 +7,16 @@ if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_ios);
 	var payWin = require(Mods.pay);
 }
+
+var product_id = 'net.artvisual.settimani.all_content';
 	
 module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
 	var checkboxes = [];
 	
 	var arrayRows = [];
+	
+	var lockeds = []; // Para los candados
 	
 	for (i in data) {
 		
@@ -129,6 +133,20 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			miniRow.data = data[i];
 			miniRow._i = i;
 			
+			if (data[i].category == 'baby' || data[i].category == 'fruit') {
+				if (Ti.App.Properties.getBool('buy_' + product_id, false) === false) {
+					var locked = Ti.UI.createImageView({
+						image:'ui/images/locked.png',
+						width:16,
+						height:16,
+						right:2,
+						top:2
+					});
+					miniRow.add(locked);
+					lockeds.push(locked);
+				}
+			}
+				
 			miniRow.addEventListener('click', function(e) {
 				if (e.source.backgroundImage) {
 					if (e.source.backgroundImage == '/ui/images/unchecked.png') {
@@ -222,12 +240,19 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		
 		e = parseInt(e);
 		
-		var product_id = 'net.artvisual.settimani.all_content';
-		
 		//if (e > 90 && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
 		if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
 			
-			payWin(product_id).open({top:0});
+			function f_callback() {
+				for (i in lockeds) {
+					lockeds[i].parent.remove(lockeds[i]);
+				}
+				// TODO remve ads
+				win.remove(win._adv);
+				win._tableView.bottom = 65;
+			}
+			
+			payWin(product_id, f_callback).open({top:0});
 		
 			return;
 			

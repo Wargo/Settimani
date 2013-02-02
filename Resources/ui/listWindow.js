@@ -102,6 +102,8 @@ module.exports = function(type) {
 	
 	var tableView = Ti.UI.createTableView($$.tableView);
 	
+	win._tableView = tableView;
+	
 	/*
 	tableView.addEventListener('scroll', function(e) {
 		
@@ -385,6 +387,7 @@ module.exports = function(type) {
 			    //alert('Leaving the app!');
 			});
 			
+			win._adv = ad;
 			win.add(ad);
 			
 		}

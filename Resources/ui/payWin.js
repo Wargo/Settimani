@@ -3,7 +3,7 @@ var Mods = require('/pathMods');
 var $$ = require(Mods.styles_ios);
 var Storekit = require('ti.storekit');
 
-module.exports = function(product_id) {
+module.exports = function(product_id, f_callback) {
 	
 	var win = Ti.UI.createWindow({
 		backgroundImage:'ui/images/bg_list.png',
@@ -102,7 +102,8 @@ module.exports = function(product_id) {
 				case Storekit.PURCHASED:
 				case Storekit.RESTORED:
 					Ti.App.Properties.setBool('buy_' + product.identifier, true);
-					win.close()
+					f_callback();
+					win.close({top:Ti.Platform.displayCaps.platformHeight});
 					break;
 			}
 		});

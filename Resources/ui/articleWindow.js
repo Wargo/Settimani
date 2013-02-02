@@ -110,6 +110,10 @@ module.exports = function(data, x, headerText) {
 		
 		for (i in data) {
 			
+			if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[i].category == 'baby' || data[i].category == 'fruit')) {
+				continue;
+			}
+			
 			var current = data[i];
 			
 			var content = Ti.UI.createView($$.articleContent);
