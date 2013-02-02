@@ -9,6 +9,7 @@ module.exports = {
 	articleWindow: 'ui/articleWindow',
 	tipsWindow: 'ui/tipsWindow',
 	web:'ui/web',
+	pay:'ui/payWin',
 	
 	/*
 	 * styles
