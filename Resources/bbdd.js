@@ -8,8 +8,10 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 	}
 	
 	//Ti.App.Properties.removeProperty(prop); // to dev
+
+	//if (false && Ti.App.Properties.getString(prop, null)) {
 	
-	if (Ti.App.Properties.getString(prop, null)) {
+	if (Ti.Network.networkType == Ti.Network.NETWORK_NONE && Ti.App.Properties.getString(prop, null)) {
 		
 		loader.message = L('generating');
 		
@@ -24,7 +26,7 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 		var path = L('bbdd_url', 'http://www.semanasdembarazo.com/appMovil/weeks.php');
 		
 		var client = Ti.Network.createHTTPClient({
-			timeout:1500,
+			timeout:15000,
 			onload:function() {
 				loader.message = L('loading');
 				

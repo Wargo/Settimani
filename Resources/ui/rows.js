@@ -240,14 +240,12 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 		
 		e = parseInt(e);
 		
-		//if (e > 90 && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
 		if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
 			
 			function f_callback() {
 				for (i in lockeds) {
 					lockeds[i].parent.remove(lockeds[i]);
 				}
-				// TODO remve ads
 				win.remove(win._adv);
 				win._tableView.bottom = 65;
 			}
@@ -280,7 +278,11 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			} else {
 				auxE = cont;
 			}
-			auxData.push(data[i]);
+			if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
+				// nada
+			} else {
+				auxData.push(data[i]);
+			}
 		}
 		
 		var articleWin = article(auxData, auxE, data[first].header);
