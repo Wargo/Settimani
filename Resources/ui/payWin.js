@@ -45,12 +45,12 @@ module.exports = function(product_id, f_callback) {
 	var ok = Ti.UI.createButton($$.button);
 	ok.title = L('ok');
 	ok.bottom = '40dp';
-	ok.left = '50dp';
+	ok.left = '35dp';
 
 	var cancel = Ti.UI.createButton($$.button);
 	cancel.title = L('cancel');
 	cancel.bottom = '40dp';
-	cancel.right = '50dp';
+	cancel.right = '35dp';
 	cancel.backgroundColor = '#aa3346';
 	
 	cancel.addEventListener('click', function() {

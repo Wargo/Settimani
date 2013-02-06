@@ -44,7 +44,7 @@ module.exports = {
 	},
 	
 	button: {
-		width:100,
+		width:110,
 		height:40,
 		borderRadius:5,
 		borderColor:'#CCC',
