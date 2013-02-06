@@ -67,22 +67,30 @@ module.exports = function(product_id, f_callback) {
 	});
 	win.add(miniLoader);
 	
+	var product = null;
+	ok.opacity = cancel.opacity = 0;
+	miniLoader.show();
+	
 	ok.addEventListener('click', function() {
 		miniLoader.show();
 		ok.opacity = cancel.opacity = 0;
-		Storekit.requestProducts([product_id], function (evt) {
-			//alert(evt);
-			Ti.API.info(evt);
-			if (!evt.success) {
-				alert('ERROR: We failed to talk to Apple!');
-			}
-			else if (evt.invalid) {
-				alert('ERROR: We requested an invalid product!');
-			}
-			else {
-				success(evt.products[0]);
-			}
-		});
+		success(product);
+	});
+	
+	Storekit.requestProducts([product_id], function (evt) {
+		Ti.API.info(evt);
+		if (!evt.success) {
+			alert('ERROR: We failed to talk to Apple!');
+		}
+		else if (evt.invalid) {
+			alert('ERROR: We requested an invalid product!');
+		}
+		else {
+			//success(evt.products[0]);
+			product = evt.products[0];
+			ok.opacity = cancel.opacity = 1;
+			miniLoader.hide();
+		}
 	});
 	
 	function success(product) {
