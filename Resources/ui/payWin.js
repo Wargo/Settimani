@@ -89,6 +89,7 @@ module.exports = function(product_id, f_callback) {
 			//success(evt.products[0]);
 			product = evt.products[0];
 			ok.opacity = cancel.opacity = 1;
+			ok.title = ok.title + ' ' + product.formattedPrice;
 			miniLoader.hide();
 		}
 	});

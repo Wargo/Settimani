@@ -38,4 +38,12 @@
 	<string name="generating">Generando contenido</string>
 	<string name="reload">Recargar</string>
 	<string name="more_articles">También te puede interesar...</string>
+	<string name="loading_itunes">Conectando con iTunes...</string>
+	<string name="pay_title">Contendio adicional</string>
+	<string name="pay_text">Algunos de los artículos de esta aplicación son privados. Y comprando un único módulo ya tendrás acceso a todos los artículos y a más ventajas.</string>
+	<string name="pay_list">- Desaparecerá la molesta publicidad en todas las secciones
+		
+- Acceso a todos los artículos que actualmente son privados en la aplicación
+
+- Acceso a futuras nuevas herramientas</string>
 </resources>
