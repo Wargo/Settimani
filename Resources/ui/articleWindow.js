@@ -110,7 +110,7 @@ module.exports = function(data, x, headerText) {
 		
 		for (i in data) {
 			
-			if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[i].category == 'baby' || data[i].category == 'fruit')) {
+			if (Ti.App.Properties.getBool('free', false) == false && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[i].category == 'baby' || data[i].category == 'fruit')) {
 				continue;
 			}
 			

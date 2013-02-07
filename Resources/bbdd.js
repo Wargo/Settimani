@@ -34,6 +34,11 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 				
 				var result = JSON.parse(this.responseText);
 				if (result.status === 'ok') {
+					if (result.free) {
+						Ti.App.Properties.setBool('free', true);
+					} else {
+						Ti.App.Properties.setBool('free', false);
+					}
 					Ti.App.Properties.setString(prop, this.responseText);
 					f_callback(result.data);
 				} else {

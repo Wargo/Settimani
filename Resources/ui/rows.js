@@ -134,7 +134,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			miniRow._i = i;
 			
 			if (data[i].category == 'baby' || data[i].category == 'fruit') {
-				if (Ti.App.Properties.getBool('buy_' + product_id, false) === false) {
+				if (Ti.App.Properties.getBool('free', false) == false && Ti.App.Properties.getBool('buy_' + product_id, false) === false) {
 					var locked = Ti.UI.createImageView({
 						image:'ui/images/locked.png',
 						width:16,
@@ -239,8 +239,8 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	function loadArticle(e, data) {
 		
 		e = parseInt(e);
-		
-		if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
+
+		if (Ti.App.Properties.getBool('free', false) == false && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
 			
 			function f_callback() {
 				for (i in lockeds) {
@@ -278,7 +278,7 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 			} else {
 				auxE = cont;
 			}
-			if (Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
+			if (Ti.App.Properties.getBool('free', false) == false && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false && (data[e].category == 'baby' || data[e].category == 'fruit')) {
 				// nada
 			} else {
 				auxData.push(data[i]);
