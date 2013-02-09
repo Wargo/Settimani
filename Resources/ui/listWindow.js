@@ -237,7 +237,8 @@ module.exports = function(type) {
 		
 		loader.message = L('generating');
 
-		if (data.length === 0) {
+		if (data.length === 1) {
+			
 			if (tableView.data.length < 1) {
 				var noDataRow = Ti.UI.createTableViewRow({
 					style:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE,
