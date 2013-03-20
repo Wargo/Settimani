@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="app_name">Semaines Grossesse</string>
+	<string name="bbdd_url">http://api.elembarazo.net/articles/json/fr</string>
+	<string name="main_title">Semainesgrossesse.com</string>
+	<string name="tab_title">Conseils</string>
+	<string name="soon">Prochainement</string>
+	<string name="fill_preg_date">Indiquez votre date d’accouchement</string>
+	<string name="go">Aller</string>
+	<string name="ok">Ok</string>
+	<string name="cancel">Annuler</string>
+	<string name="accept">Accepter</string>
+	<string name="day">Jour</string>
+	<string name="month">Mois</string>
+	<string name="year">Année</string>
+	<string name="today">Aujourd’hui</string>
+	<string name="calc_text">Si vous ne connaissez pas votre date d’accouchement calculez-la ici</string>
+	<string name="calc_explain">Indiquez la date de vos dernières règles pour pouvoir savoir votre date d’accouchement.</string>
+	<string name="calculate">Calculer</string>
+	<string name="loading">En cours de téléchargement...</string>
+	<string name="weeks">Semaines</string>
+	<string name="tips">Conseils</string>
+	<string name="config">Configuration</string>
+	<string name="delete_button">Supprimer le contenu local</string>
+	<string name="msg_delete_data">Êtes-vous sûr de vouloir effacer les données stockées ?</string>
+	<string name="delete_data">Effacer les données?</string>
+	<string name="msg_deleted_data">Les données ont correctement été effacées</string>
+	<string name="deleted_data">Données effacées</string>
+	<string name="for_dads">Pères</string>
+	<string name="for_moms">Mères</string>
+	<string name="calcText">Si vous ne connaissez pas votre date d’accouchement calculez-la ici</string>
+	<string name="delete_text">Avec cette touche, vous effacerez les données des articles téléchargés, les conseils et la date d’accouchement</string>
+	<string name="keywords">mère, enceinte, bébé, parents, enfant, grossesse, semaines, accouchement, calculatrice</string>
+	<string name="errorContent">Une erreur s'est produite lors du chargement du contenu, réessayez plus tard</string>
+	<string name="errorConnection">Une erreur s'est produite lors de la connection, réessayez plus tard</string>
+	<string name="errorTitle">Erreur</string>
+	<string name="connecting">En cours de connection...</string>
+	<string name="generating">Génération de contenu</string>
+	<string name="reload">Recharger</string>
+	<string name="more_articles">Vous aimerez aussi...</string>
+	<string name="loading_itunes">En connection avec iTunes...</string>
+	<string name="pay_title">Contenu supplémentaire</string>
+	<string name="pay_text">Certains des éléments de cette application sont privés. Avec l'achat d'un seul module vous aurez accès à tous les articles et d’autres avantages.</string>
+	<string name="pay_list">- Les fenêtres publicitaires gênantes disparaitront
+	
+	- Accès à tous les articles qui sont actuellement dans l'application privée
+	
+	- L'accès à de nouveaux outils</string>
+</resources>

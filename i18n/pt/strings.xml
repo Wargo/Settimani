@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="app_name">Gravidez Semana a Semana</string>
+	<string name="bbdd_url">http://api.elembarazo.net/articles/json/pt</string>
+	<string name="main_title">Agravidez.com</string>
+	<string name="tab_title">Dicas</string>
+	<string name="soon">Em breve</string>
+	<string name="fill_preg_date">Digite a data de seu parto</string>
+	<string name="go">Ir</string>
+	<string name="ok">Ok</string>
+	<string name="cancel">Cancelar</string>
+	<string name="accept">Aceitar</string>
+	<string name="day">Dia</string>
+	<string name="month">Mês</string>
+	<string name="year">Ano</string>
+	<string name="today">Hoje</string>
+	<string name="calc_text">Se você não sabe a data de seu parto calcule-a aqui</string>
+	<string name="calc_explain">Diga-nos a data de seu último ciclo menstrual, para que possamos calcular a data de parto o mais aproximada possível.</string>
+	<string name="calculate">Calcular</string>
+	<string name="loading">Baixando conteúdo...</string>
+	<string name="weeks">Semanas</string>
+	<string name="tips">Dicas</string>
+	<string name="config">Configuração</string>
+	<string name="delete_button">Apagar o conteúdo</string>
+	<string name="msg_delete_data">Tem certeza que deseja apagar todos os dados armazenados no dispositivo?</string>
+	<string name="delete_data">Apagar dados?</string>
+	<string name="msg_deleted_data">Os dados foram excluídos com sucesso</string>
+	<string name="deleted_data">Dados apagados</string>
+	<string name="for_dads">Pais</string>
+	<string name="for_moms">Mães</string>
+	<string name="calcText">Se você não sabe a data do parto calcule-a aqui</string>
+	<string name="delete_text">Através deste botão, apagará os dados dos conteúdos baixados, as dicas e a data do parto.</string>
+	<string name="keywords">mãe, grávida, gestante, bebê, pai, filho, gravidez, semanas, calculadora parto</string>
+	<string name="errorContent">Houve um erro ao carregar o conteúdo, tente novamente mais tarde</string>
+	<string name="errorConnection">Houve um erro com a conexão, tente novamente mais tarde</string>
+	<string name="errorTitle">Erro</string>
+	<string name="connecting">Conectando...</string>
+	<string name="generating">Gerando conteúdo</string>
+	<string name="reload">Recarregar</string>
+	<string name="more_articles">Também lhe pode interessar...</string>
+	<string name="loading_itunes">Conectando com iTunes...</string>
+	<string name="pay_title">Conteúdo adicional</string>
+	<string name="pay_text">Alguns itens desta aplicação são privados. E comprando um único módulo terá acesso a todos os conteúdos e a mais vantagens.</string>
+	<string name="pay_list">- Desaparecerá a publicidade incômoda em todas as seções.
+	
+	- Acesso a todos os itens privados da aplicação
+	
+	- Acesso a futuras e novas ferramentas</string>
+</resources>

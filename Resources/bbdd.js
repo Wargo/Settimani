@@ -42,11 +42,35 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 					Ti.App.Properties.setString(prop, this.responseText);
 					f_callback(result.data);
 				} else {
-					f_callback(null, L('errorContent'));
+					if (Ti.App.Properties.getString(prop, null)) {
+		
+						loader.message = L('generating');
+						
+						var result = JSON.parse(Ti.App.Properties.getString(prop));
+						
+						setTimeout(function() {
+							f_callback(result.data);
+						}, 300);
+						
+					} else {
+						f_callback(null, L('errorContent'));
+					}
 				}
 			},
 			onerror:function(e) {
-				f_callback(null, L('errorConnection'))
+				if (Ti.App.Properties.getString(prop, null)) {
+	
+					loader.message = L('generating');
+					
+					var result = JSON.parse(Ti.App.Properties.getString(prop));
+					
+					setTimeout(function() {
+						f_callback(result.data);
+					}, 300);
+					
+				} else {
+					f_callback(null, L('errorConnection'));
+				}
 			}
 		});
 		
