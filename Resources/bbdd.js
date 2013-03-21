@@ -23,7 +23,7 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 		
 	} else {
 	
-		var path = L('bbdd_url', 'http://www.semanasdembarazo.com/appMovil/weeks.php');
+		var path = L('bbdd_url');
 		
 		var client = Ti.Network.createHTTPClient({
 			timeout:15000,

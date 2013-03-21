@@ -9,6 +9,8 @@ if (Ti.Platform.osname === 'android') {
 
 module.exports = function(type) {
 	
+	var tableViewBottom = 65;
+	
 	var win = Ti.UI.createWindow({
 		backgroundColor:'#F2F2F2',
 		backgroundImage:'ui/images/bg_list.png'
@@ -295,6 +297,7 @@ module.exports = function(type) {
 			
 		}
 		
+		tableView.bottom = tableViewBottom;
 		win.add(tableView);
 		
 		loader.hide();
@@ -369,10 +372,12 @@ module.exports = function(type) {
 			});
 			ad.addEventListener('didReceiveAd', function() {
 			    //alert('Did receive ad!');
+			    tableViewBottom = 115;
 			    tableView.animate({bottom: 115});
 			});
 			ad.addEventListener('didFailToReceiveAd', function() {
 			    //alert('Failed to receive ad!');
+			    tableViewBottom = 65;
 			    tableView.animate({bottom: 65});
 			});
 			ad.addEventListener('willPresentScreen', function() {
