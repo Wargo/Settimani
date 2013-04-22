@@ -46,4 +46,5 @@
 - Accesso a tutti gli articoli che adesso sono privati
 
 - Accesso a nuovi strumenti</string>
+	<string name="restore_button">Restore purchases</string>
 </resources>

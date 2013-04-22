@@ -1,5 +1,6 @@
 
 var Mods = require('/pathMods');
+var Storekit = require('ti.storekit');
 
 if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_android);
@@ -43,23 +44,15 @@ module.exports = function(hideImage) {
 		insertDate.borderColor = '#999';
 		insertDate.borderWidth = 1;
 	} else {
-		var insertDateShadow = Ti.UI.createView($$.insertDate);
-		insertDateShadow.zIndex = -10;
-		if (!hideImage) {
-			insertDateShadow.top = 260;
-		} else {
-			insertDateShadow.top = 65;
-		}
 		
-		setTimeout(function() {
-			insertDateShadow.setShadow({
+		insertDate.addEventListener('postlayout', function() {
+			insertDate.setShadow({
 				shadowOffset:{x:0,y:3},
 				shadowOpacity:0.2,
 				shadowRadius:3
 			});
-		}, 100);
+		});
 		
-		win.add(insertDateShadow);
 	}
 	
 	var intro = Ti.UI.createLabel({
@@ -298,6 +291,51 @@ module.exports = function(hideImage) {
 	
 	var myDate = new Date();
 	myDate.setDate(myDate.getDate() + 300);
+
+	setTimeout(function() {
+		var product_id = 'net.artvisual.settimani.all_content';
+		if (hideImage && Ti.App.Properties.getBool('free', false) == false && Ti.Platform.osname != 'android' && Ti.App.Properties.getBool('buy_' + product_id, false) == false) {
+
+			// Restore
+			var restoreButton = Ti.UI.createButton($$.button);
+			restoreButton.title = L('restore_button');
+			restoreButton.backgroundColor = '#CC0000';
+			restoreButton.width = '200 dp';
+			restoreButton.top = '50dp';
+			restoreButton.bottom = '20dp';
+
+			mainView.add(restoreButton);
+
+			restoreButton.addEventListener('click', function() {
+
+				Storekit.requestProducts([product_id], function (evt) {
+					Ti.API.info(evt);
+					product = evt.products[0];
+
+					Storekit.restoreCompletedTransactions();
+
+				});
+
+			});
+
+		}
+	}, 5000);
+
+	Storekit.addEventListener('restoredCompletedTransactions', function (evt) {
+		if (evt.error) {
+			alert(evt.error);
+		}
+		else if (evt.transactions == null || evt.transactions.length == 0) {
+			alert('There were no purchases to restore!');
+		}
+		else {
+			for (var i = 0; i < evt.transactions.length; i++) {
+				Ti.App.Properties.setBool('buy_' + evt.transactions[i].productIdentifier, true);
+			}
+			alert('Restored ' + evt.transactions.length + ' purchases!');
+			restoreButton.hide();
+		}
+	});
 
 	function showPicker() {
 		

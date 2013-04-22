@@ -77,7 +77,8 @@ module.exports = function(f_callback, page, onlyTips, loader) {
 		client.open('POST', path);
 		client.send({
 			page:page,
-			onlyTips:onlyTips
+			onlyTips:onlyTips,
+			pay:true
 		});
 		
 	}
