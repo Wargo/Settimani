@@ -5,7 +5,7 @@
 	<string name="main_title">The-Pregnancy.net</string>
 	<string name="tab_title">Tips</string>
 	<string name="soon">Soon</string>
-	<string name="fill_preg_date">Introduce tu fecha de parto</string>
+	<string name="fill_preg_date">Enter your due date</string>
 	<string name="go">Go</string>
 	<string name="ok">Ok</string>
 	<string name="cancel">Cancel</string>
@@ -14,8 +14,8 @@
 	<string name="month">Month</string>
 	<string name="year">Year</string>
 	<string name="today">Today</string>
-	<string name="calc_text">Si no conoces tu fecha de parto calcúlala aquí</string>
-	<string name="calc_explain">Dinos la fecha de tu última regla para que podamos calcular la fecha de parto más aproximada posible.</string>
+	<string name="calc_text">If you don’t know your due date calculate it here</string>
+	<string name="calc_explain">Tell us your last menstrual period in order to calculate your due date</string>
 	<string name="calculate">Calculate</string>
 	<string name="loading">Downloading content...</string>
 	<string name="weeks">Weeks</string>
@@ -28,23 +28,23 @@
 	<string name="deleted_data">Data removed</string>
 	<string name="for_dads">Dads</string>
 	<string name="for_moms">Moms</string>
-	<string name="calcText">Si no conoces tu fecha de parto calcúlala aquí</string>
-	<string name="delete_text">A través de este botón, borrarás los datos de los artículos descargados, tus consejos conseguidos y la fecha de parto</string>
-	<string name="keywords">madre, embarazada, bebe, padre, niño, embarazo, semanas, parto, calculadora</string>
+	<string name="calcText">If you don’t know your due date calculate it here</string>
+	<string name="delete_text">With this button you will delete all the data of the articles you have downloaded, the advice provided and your due date</string>
+	<string name="keywords">Mother, pregnant, baby, father, child, pregnancy, weeks, birth, calculator</string>
 	<string name="errorContent">There is a loading data error, retry later</string>
 	<string name="errorConnection">There is a connection error, retry later</string>
 	<string name="errorTitle">Error</string>
 	<string name="connecting">Connecting...</string>
 	<string name="generating">Loading data</string>
 	<string name="reload">Reload</string>
-	<string name="more_articles">También te puede interesar...</string>
+	<string name="more_articles">It might interest you…</string>
 	<string name="loading_itunes">Connecting iTunes...</string>
 	<string name="pay_title">Additional content</string>
-	<string name="pay_text">Algunos de los artículos de esta aplicación son privados. Y comprando un único módulo ya tendrás acceso a todos los artículos y a más ventajas.</string>
-	<string name="pay_list">- Desaparecerá la molesta publicidad en todas las secciones
+	<string name="pay_text">Some articles in this App/application are private. Buying just one module you will have access to all the articles and more </string>
+	<string name="pay_list">- The annoying adverts will disappear.
 		
-- Acceso a todos los artículos que actualmente son privados en la aplicación
+- Access to all private articles in the App
 
-- Acceso a futuras nuevas herramientas</string>
+- Access to future tools</string>
 	<string name="restore_button">Restore purchases</string>
 </resources>
