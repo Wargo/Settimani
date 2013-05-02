@@ -285,7 +285,8 @@ module.exports = function(type) {
 			
 			tableView.data = tableViewData;
 			
-			for (i in tableViewData) {
+			//for (i in tableViewData) {
+			for (var i = 0; i < tableViewData.length; i ++) {
 				
 				tableViewData[i]._miniTableViewShadow.setShadow({
 					shadowOffset:{x:0,y:3},

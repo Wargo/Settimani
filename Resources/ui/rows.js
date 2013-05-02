@@ -18,7 +18,8 @@ module.exports = function(fullData, data, tableView, tableViewData, win) {
 	
 	var lockeds = []; // Para los candados
 	
-	for (i in data) {
+	//for (i in data) {
+	for (var i = 0; i < data.length; i++) {
 		
 		fullData.push(data[i]);
 				

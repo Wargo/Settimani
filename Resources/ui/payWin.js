@@ -1,7 +1,9 @@
 
 var Mods = require('/pathMods');
 var $$ = require(Mods.styles_ios);
-var Storekit = require('ti.storekit');
+if (Ti.Platform.osname != 'android') {
+	var Storekit = require('ti.storekit');
+}
 
 module.exports = function(product_id, f_callback) {
 	

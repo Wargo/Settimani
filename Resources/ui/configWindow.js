@@ -1,6 +1,8 @@
 
 var Mods = require('/pathMods');
-var Storekit = require('ti.storekit');
+if (Ti.Platform.osname != 'android') {
+	var Storekit = require('ti.storekit');
+}
 
 if (Ti.Platform.osname === 'android') {
 	var $$ = require(Mods.styles_android);
@@ -321,21 +323,25 @@ module.exports = function(hideImage) {
 		}
 	}, 5000);
 
-	Storekit.addEventListener('restoredCompletedTransactions', function (evt) {
-		if (evt.error) {
-			alert(evt.error);
-		}
-		else if (evt.transactions == null || evt.transactions.length == 0) {
-			alert('There were no purchases to restore!');
-		}
-		else {
-			for (var i = 0; i < evt.transactions.length; i++) {
-				Ti.App.Properties.setBool('buy_' + evt.transactions[i].productIdentifier, true);
+	if (Ti.Platform.osname != 'android') {
+		
+		Storekit.addEventListener('restoredCompletedTransactions', function (evt) {
+			if (evt.error) {
+				alert(evt.error);
 			}
-			alert('Restored ' + evt.transactions.length + ' purchases!');
-			restoreButton.hide();
-		}
-	});
+			else if (evt.transactions == null || evt.transactions.length == 0) {
+				alert('There were no purchases to restore!');
+			}
+			else {
+				for (var i = 0; i < evt.transactions.length; i++) {
+					Ti.App.Properties.setBool('buy_' + evt.transactions[i].productIdentifier, true);
+				}
+				alert('Restored ' + evt.transactions.length + ' purchases!');
+				restoreButton.hide();
+			}
+		});
+		
+	}
 
 	function showPicker() {
 		
