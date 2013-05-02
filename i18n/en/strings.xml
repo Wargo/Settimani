@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<string name="app_name">The Pregnancy</string>
+	<string name="app_name">ThePregnancy</string>
 	<string name="bbdd_url">http://api.elembarazo.net/articles/json/en</string>
 	<string name="main_title">The-Pregnancy.net</string>
 	<string name="tab_title">Tips</string>

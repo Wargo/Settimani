@@ -17,7 +17,7 @@ module.exports = {
 	headerButton: {
 		right:'10 dp',
 		height:'35 dp',
-		width:'55 dp',
+		width:Ti.UI.SIZE,
 		borderRadius:5,
 		borderColor:'#1A6A8A',
 		borderWidth:1,

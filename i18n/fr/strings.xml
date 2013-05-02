@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<string name="app_name">Semaines Grossesse</string>
+	<string name="app_name">Grossesse</string>
 	<string name="bbdd_url">http://api.elembarazo.net/articles/json/fr</string>
 	<string name="main_title">Semainesgrossesse.com</string>
 	<string name="tab_title">Conseils</string>
